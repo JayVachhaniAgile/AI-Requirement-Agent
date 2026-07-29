@@ -6,11 +6,14 @@ import {
   ClarificationQuestion,
   ValidationIssue,
   Document,
+  DocumentVersion,
   AgentExecution,
 } from '../database/entities';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([KnowledgeItem, ClarificationQuestion, ValidationIssue, Document, AgentExecution])],
+  imports: [TypeOrmModule.forFeature([
+    KnowledgeItem, ClarificationQuestion, ValidationIssue, Document, DocumentVersion, AgentExecution,
+  ])],
   providers: [RkbService],
   exports: [RkbService],
 })

@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { z } from 'zod';
 import { LlmService } from '../llm/llm.service';
-import { AgentItemArray, buildUserPrompt, ensureItemIds, ensureSummary, formatKnowledge } from './agent.utils';
+import { AgentItemArray, buildUserPrompt, ensureItemIds, ensureSummary, formatKnowledge, safeJsonParse } from './agent.utils';
 import type { AgentContext, AgentResult, NewKnowledgeItem } from './types';
 
 const Schema = z.object({
@@ -47,7 +47,7 @@ export class QaService {
       },
     ]);
 
-    const data = Schema.parse(JSON.parse(r.content));
+    const data = Schema.parse(safeJsonParse(r.content));
     const qaSummary = ensureSummary(data.qaSummary, `QA plan for ${ctx.projectName}`);
     const testStrategy = ensureSummary(data.testStrategy, 'Risk-based testing across functional, regression, performance, and security layers.');
     const testPlan = ensureItemIds(data.testPlan, 'TP');

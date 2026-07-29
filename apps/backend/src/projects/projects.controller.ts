@@ -7,7 +7,9 @@ import {
   HttpCode,
   Logger,
   Param,
+  ParseIntPipe,
   ParseUUIDPipe,
+  Patch,
   Post,
   UploadedFiles,
   UseInterceptors,
@@ -43,7 +45,7 @@ const TEXT_MIME_TYPES = new Set([
   'application/javascript',
   'application/typescript',
   'application/x-www-form-urlencoded',
-  'application/octet-stream', // common fallback — we'll still try
+  'application/octet-stream',
 ]);
 
 @Controller('projects')
@@ -58,56 +60,22 @@ export class ProjectsController {
   }
 
   @Post('upload')
-  @UseInterceptors(
-    AnyFilesInterceptor({ limits: { fileSize: MAX_FILE_SIZE } }),
-  )
-  async uploadFiles(
-    @Body() body: { name?: string; idea?: string },
-    @UploadedFiles() files: UploadedFile[],
-  ) {
+  @UseInterceptors(AnyFilesInterceptor({ limits: { fileSize: MAX_FILE_SIZE } }))
+  async uploadFiles(@Body() body: { name?: string; idea?: string }, @UploadedFiles() files: UploadedFile[]) {
     const name = body.name?.trim();
-    if (!name) {
-      throw new BadRequestException('Project name is required');
-    }
+    if (!name) throw new BadRequestException('Project name is required');
 
     const parts: string[] = [];
-
-    // Add manual idea text if provided
-    if (body.idea?.trim()) {
-      parts.push(body.idea.trim());
-    }
-
-    // Add uploaded file contents
+    if (body.idea?.trim()) parts.push(body.idea.trim());
     if (files && files.length > 0) {
       for (const file of files) {
-        const isText =
-          TEXT_MIME_TYPES.has(file.mimetype) ||
-          /\.(txt|md|csv|json|xml|yaml|yml|js|ts|py|java|rb|go|rs|c|cpp|h|hpp|sql|sh|bat|ps1|cfg|ini|env|log|html|css|scss|less)$/i.test(
-            file.originalname,
-          );
-
-        if (!isText) {
-          this.logger.warn(
-            `File "${file.originalname}" (${file.mimetype}) may not be readable as text. ` +
-              'Content will be included as raw text which may appear garbled.',
-          );
-        }
-
-        const content = file.buffer.toString('utf-8');
-        parts.push(`--- ${file.originalname} ---\n${content}`);
+        const isText = TEXT_MIME_TYPES.has(file.mimetype) || /\.(txt|md|csv|json|xml|yaml|yml|js|ts|py|java|rb|go|rs|c|cpp|h|hpp|sql|sh|bat|ps1|cfg|ini|env|log|html|css|scss|less)$/i.test(file.originalname);
+        if (!isText) this.logger.warn(`File "${file.originalname}" (${file.mimetype}) may not be readable as text.`);
+        parts.push(`--- ${file.originalname} ---\n${file.buffer.toString('utf-8')}`);
       }
     }
-
-    if (parts.length === 0) {
-      throw new BadRequestException('Provide an idea or upload at least one file');
-    }
-
-    const idea = parts.join('\n\n');
-    this.logger.log(
-      `Creating project "${name}" from idea + ${files?.length ?? 0} file(s) (${idea.length} chars)`,
-    );
-
-    return this.projectsService.create({ name, idea });
+    if (parts.length === 0) throw new BadRequestException('Provide an idea or upload at least one file');
+    return this.projectsService.create({ name, idea: parts.join('\n\n') });
   }
 
   @Post()
@@ -134,6 +102,11 @@ export class ProjectsController {
   @Post(':id/recompile')
   recompile(@Param('id', ParseUUIDPipe) id: string) {
     return this.projectsService.recompile(id);
+  }
+
+  @Post(':id/refine-idea')
+  async refineIdea(@Param('id', ParseUUIDPipe) id: string) {
+    return this.projectsService.refineIdea(id);
   }
 
   @Post(':id/cancel')
@@ -167,11 +140,7 @@ export class ProjectsController {
   }
 
   @Post(':id/questions/:questionId/answer')
-  answerQuestion(
-    @Param('id', ParseUUIDPipe) id: string,
-    @Param('questionId', ParseUUIDPipe) questionId: string,
-    @Body() dto: AnswerQuestionDto,
-  ) {
+  answerQuestion(@Param('id', ParseUUIDPipe) id: string, @Param('questionId', ParseUUIDPipe) questionId: string, @Body() dto: AnswerQuestionDto) {
     return this.projectsService.answerQuestion(id, questionId, dto);
   }
 
@@ -198,5 +167,40 @@ export class ProjectsController {
   @Get(':id/dashboard')
   getDashboard(@Param('id', ParseUUIDPipe) id: string) {
     return this.projectsService.getDashboard(id);
+  }
+
+
+  /** Feature 6: List document versions */
+  @Get(":id/versions")
+  getVersions(@Param("id", ParseUUIDPipe) id: string) {
+    return this.projectsService.getDocumentVersions(id);
+  }
+
+  /** Feature 6: Get a specific version content */
+  @Get(":id/versions/:version")
+  getVersion(
+    @Param("id", ParseUUIDPipe) id: string,
+    @Param("version", ParseIntPipe) version: number,
+  ) {
+    return this.projectsService.getDocumentVersion(id, version);
+  }
+
+  /** Feature 5: Edit a knowledge item directly */
+  @Patch(':id/knowledge/:knowledgeId')
+  async updateKnowledgeItem(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Param('knowledgeId', ParseUUIDPipe) knowledgeId: string,
+    @Body() body: { title?: string; description?: string; status?: string },
+  ) {
+    return this.projectsService.updateKnowledgeItem(id, knowledgeId, body);
+  }
+
+  /** Feature 5: Regenerate affected sections after an edit */
+  @Post(':id/knowledge/:knowledgeId/regenerate')
+  async regenerateAffected(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Param('knowledgeId', ParseUUIDPipe) knowledgeId: string,
+  ) {
+    return this.projectsService.regenerateAffected(id, knowledgeId);
   }
 }

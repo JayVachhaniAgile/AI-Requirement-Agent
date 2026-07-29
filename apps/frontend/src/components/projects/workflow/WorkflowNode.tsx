@@ -3,11 +3,47 @@ import { Handle, Position, type NodeProps } from "@xyflow/react";
 import {
   CheckCircle2,
   Clock3,
-  FileText,
-  Lightbulb,
   AlertTriangle,
+  Lightbulb,
+  FileText,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+
+const AGENT_IMAGES: Record<string, string> = {
+  Discovery: "/agentBackgrounds/Discovery.png",
+  Research: "/agentBackgrounds/Research.png",
+  "Business Analyst": "/agentBackgrounds/BusinessAnalyst.png",
+  "Product Manager": "/agentBackgrounds/ProductManager.png",
+  "Requirements Agent": "/agentBackgrounds/RequirementAgent.png",
+  "UX Agent": "/agentBackgrounds/UXAgent.png",
+  "Data Architect": "/agentBackgrounds/DataArchitect.png",
+  "AI Architect": "/agentBackgrounds/AIArchitect.png",
+  "Solution Architect": "/agentBackgrounds/SolutionArchitect.png",
+  "Security Agent": "/agentBackgrounds/SecurityAgent.png",
+  "QA Agent": "/agentBackgrounds/QAAgent.png",
+  Estimation: "/agentBackgrounds/EstimationAgent.png",
+  Critic: "/agentBackgrounds/ValidationAgent.png",
+  Debate: "/agentBackgrounds/ValidationAgent.png",
+  Compiler: "/agentBackgrounds/CompilationAgent.png",
+};
+
+const AGENT_GRADIENTS: Record<string, string> = {
+  Discovery: "bg-gradient-to-br from-blue-600 to-purple-700",
+  Research: "bg-gradient-to-br from-cyan-500 to-blue-600",
+  "Business Analyst": "bg-gradient-to-br from-green-500 to-emerald-600",
+  "Product Manager": "bg-gradient-to-br from-orange-500 to-amber-600",
+  "Requirements Agent": "bg-gradient-to-br from-teal-500 to-cyan-600",
+  "UX Agent": "bg-gradient-to-br from-purple-500 to-pink-600",
+  "Data Architect": "bg-gradient-to-br from-indigo-500 to-purple-600",
+  "AI Architect": "bg-gradient-to-br from-cyan-400 to-teal-600",
+  "Solution Architect": "bg-gradient-to-br from-amber-500 to-yellow-600",
+  "Security Agent": "bg-gradient-to-br from-red-500 to-rose-600",
+  "QA Agent": "bg-gradient-to-br from-emerald-500 to-green-600",
+  Estimation: "bg-gradient-to-br from-yellow-400 to-orange-500",
+  Critic: "bg-gradient-to-br from-violet-500 to-purple-700",
+  Debate: "bg-gradient-to-br from-orange-500 to-red-600",
+  Compiler: "bg-gradient-to-br from-primary to-primary/80",
+};
 
 export type WorkflowNodeData = {
   label: string;
@@ -57,9 +93,7 @@ function WorkflowNodeComponent({ data }: NodeProps) {
           className="!h-2.5 !w-2.5 !border-2 !border-card !bg-primary/40"
         />
         <div className="mb-2 flex items-center gap-2.5">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
-            <Lightbulb className="h-5 w-5" />
-          </span>
+          <Lightbulb className="h-5 w-5 text-warning" />
           <p className="text-base font-semibold text-foreground">User Idea / Input</p>
         </div>
         {d.ideaPreview ? (
@@ -87,9 +121,7 @@ function WorkflowNodeComponent({ data }: NodeProps) {
           className="!h-2.5 !w-2.5 !border-2 !border-card !bg-primary/40"
         />
         <div className="flex items-center gap-4">
-          <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-            <FileText className="h-7 w-7" />
-          </span>
+          <FileText className="h-7 w-7 shrink-0 text-primary" />
           <div className="min-w-0 flex-1">
             <p className="text-base font-semibold text-foreground">Requirement Document</p>
             <p className="mt-0.5 text-sm text-muted-foreground">
@@ -116,7 +148,7 @@ function WorkflowNodeComponent({ data }: NodeProps) {
       type="button"
       onClick={d.onSelect}
       className={cn(
-        "relative w-[290px] rounded-2xl border bg-card px-4 py-3.5 text-left shadow-sm transition-shadow hover:shadow-md",
+        "relative w-[290px] min-h-[140px] overflow-hidden rounded-2xl border bg-card text-left shadow-sm transition-shadow hover:shadow-md",
         isDone && "border-success/30",
         isRunning && "border-primary/50 shadow-[0_0_0_3px_hsl(var(--primary)/0.15)]",
         isWaiting && "border-warning/30",
@@ -130,74 +162,82 @@ function WorkflowNodeComponent({ data }: NodeProps) {
         className="!h-2.5 !w-2.5 !border-2 !border-card !bg-muted/60"
       />
 
-      <div className="flex items-start gap-3">
-        <span
-          className={cn(
-            "mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold text-primary-foreground",
-            isDone && "bg-success",
-            isRunning && "bg-primary",
-            isWaiting && "bg-warning/60",
-            isFailed && "bg-destructive",
-          )}
-        >
-          {d.index}
-        </span>
+      {AGENT_IMAGES[d.label] && (
+        <img
+          src={AGENT_IMAGES[d.label]}
+          alt={d.label}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      )}
+      <div className={`absolute inset-0 ${AGENT_GRADIENTS[d.label] ?? "bg-black/70"} opacity-80`} />
 
-        <div className="min-w-0 flex-1 pr-7">
-          <p className="truncate text-[15px] font-semibold text-foreground">{d.label}</p>
-
-          <div className="mt-1.5 flex items-center gap-1.5">
-            <span
-              className={cn(
-                "text-xs font-semibold",
-                isDone && "text-success",
-                isRunning && "text-primary",
-                isWaiting && "text-warning",
-                isFailed && "text-destructive",
-              )}
-            >
-              {isDone && "Completed"}
-              {isRunning && (
-                <span className="inline-flex items-center gap-1">
-                  In Progress
-                  <span className="inline-flex gap-0.5">
-                    <span className="h-1 w-1 animate-pulse rounded-full bg-primary" />
-                    <span className="h-1 w-1 animate-pulse rounded-full bg-primary [animation-delay:150ms]" />
-                    <span className="h-1 w-1 animate-pulse rounded-full bg-primary [animation-delay:300ms]" />
-                  </span>
-                </span>
-              )}
-              {isWaiting && "Waiting"}
-              {isFailed && "Failed"}
-            </span>
-          </div>
-
-          {d.durationLabel && (
-            <p className="mt-1 text-xs text-muted-foreground/70">{d.durationLabel}</p>
-          )}
-
-          {isRunning && (
-            <div className="mt-3">
-              <div className="mb-1 flex justify-between text-xs font-semibold text-primary">
-                <span>Progress</span>
-                <span>{d.progress ?? 0}%</span>
-              </div>
-              <div className="h-2 overflow-hidden rounded-full bg-primary/20">
-                <div
-                  className="h-full rounded-full bg-primary transition-all duration-500"
-                  style={{ width: `${Math.min(100, d.progress ?? 35)}%` }}
-                />
-              </div>
-            </div>
-          )}
+      <div className="relative z-10 flex flex-col p-3.5">
+        <div className="mb-1 flex items-center gap-2">
+          <span
+            className={cn(
+              "flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/90 text-xs font-bold text-gray-800",
+              isDone && "bg-success",
+              isRunning && "bg-primary",
+              isWaiting && "bg-warning/60",
+              isFailed && "bg-destructive",
+            )}
+          >
+            {d.index}
+          </span>
+          <p className="truncate text-[15px] font-semibold text-white">{d.label}</p>
         </div>
 
-        <span className="absolute right-3.5 top-3.5">
-          {isDone && <CheckCircle2 className="h-5 w-5 text-success" />}
-          {isWaiting && <Clock3 className="h-5 w-5 text-warning/70" />}
-          {isFailed && <AlertTriangle className="h-5 w-5 text-destructive" />}
-        </span>
+        <div className="mt-1.5 flex items-center gap-1.5">
+          <span
+            className={cn(
+              "text-xs font-semibold",
+              isDone && "text-success",
+              isRunning && "text-primary",
+              isWaiting && "text-warning",
+              isFailed && "text-destructive",
+            )}
+          >
+            {isDone && "Completed"}
+            {isRunning && (
+              <span className="inline-flex items-center gap-1">
+                In Progress
+                <span className="inline-flex gap-0.5">
+                  <span className="h-1 w-1 animate-pulse rounded-full bg-primary" />
+                  <span className="h-1 w-1 animate-pulse rounded-full bg-primary [animation-delay:150ms]" />
+                  <span className="h-1 w-1 animate-pulse rounded-full bg-primary [animation-delay:300ms]" />
+                </span>
+              </span>
+            )}
+            {isWaiting && "Waiting"}
+            {isFailed && "Failed"}
+          </span>
+        </div>
+
+        {d.durationLabel && (
+          <p className="mt-1 text-xs text-white/80">{d.durationLabel}</p>
+        )}
+
+        {isRunning && (
+          <div className="mt-3">
+            <div className="mb-1 flex justify-between text-xs font-semibold text-white">
+              <span>Progress</span>
+              <span>{d.progress ?? 0}%</span>
+            </div>
+            <div className="h-2 overflow-hidden rounded-full bg-white/20">
+              <div
+                className="h-full rounded-full bg-primary transition-all duration-500"
+                style={{ width: `${Math.min(100, d.progress ?? 35)}%` }}
+              />
+            </div>
+          </div>
+        )}
       </div>
+
+      <span className="absolute right-3.5 top-3.5">
+        {isDone && <span className="inline-flex items-center rounded-full bg-emerald-600 px-2 py-0.5 text-xs font-semibold text-white">Completed</span>}
+        {isWaiting && <Clock3 className="h-5 w-5 text-warning/70" />}
+        {isFailed && <AlertTriangle className="h-5 w-5 text-destructive" />}
+      </span>
 
       <Handle
         type="source"

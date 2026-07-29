@@ -158,3 +158,56 @@ export function buildUserPrompt(
 export function estimateTokens(text: string): number {
   return Math.ceil(text.length / 4);
 }
+
+/**
+ * Add source attribution fields to knowledge items.
+ * This standardizes how agents provide evidence, reasoning, and source info.
+ */
+export function withSourceAttribution<K extends Record<string, unknown>>(
+  items: K[],
+  options: {
+    agentKey: string;
+    defaultSourceCategory?: 'prompt' | 'document' | 'research' | 'ai_analysis' | 'user_input' | 'debate';
+  },
+): (K & { sourceCategory?: string; evidence?: string; reasoning?: string; confidence?: number })[] {
+  return items.map((item) => ({
+    ...item,
+    sourceCategory: options.defaultSourceCategory ?? 'ai_analysis',
+    reasoning: (item.reasoning as string) ?? `Extracted by ${options.agentKey} agent`,
+    evidence: (item.evidence as string) ?? undefined,
+    confidence: (item.confidence as number) ?? 75,
+  }));
+}
+
+/**
+ * Zod schema for evidence/reasoning in agent item schemas.
+ */
+export const EvidenceFields = {
+  evidence: z.string().optional(),
+  reasoning: z.string().optional(),
+};
+
+/**
+ * Safely extract JSON from LLM responses that may include extra text.
+ */
+export function safeJsonParse(raw: string): Record<string, unknown> {
+  try {
+    return JSON.parse(raw);
+  } catch {
+    const jsonMatch = raw.match(/```(?:json)?\s*([\s\S]*?)```/);
+    if (jsonMatch) {
+      try { return JSON.parse(jsonMatch[1].trim()); } catch { /* fall through */ }
+    }
+    const braceStart = raw.indexOf('{');
+    const braceEnd = raw.lastIndexOf('}');
+    if (braceStart >= 0 && braceEnd > braceStart) {
+      try { return JSON.parse(raw.slice(braceStart, braceEnd + 1)); } catch { /* fall through */ }
+    }
+    const bracketStart = raw.indexOf('[');
+    const bracketEnd = raw.lastIndexOf(']');
+    if (bracketStart >= 0 && bracketEnd > bracketStart) {
+      try { return JSON.parse(raw.slice(bracketStart, bracketEnd + 1)); } catch { /* fall through */ }
+    }
+  }
+  return {};
+}

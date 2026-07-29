@@ -15,10 +15,13 @@ import {
   ClarificationQuestion,
   ValidationIssue,
   Document,
+  DocumentVersion,
 } from '../database/entities';
 import { WorkflowService } from '../workflow/workflow.service';
 import { DashboardService } from '../realtime/dashboard.service';
 import { WorkflowEventsService } from '../realtime/workflow-events.service';
+import { DomainService } from '../agents/domain.service';
+import { LlmService } from '../llm/llm.service';
 import { CreateProjectDto } from './dto/create-project.dto';
 import { AnswerQuestionDto } from './dto/answer-question.dto';
 
@@ -36,9 +39,12 @@ export class ProjectsService {
     @InjectRepository(ClarificationQuestion) private readonly questionRepo: Repository<ClarificationQuestion>,
     @InjectRepository(ValidationIssue) private readonly issueRepo: Repository<ValidationIssue>,
     @InjectRepository(Document) private readonly documentRepo: Repository<Document>,
+    @InjectRepository(DocumentVersion) private readonly docVersionRepo: Repository<DocumentVersion>,
     private readonly workflow: WorkflowService,
     private readonly dashboard: DashboardService,
     private readonly events: WorkflowEventsService,
+    private readonly domainService: DomainService,
+    private readonly llm: LlmService,
   ) {}
 
   async list(): Promise<Project[]> {
@@ -46,11 +52,18 @@ export class ProjectsService {
   }
 
   async create(dto: CreateProjectDto): Promise<Project> {
+    let domain = dto.domain;
+    if (!domain) {
+      const domainInfo = await this.domainService.detectDomain(dto.idea, dto.name);
+      domain = domainInfo.domain;
+      this.logger.log(`Detected domain "${domain}" for project "${dto.name}"`);
+    }
     const project = this.projectRepo.create({
       id: randomUUID(),
       name: dto.name,
       idea: dto.idea,
       status: 'CREATED',
+      domain: domain,
     });
     return this.projectRepo.save(project);
   }
@@ -62,7 +75,16 @@ export class ProjectsService {
   }
 
   async delete(id: string): Promise<void> {
+    // Cascade delete all linked data
+    await this.knowledgeRepo.delete({ projectId: id });
+    await this.stepRepo.delete({ projectId: id });
+    await this.executionRepo.delete({ projectId: id });
+    await this.questionRepo.delete({ projectId: id });
+    await this.issueRepo.delete({ projectId: id });
+    await this.docVersionRepo.delete({ projectId: id });
+    await this.documentRepo.delete({ projectId: id });
     await this.projectRepo.delete({ id });
+    this.logger.log(`Project ${id} and all linked data deleted`);
   }
 
   async start(id: string): Promise<Project> {
@@ -246,4 +268,131 @@ export class ProjectsService {
       validatedItemCount,
     };
   }
+
+  /** Feature 5: Edit a knowledge item directly */
+  async updateKnowledgeItem(
+    projectId: string,
+    knowledgeId: string,
+    body: { title?: string; description?: string; status?: string },
+  ): Promise<KnowledgeItem> {
+    const item = await this.knowledgeRepo.findOne({ where: { id: knowledgeId, projectId } });
+    if (!item) throw new NotFoundException('Knowledge item not found');
+
+    const updates: Record<string, unknown> = {};
+    if (body.title !== undefined) updates.title = body.title;
+    if (body.description !== undefined) updates.description = body.description;
+    if (body.status !== undefined) updates.status = body.status;
+
+    if (Object.keys(updates).length > 0) {
+      updates.version = () => 'version + 1';
+      await this.knowledgeRepo.update(knowledgeId, updates as any);
+    }
+
+    const updated = await this.knowledgeRepo.findOne({ where: { id: knowledgeId } });
+    if (!updated) throw new NotFoundException('Knowledge item not found');
+    return updated;
+  }
+
+  /** Feature 5: Regenerate affected sections after an edit */
+  async regenerateAffected(projectId: string, knowledgeId: string): Promise<{ message: string }> {
+    const item = await this.knowledgeRepo.findOne({ where: { id: knowledgeId, projectId } });
+    if (!item) throw new NotFoundException('Knowledge item not found');
+
+    this.logger.log('Regenerating affected sections for knowledge item ' + knowledgeId);
+
+    // Recompile the document to reflect changes
+    setImmediate(() => {
+      this.workflow.recompileDocument(projectId).catch((err: unknown) => {
+        this.logger.error('Recompilation failed after edit: ' + String(err));
+      });
+    });
+
+    return { message: 'Regeneration started. The document will be updated shortly.' };
+  }
+
+
+  /** Feature 6: List document versions */
+  async getDocumentVersions(projectId: string) {
+    return this.docVersionRepo.find({
+      where: { projectId },
+      order: { version: "DESC" },
+    });
+  }
+
+  /** Feature 6: Get a specific document version */
+  async getDocumentVersion(projectId: string, version: number) {
+    const v = await this.docVersionRepo.findOne({ where: { projectId, version } });
+    if (!v) throw new NotFoundException("Version not found");
+    return v;
+  }
+
+  /** Refine the project idea through LLM for better processing */
+  async refineIdea(id: string): Promise<Project> {
+    const project = await this.getById(id);
+    const rawIdea = project.idea;
+
+    this.logger.log('Refining idea for project ' + id);
+
+    // First, try to parse JSON and extract readable content
+    let inputText = rawIdea;
+    const trimmed = rawIdea.trim();
+    if (trimmed.startsWith('{') || trimmed.startsWith('[')) {
+      try {
+        const obj = JSON.parse(trimmed);
+        const parts: string[] = [];
+        for (const [key, value] of Object.entries(obj)) {
+          if (value === null || value === undefined) continue;
+          const label = key.replace(/([A-Z])/g, ' $1').replace(/[_-]/g, ' ').trim();
+          if (typeof value === 'string' && value.length > 5) {
+            parts.push(label + ': ' + value);
+          } else if (Array.isArray(value)) {
+            const items = value.filter(Boolean).map((v) => typeof v === 'string' ? v : JSON.stringify(v));
+            if (items.length > 0) {
+              parts.push(label + ':\n' + items.map((item) => '- ' + item).join('\n'));
+            }
+          } else if (typeof value === 'object') {
+            const subParts: string[] = [];
+            for (const [subKey, subVal] of Object.entries(value)) {
+              if (subVal !== null && subVal !== undefined) {
+                subParts.push(subKey.replace(/([A-Z])/g, ' $1') + ': ' + String(subVal));
+              }
+            }
+            if (subParts.length > 0) parts.push(label + ':\n' + subParts.join('\n'));
+          }
+        }
+        if (parts.length > 0) {
+          inputText = parts.join('\n\n');
+        }
+      } catch {
+        // Not valid JSON, use raw text
+      }
+    }
+
+    try {
+      const prompt = 'Project: ' + project.name + '\n\nCurrent project description:\n' + inputText.slice(0, 3000) + '\n\nRestructure this into a clean, well-organized natural language project description. Use clear headings and paragraphs. Include: project purpose, target users, core features, technical considerations. Do NOT use JSON format, code blocks, or markdown headers. Write in professional prose.';
+
+      const r = await this.llm.generateText([
+        {
+          role: 'system',
+          content: 'You are a professional requirements analyst. Restructure project descriptions into clean, readable natural language with clear sections. Never output JSON, code blocks, or markdown formatting.',
+        },
+        { role: 'user', content: prompt },
+      ]);
+
+      const refined = r.content.trim();
+      // Remove any code block wrappers if present
+      const cleanRefined = refined.replace(/^```[a-z]*\n/, '').replace(/\n```$/, '').trim();
+
+      if (cleanRefined.length > 20) {
+        await this.projectRepo.update(id, { idea: cleanRefined });
+        this.logger.log('Idea refined for project ' + id);
+        return this.getById(id);
+      }
+    } catch (err: unknown) {
+      this.logger.warn('Failed to refine idea: ' + (err instanceof Error ? err.message : String(err)));
+    }
+
+    return project;
+  }
+
 }

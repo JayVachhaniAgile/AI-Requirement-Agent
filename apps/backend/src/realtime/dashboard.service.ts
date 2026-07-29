@@ -16,7 +16,7 @@ import {
   STAGE_TO_AGENT,
 } from './agent-phases';
 
-const TOTAL_STAGES = 14;
+const TOTAL_STAGES = 15;
 
 @Injectable()
 export class DashboardService {
@@ -103,18 +103,29 @@ export class DashboardService {
       requirementCount: frCount,
       knowledgeItemCount: knowledge.length,
       hasDocument: Boolean(document?.markdownContent),
-      steps: steps.map((s) => ({
-        id: s.id,
-        stage: s.stage,
-        status: s.status,
-        startedAt: s.startedAt?.toISOString() ?? null,
-        completedAt: s.completedAt?.toISOString() ?? null,
-        error: s.error,
-        durationMs: this.durationMs(s),
-        estimatedSeconds: DEFAULT_STAGE_SECONDS[s.stage] ?? 100,
-        agentKey: STAGE_TO_AGENT[s.stage] ?? s.stage.toLowerCase(),
-        label: AGENT_DISPLAY_NAMES[STAGE_TO_AGENT[s.stage] ?? ''] ?? s.stage,
-      })),
+      steps: steps.map((s) => {
+        let progress = 0;
+        if (s.status === 'COMPLETED') {
+          progress = 100;
+        } else if (s.status === 'RUNNING' && s.startedAt) {
+          const elapsed = (Date.now() - new Date(s.startedAt).getTime()) / 1000;
+          const expected = DEFAULT_STAGE_SECONDS[s.stage] ?? 100;
+          progress = Math.min(95, Math.round((elapsed / expected) * 100));
+        }
+        return {
+          id: s.id,
+          stage: s.stage,
+          status: s.status,
+          progress,
+          startedAt: s.startedAt?.toISOString() ?? null,
+          completedAt: s.completedAt?.toISOString() ?? null,
+          error: s.error,
+          durationMs: this.durationMs(s),
+          estimatedSeconds: DEFAULT_STAGE_SECONDS[s.stage] ?? 100,
+          agentKey: STAGE_TO_AGENT[s.stage] ?? s.stage.toLowerCase(),
+          label: AGENT_DISPLAY_NAMES[STAGE_TO_AGENT[s.stage] ?? ''] ?? s.stage,
+        };
+      }),
       recentExecutions: executions.slice(-8).map((e) => ({
         id: e.id,
         agentKey: e.agentKey,
@@ -128,7 +139,7 @@ export class DashboardService {
       })),
       idea: project.idea,
       projectName: project.name,
-      updatedAt: new Date().toISOString(),
+      updatedAt: project.updatedAt?.toISOString() ?? new Date().toISOString(),
     };
   }
 

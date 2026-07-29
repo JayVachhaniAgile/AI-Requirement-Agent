@@ -1,5 +1,6 @@
-import { useListProjects } from "@workspace/api-client-react";
+import { useListProjects, useDeleteProject } from "@workspace/api-client-react";
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import { useLocation } from "wouter";
 import {
   ChevronRight,
@@ -10,20 +11,32 @@ import {
   Eye,
   Download,
   Plus,
+  Trash2,
 } from "lucide-react";
 import { format } from "date-fns";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import { Skeleton } from "@/components/ui/skeleton";
 import { STATUS_COLORS } from "@/lib/constants";
+import { useToast } from "@/hooks/use-toast";
 import {
   fetchProjectDashboard,
   getProjectDashboardQueryKey,
 } from "@/lib/project-api";
 
-function DashboardCard({ project }: { project: any }) {
+function DashboardCard({ project, onDelete }: { project: any; onDelete?: (id: string) => void }) {
   const [, setLocation] = useLocation();
 
   const { data: dashboard, isLoading } = useQuery({
@@ -45,12 +58,26 @@ function DashboardCard({ project }: { project: any }) {
           <CardTitle className="line-clamp-2 text-foreground" title={project.name}>
             {project.name}
           </CardTitle>
-          <Badge
-            variant={STATUS_COLORS[project.status] || "default"}
-            className="shrink-0"
-          >
-            {project.status.replace(/_/g, " ")}
-          </Badge>
+          <div className="flex items-center gap-2 shrink-0">
+            <Badge
+              variant={STATUS_COLORS[project.status] || "default"}
+              className="shrink-0"
+            >
+              {project.status.replace(/_/g, " ")}
+            </Badge>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-7 w-7 text-muted-foreground hover:text-destructive opacity-0 group-hover:opacity-100 transition-opacity"
+              onClick={(e) => {
+                e.stopPropagation();
+                onDelete?.(project.id);
+              }}
+              title="Delete project"
+            >
+              <Trash2 className="h-4 w-4" />
+            </Button>
+          </div>
         </div>
       </CardHeader>
       <CardContent>
@@ -174,8 +201,24 @@ function DashboardCard({ project }: { project: any }) {
 
 export default function DashboardPage() {
   const [, setLocation] = useLocation();
+  const { toast } = useToast();
   const { data, isLoading, error, refetch } = useListProjects();
   const projects = Array.isArray(data) ? data : [];
+  const deleteProject = useDeleteProject();
+  const [deleteTarget, setDeleteTarget] = useState<string | null>(null);
+
+  const handleDelete = async () => {
+    if (!deleteTarget) return;
+    try {
+      await deleteProject.mutateAsync({ id: deleteTarget });
+      toast({ title: "Project deleted", description: "Project has been removed." });
+      await refetch();
+    } catch (err: any) {
+      toast({ title: "Delete failed", description: err.message, variant: "destructive" });
+    } finally {
+      setDeleteTarget(null);
+    }
+  };
 
   if (isLoading) {
     return (
@@ -268,10 +311,31 @@ export default function DashboardPage() {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
-            <DashboardCard key={project.id} project={project} />
+            <DashboardCard key={project.id} project={project} onDelete={(id) => setDeleteTarget(id)} />
           ))}
         </div>
       )}
+      {/* Delete Confirmation */}
+      <AlertDialog open={!!deleteTarget} onOpenChange={(open) => !open && setDeleteTarget(null)}>
+        <AlertDialogContent className="rounded-2xl">
+          <AlertDialogHeader>
+            <AlertDialogTitle>Delete Project</AlertDialogTitle>
+            <AlertDialogDescription>
+              Are you sure you want to delete this project? This action cannot be undone. All requirements, documents, and agent data will be permanently removed.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel className="rounded-xl">Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              className="rounded-xl bg-destructive hover:bg-destructive/90"
+              onClick={handleDelete}
+              disabled={deleteProject.isPending}
+            >
+              {deleteProject.isPending ? "Deleting..." : "Delete"}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }

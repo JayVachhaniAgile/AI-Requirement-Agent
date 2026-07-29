@@ -77,7 +77,6 @@ export function AppLayout({
   const { data: projects } = useListProjects();
   const crumbs = useBreadcrumbs(location);
 
-  const recent = (Array.isArray(projects) ? projects : []).slice(0, 5);
   const filtered = (Array.isArray(projects) ? projects : []).filter((p) =>
     p.name.toLowerCase().includes(query.toLowerCase()),
   );
@@ -129,28 +128,7 @@ export function AppLayout({
           })}
         </nav>
 
-        <div className="border-t border-border px-3 py-4">
-          <p className="mb-2 px-2 text-xs font-semibold text-muted-foreground/70">
-            Recent Projects
-          </p>
-          <div className="space-y-1">
-            {recent.length === 0 && (
-              <p className="px-2 text-xs text-muted-foreground">No projects yet</p>
-            )}
-            {recent.map((p) => (
-              <Link
-                key={p.id}
-                href={`/projects/${p.id}`}
-                className={cn(
-                  "block truncate rounded-lg px-2 py-1.5 text-xs font-medium text-muted-foreground hover:bg-muted/30",
-                  location.includes(p.id) && "bg-primary/10 text-primary",
-                )}
-              >
-                {p.name}
-              </Link>
-            ))}
-          </div>
-        </div>
+
 
       </aside>
 
@@ -215,7 +193,7 @@ export function AppLayout({
                 </AvatarFallback>
               </Avatar>
               <div className="hidden leading-tight sm:block">
-                <p className="text-xs font-semibold">Amit Sharma</p>
+                <p className="text-xs font-semibold">Jay Vachhani</p>
                 <p className="text-xs text-muted-foreground">Admin</p>
               </div>
             </div>

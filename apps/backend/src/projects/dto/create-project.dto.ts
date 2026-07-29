@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString, MaxLength, MinLength } from 'class-validator';
+import { IsNotEmpty, IsOptional, IsString, MaxLength, MinLength } from 'class-validator';
 
 export class CreateProjectDto {
   @IsString()
@@ -11,4 +11,9 @@ export class CreateProjectDto {
   @IsNotEmpty()
   @MinLength(10)
   idea!: string;
+
+  @IsString()
+  @IsOptional()
+  @MaxLength(100)
+  domain?: string;
 }

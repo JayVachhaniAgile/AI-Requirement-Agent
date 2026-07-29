@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { z } from 'zod';
 import { LlmService } from '../llm/llm.service';
-import { compactKnowledgeSummary } from './agent.utils';
+import { compactKnowledgeSummary, safeJsonParse } from './agent.utils';
 import type { AgentContext, AgentResult, NewValidationIssue } from './types';
 
 const IssueSchema = z.object({
-  externalId: z.string(),
+  externalId: z.string().nullish(),
   severity: z.enum(['CRITICAL', 'HIGH', 'MEDIUM', 'LOW']),
   category: z.string(),
   sourceAgent: z.string(),
@@ -19,11 +19,16 @@ const IssueSchema = z.object({
 });
 
 const Schema = z.object({
-  validationResult: z.enum(['PASS', 'CONDITIONAL_PASS', 'FAIL']),
-  scores: z.record(z.number()),
-  issues: z.array(IssueSchema),
-  summary: z.string(),
-});
+  validationResult: z.enum(['PASS', 'CONDITIONAL_PASS', 'FAIL']).default('CONDITIONAL_PASS'),
+  scores: z.record(z.number()).default({
+    businessCompleteness: 6, productDefinition: 6, requirementCompleteness: 6,
+    uxCompleteness: 6, architectureQuality: 6, securityPosture: 6,
+    qaCoverage: 6, estimationRealism: 6, consistency: 6, testability: 6,
+    traceability: 6, mvpClarity: 6,
+  }),
+  issues: z.array(IssueSchema).nullish().default([]),
+  summary: z.string().nullish().default(""),
+}).passthrough();
 
 const SYSTEM = `You are the Critic and Validation Agent. Find real problems across the full documentation pipeline.
 
@@ -56,9 +61,13 @@ export class CriticService {
       },
     ]);
 
-    const data = Schema.parse(JSON.parse(r.content));
+    const raw = safeJsonParse(r.content);
+    // Normalize alternative field names from LLM
+    if (raw.result && !raw.validationResult) raw.validationResult = raw.result;
+    if (raw.score && !raw.scores) raw.scores = raw.score;
+    const data = Schema.parse(raw);
     const validationIssues: NewValidationIssue[] = data.issues.map((issue) => ({
-      externalId: issue.externalId,
+      externalId: issue.externalId ?? `VAL-${String(data.issues.indexOf(issue) + 1).padStart(3, "0")}`,
       severity: issue.severity,
       category: issue.category,
       sourceAgent: issue.sourceAgent,

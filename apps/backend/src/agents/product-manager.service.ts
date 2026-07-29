@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { z } from 'zod';
 import { LlmService } from '../llm/llm.service';
 import type { AgentContext, AgentResult, NewKnowledgeItem } from './types';
+import { safeJsonParse } from './agent.utils';
 
 const Schema = z.object({
   productVision: z.string(),
@@ -11,7 +12,7 @@ const Schema = z.object({
   features: z.array(z.object({
     externalId: z.string(), title: z.string(), description: z.string(),
     priority: z.enum(['MUST_HAVE', 'SHOULD_HAVE', 'COULD_HAVE', 'FUTURE']),
-    module: z.string(), relatedBR: z.string().optional(),
+    module: z.string(), relatedBR: z.string().nullish(),
   })),
   mvpScope: z.string(),
   successMetrics: z.array(z.object({ title: z.string(), description: z.string() })),
@@ -43,7 +44,7 @@ export class ProductManagerService {
       { role: 'user', content: `Project: ${ctx.projectName}\n\nOriginal Idea: ${ctx.idea}\n\nContext:\n${relevant}\n\nProduce product analysis as JSON.` },
     ]);
 
-    const data = Schema.parse(JSON.parse(r.content));
+    const data = Schema.parse(safeJsonParse(r.content));
     const knowledgeItems: NewKnowledgeItem[] = [
       { type: 'PRODUCT_VISION', title: 'Product Vision', description: data.productVision, status: 'CONFIRMED' },
       { type: 'VALUE_PROPOSITION', title: 'Value Proposition', description: data.valueProposition, status: 'CONFIRMED' },

@@ -243,10 +243,27 @@ export function AgentLivePanel({
                   </span>
                 </motion.li>
               );
+
             })}
           </AnimatePresence>
         </ul>
       </div>
+      {/* Reasoning traces / Debate — Feature 4 */}
+      {activity?.reasoningTraces && activity.reasoningTraces.length > 0 && (
+        <div className="rounded-2xl border border-border/80 bg-card p-4 shadow-sm">
+          <p className="mb-3 text-xs font-semibold text-muted-foreground/70">
+            AI Reasoning and Debate
+          </p>
+          <div className="space-y-2">
+            {activity.reasoningTraces.map((trace, i) => (
+              <div key={i} className="rounded-xl bg-muted/30 p-3 text-xs leading-relaxed text-foreground">
+                {trace}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
 
       {/* Agent output */}
       <div className="rounded-2xl border border-border/80 bg-card p-4 shadow-sm">

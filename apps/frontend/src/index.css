@@ -108,46 +108,46 @@
 }
 
 /* ─── DARK THEME ─── */
-/* Deep navy-teal with cyan accents — premium developer dark theme */
+/* Refined dark theme with better contrast and reduced eye strain */
 .dark {
-  --background: 195 30% 5%;
-  --foreground: 195 10% 80%;
+  --background: 220 20% 4%;
+  --foreground: 220 10% 86%;
 
-  --border: 195 18% 18%;
-  --input: 195 18% 18%;
-  --ring: 187 85% 50%;
+  --border: 220 12% 16%;
+  --input: 220 12% 16%;
+  --ring: 190 75% 48%;
 
-  --card: 195 25% 8%;
-  --card-foreground: 195 10% 80%;
-  --card-alt: 195 22% 11%;
-  --card-alt-foreground: 195 10% 80%;
+  --card: 220 18% 7%;
+  --card-foreground: 220 10% 86%;
+  --card-alt: 220 15% 10%;
+  --card-alt-foreground: 220 10% 86%;
 
-  --popover: 195 25% 8%;
-  --popover-foreground: 195 10% 80%;
+  --popover: 220 18% 7%;
+  --popover-foreground: 220 10% 86%;
 
-  --primary: 187 85% 48%;
-  --primary-foreground: 195 30% 5%;
-  --primary-hover: 187 85% 55%;
+  --primary: 190 75% 44%;
+  --primary-foreground: 220 20% 4%;
+  --primary-hover: 190 75% 50%;
 
-  --secondary: 195 18% 20%;
-  --secondary-foreground: 195 10% 80%;
+  --secondary: 220 12% 18%;
+  --secondary-foreground: 220 10% 86%;
 
-  --muted: 195 22% 10%;
-  --muted-foreground: 195 10% 52%;
+  --muted: 220 14% 9%;
+  --muted-foreground: 220 10% 52%;
 
-  --accent: 195 18% 17%;
-  --accent-foreground: 195 10% 80%;
+  --accent: 220 12% 15%;
+  --accent-foreground: 220 10% 86%;
 
-  --destructive: 0 65% 50%;
+  --destructive: 0 70% 48%;
   --destructive-foreground: 0 0% 100%;
 
-  --success: 145 50% 44%;
+  --success: 145 50% 42%;
   --success-foreground: 0 0% 100%;
 
-  --warning: 35 85% 52%;
-  --warning-foreground: 195 30% 5%;
+  --warning: 38 85% 50%;
+  --warning-foreground: 220 20% 4%;
 
-  --info: 187 85% 50%;
+  --info: 190 75% 48%;
 }
 
 /* ─── BASE STYLES ─── */
@@ -204,7 +204,7 @@
 .dark select,
 .dark input,
 .dark textarea {
-  background-color: hsl(var(--muted));
+  background-color: hsl(var(--card-alt));
   border-color: hsl(var(--border));
   color: hsl(var(--foreground));
 }

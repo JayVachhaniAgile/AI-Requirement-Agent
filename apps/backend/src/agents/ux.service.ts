@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { z } from 'zod';
 import { LlmService } from '../llm/llm.service';
-import { AgentItemArray, buildUserPrompt, ensureItemIds, ensureSummary, formatKnowledge } from './agent.utils';
+import { AgentItemArray, buildUserPrompt, ensureItemIds, ensureSummary, formatKnowledge, safeJsonParse } from './agent.utils';
 import type { AgentContext, AgentResult, NewKnowledgeItem } from './types';
 
 const Schema = z.object({
@@ -49,7 +49,7 @@ export class UxService {
       },
     ]);
 
-    const raw = Schema.parse(JSON.parse(r.content));
+    const raw = Schema.parse(safeJsonParse(r.content));
     const navigationFlow = ensureSummary(
       raw.navigationFlow,
       'Users navigate from onboarding → dashboard → core workflows → detail views → settings.',

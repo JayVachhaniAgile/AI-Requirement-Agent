@@ -18,11 +18,12 @@ import { QaService } from '../agents/qa.service';
 import { EstimationService } from '../agents/estimation.service';
 import { CriticService } from '../agents/critic.service';
 import { CompilerService } from '../agents/compiler.service';
+import { DebateService } from "../agents/debate.service";
 import { WorkflowEventsService } from '../realtime/workflow-events.service';
 import { DashboardService } from '../realtime/dashboard.service';
 import type { AgentContext, AgentResult } from '../agents/types';
 
-/** Full PRD pipeline order (14 agents). */
+/** Full PRD pipeline order (15 agents). */
 const STAGES = [
   { key: 'DISCOVERY', projectStatus: 'DISCOVERING' },
   { key: 'RESEARCH', projectStatus: 'RESEARCHING' },
@@ -37,6 +38,7 @@ const STAGES = [
   { key: 'QA_PLANNING', projectStatus: 'QA_ANALYSIS' },
   { key: 'ESTIMATION', projectStatus: 'ESTIMATING' },
   { key: 'VALIDATION', projectStatus: 'VALIDATING' },
+  { key: 'DEBATE', projectStatus: 'VALIDATING' },
   { key: 'COMPILATION', projectStatus: 'COMPILING' },
 ] as const;
 
@@ -64,6 +66,7 @@ export class WorkflowService {
     private readonly estimation: EstimationService,
     private readonly critic: CriticService,
     private readonly compiler: CompilerService,
+    private readonly debate: DebateService,
     private readonly events: WorkflowEventsService,
     private readonly dashboard: DashboardService,
   ) {}
@@ -83,6 +86,7 @@ export class WorkflowService {
       QA_PLANNING: (ctx) => this.qa.run(ctx),
       ESTIMATION: (ctx) => this.estimation.run(ctx),
       VALIDATION: (ctx) => this.critic.run(ctx),
+      DEBATE: (ctx) => this.debate.run(ctx),
       COMPILATION: (ctx) => this.compiler.run(ctx),
     };
   }
@@ -187,6 +191,7 @@ export class WorkflowService {
       idea: project.idea,
       knowledgeItems,
       answeredQuestions,
+      domain: project.domain ?? undefined,
     };
   }
 
@@ -233,6 +238,7 @@ export class WorkflowService {
             startedAt: startedAt.toISOString(),
           });
           this.events.emitExecutionUpdated(projectId, {
+
             executionId,
             agentKey,
             status: 'RUNNING',
@@ -262,7 +268,7 @@ export class WorkflowService {
             await this.rkb.saveValidationIssues(projectId, result.validationIssues, agentKey);
           }
           if (result.documentContent) {
-            await this.rkb.saveDocument(projectId, result.documentContent);
+            await this.rkb.saveDocument(projectId, result.documentContent, `Stage ${stage.key} completed with knowledge items`, stage.key);
           }
 
           const tokens = result._tokens ?? { inputTokens: 0, outputTokens: 0, model: 'unknown' };
@@ -288,6 +294,10 @@ export class WorkflowService {
             outputTokens: tokens.outputTokens,
             model: tokens.model,
           });
+          if (result.reasoningTraces?.length) {
+            this.events.emitReasoningTrace(projectId, stage.key, result.reasoningTraces);
+          }
+
           await this.pushDashboard(projectId);
           this.logger.log(`Stage ${stage.key} completed for project ${projectId}`);
         } catch (err) {
@@ -369,7 +379,7 @@ export class WorkflowService {
       if (!result.documentContent) {
         throw new Error('Compiler produced no document content');
       }
-      await this.rkb.saveDocument(projectId, result.documentContent);
+      await this.rkb.saveDocument(projectId, result.documentContent, `Recompilation triggered`, 'recompilation');
       const tokens = result._tokens ?? {
         inputTokens: 0,
         outputTokens: 0,

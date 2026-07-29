@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { z } from 'zod';
 import { LlmService } from '../llm/llm.service';
 import type { AgentContext, AgentResult, NewKnowledgeItem } from './types';
+import { safeJsonParse } from './agent.utils';
 
 const ItemSchema = z.object({ externalId: z.string(), title: z.string(), description: z.string() });
 const Schema = z.object({
@@ -44,7 +45,7 @@ export class BusinessAnalystService {
       { role: 'user', content: `Project: ${ctx.projectName}\n\nOriginal Idea: ${ctx.idea}\n\nDiscovery Results:\n${existingItems}\n\nProduce a thorough business analysis as JSON.` },
     ]);
 
-    const data = Schema.parse(JSON.parse(r.content));
+    const data = Schema.parse(safeJsonParse(r.content));
     const knowledgeItems: NewKnowledgeItem[] = [
       ...data.businessObjectives.map((o) => ({ externalId: o.externalId, type: 'BUSINESS_OBJECTIVE', title: o.title, description: o.description, status: 'CONFIRMED' })),
       ...data.stakeholders.map((s) => ({ externalId: s.externalId, type: 'STAKEHOLDER', title: s.title, description: s.description, status: 'CONFIRMED' })),

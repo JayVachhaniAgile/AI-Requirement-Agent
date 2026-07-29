@@ -77,6 +77,19 @@ export class WorkflowEventsService {
     this.gateway.emitToProject(projectId, 'dashboard.snapshot', snapshot);
   }
 
+  /** Feature 4: Emit reasoning traces for debate transparency */
+  emitReasoningTrace(
+    projectId: string,
+    agentKey: string,
+    traces: string[],
+  ): void {
+    this.gateway.emitToProject(projectId, 'reasoning.trace', {
+      projectId,
+      agentKey,
+      traces,
+    });
+  }
+
   /** Start timed phase progression while an agent runs. */
   startActivityPhases(projectId: string, agentKey: string): void {
     this.stopActivityPhases(projectId, agentKey);

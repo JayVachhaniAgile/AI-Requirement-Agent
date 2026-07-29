@@ -121,6 +121,17 @@ export function useProjectSocket(projectId: string | undefined): ProjectLiveStat
       void queryClient.invalidateQueries({ queryKey: getListKnowledgeItemsQueryKey(projectId) });
     });
 
+    socket.on("reasoning.trace", (payload: { projectId: string; agentKey: string; traces: string[] }) => {
+      setActivities((prev) => {
+        const existing = prev[payload.agentKey];
+        if (!existing) return prev;
+        return {
+          ...prev,
+          [payload.agentKey]: { ...existing, reasoningTraces: payload.traces },
+        };
+      });
+    });
+
     socket.on("execution.updated", () => {
       void queryClient.invalidateQueries({ queryKey: getListExecutionsQueryKey(projectId) });
       void queryClient.invalidateQueries({ queryKey: getProjectDashboardQueryKey(projectId) });

@@ -18,19 +18,18 @@ function scoreLabel(score: number): { text: string; className: string } {
 }
 
 function Ring({ value }: { value: number }) {
-  const r = 18;
+  const r = 28;
   const c = 2 * Math.PI * r;
   const offset = c - (Math.min(100, Math.max(0, value)) / 100) * c;
   return (
-    <svg width="48" height="48" className="-rotate-90">
-      <circle cx="24" cy="24" r={r} stroke="hsl(var(--muted))" strokeWidth="4" fill="none" />
+    <svg width="72" height="72" viewBox="0 0 72 72" className="-rotate-90" fill="none">
+      <circle cx="36" cy="36" r={r} stroke="hsl(var(--muted))" strokeWidth="5" />
       <circle
-        cx="24"
-        cy="24"
+        cx="36"
+        cy="36"
         r={r}
         stroke="hsl(var(--primary))"
         strokeWidth="4"
-        fill="none"
         strokeLinecap="round"
         strokeDasharray={c}
         strokeDashoffset={offset}
@@ -53,13 +52,18 @@ export function ProjectKpiBar({ dashboard }: { dashboard: ProjectDashboard | und
       title: "Overall Progress",
       body: (
         <div className="flex items-center gap-3">
-          <div className="relative">
+          <div className="flex h-[72px] w-[72px] shrink-0 items-center justify-center">
             <Ring value={d?.percentComplete ?? 0} />
-            <span className="absolute inset-0 flex items-center justify-center text-sm font-bold text-foreground">
+            <span className="absolute text-sm font-bold text-foreground">
               {d?.percentComplete ?? 0}%
             </span>
           </div>
-          <p className="text-xs text-muted-foreground">Pipeline completion</p>
+          <div className="min-w-0 flex-1">
+            <p className="text-xs font-semibold text-foreground/90">Pipeline completion</p>
+            <p className="mt-0.5 text-xs text-muted-foreground/70">
+              {d?.completedAgents ?? 0} / {d?.totalAgents ?? 15} agents
+            </p>
+          </div>
         </div>
       ),
     },
@@ -67,12 +71,11 @@ export function ProjectKpiBar({ dashboard }: { dashboard: ProjectDashboard | und
       key: "agents",
       title: "Completed Agents",
       body: (
-        <div className="space-y-2">
-          <p className="text-xl font-bold text-foreground">
+        <div className="flex flex-col justify-center gap-1.5">
+          <p className="text-xl font-bold text-foreground leading-tight">
             {d?.completedAgents ?? 0}
             <span className="text-sm font-medium text-muted-foreground">
-              {" "}
-              / {d?.totalAgents ?? 14}
+              {" / "}{d?.totalAgents ?? 15}
             </span>
           </p>
           <Progress value={agentPct} className="h-1.5" />
@@ -83,8 +86,8 @@ export function ProjectKpiBar({ dashboard }: { dashboard: ProjectDashboard | und
       key: "step",
       title: "Current Step",
       body: (
-        <div className="space-y-1">
-          <p className="truncate text-sm font-bold text-foreground">{d?.currentStep ?? "—"}</p>
+        <div className="flex flex-col justify-center gap-1.5">
+          <p className="truncate text-sm font-semibold text-foreground leading-tight">{d?.currentStep ?? "—"}</p>
           <div className="flex items-center gap-1.5 text-xs text-primary">
             {d && !["COMPLETED", "CREATED", "FAILED", "CANCELLED"].includes(d.status) ? (
               <>
@@ -106,8 +109,8 @@ export function ProjectKpiBar({ dashboard }: { dashboard: ProjectDashboard | und
       title: "Estimated Time Left",
       body: (
         <div className="flex items-center gap-2">
-          <Clock3 className="h-5 w-5 text-muted-foreground/70" />
-          <p className="text-xl font-bold text-foreground">{formatEta(d?.etaSeconds ?? 0)}</p>
+          <Clock3 className="h-5 w-5 shrink-0 text-muted-foreground/70" />
+          <p className="text-xl font-bold text-foreground leading-tight">{formatEta(d?.etaSeconds ?? 0)}</p>
         </div>
       ),
     },
@@ -115,14 +118,12 @@ export function ProjectKpiBar({ dashboard }: { dashboard: ProjectDashboard | und
       key: "completeness",
       title: "Requirement Completeness",
       body: (
-        <div className="flex items-end justify-between gap-2">
-          <div>
-            <p className="text-xl font-bold text-foreground">{d?.requirementCompleteness ?? 0}%</p>
-            <p className={cn("text-xs font-semibold", completeness.className)}>
-              <Target className="mr-1 inline h-3 w-3" />
-              {completeness.text}
-            </p>
-          </div>
+        <div className="flex flex-col justify-center gap-1">
+          <p className="text-xl font-bold text-foreground leading-tight">{d?.requirementCompleteness ?? 0}%</p>
+          <p className={cn("text-xs font-semibold", completeness.className)}>
+            <Target className="mr-1 inline h-3 w-3" />
+            {completeness.text}
+          </p>
         </div>
       ),
     },
@@ -130,8 +131,8 @@ export function ProjectKpiBar({ dashboard }: { dashboard: ProjectDashboard | und
       key: "confidence",
       title: "AI Confidence",
       body: (
-        <div>
-          <p className="text-xl font-bold text-foreground">{d?.aiConfidence ?? 0}%</p>
+        <div className="flex flex-col justify-center gap-1">
+          <p className="text-xl font-bold text-foreground leading-tight">{d?.aiConfidence ?? 0}%</p>
           <p className={cn("text-xs font-semibold", confidence.className)}>
             <Sparkles className="mr-1 inline h-3 w-3" />
             {confidence.text}
@@ -142,16 +143,18 @@ export function ProjectKpiBar({ dashboard }: { dashboard: ProjectDashboard | und
   ];
 
   return (
-    <div className="grid grid-cols-2 gap-3 xl:grid-cols-6">
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-6">
       {cards.map((card) => (
         <div
           key={card.key}
-          className="rounded-2xl border border-border bg-card p-4 shadow-sm"
+          className="flex flex-col justify-between rounded-2xl border border-border bg-card p-4 shadow-sm"
         >
           <p className="mb-3 text-xs font-semibold text-muted-foreground/70">
             {card.title}
           </p>
-          {card.body}
+          <div className="flex-1">
+            {card.body}
+          </div>
         </div>
       ))}
     </div>

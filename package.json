@@ -1,11 +1,14 @@
 {
-  "name": "workspace",
+  "name": "@test/workspace",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "preinstall": "sh -c 'rm -f package-lock.json yarn.lock; case \"$npm_config_user_agent\" in pnpm/*) ;; *) echo \"Use pnpm instead\" >&2; exit 1 ;; esac'",
     "build": "nx run-many --target=build",
     "typecheck": "nx run-many --target=typecheck",
+    "test:e2e": "playwright test --config=e2e/playwright.config.ts",
+    "test:e2e:ui": "playwright test --config=e2e/playwright.config.ts --headed",
+    "test:e2e:report": "playwright show-report e2e/playwright-report",
     "dev:backend": "nx run backend:dev",
     "dev:frontend": "nx run frontend:dev"
   },
@@ -14,8 +17,25 @@
     "@replit/connectors-sdk": "^0.4.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.0",
     "nx": "^20.8.0",
     "prettier": "^3.9.5",
     "typescript": "~5.9.3"
-  }
+  },
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JayVachhaniAgile/AI-Requirement-Agent.git"
+  },
+  "keywords": [],
+  "author": "",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/JayVachhaniAgile/AI-Requirement-Agent/issues"
+  },
+  "homepage": "https://github.com/JayVachhaniAgile/AI-Requirement-Agent#readme"
 }

@@ -126,6 +126,7 @@ export const STAGE_TO_AGENT: Record<string, string> = {
   QA_PLANNING: 'qa-planning',
   ESTIMATION: 'estimation',
   VALIDATION: 'validation',
+  DEBATE: 'debate',
   COMPILATION: 'compilation',
 };
 
@@ -143,6 +144,7 @@ export const AGENT_DISPLAY_NAMES: Record<string, string> = {
   'qa-planning': 'QA Agent',
   estimation: 'Estimation Agent',
   validation: 'Critic Agent',
+  debate: 'Debate Agent',
   compilation: 'Compiler Agent',
   compiler: 'Compiler Agent',
 };
@@ -162,5 +164,6 @@ export const DEFAULT_STAGE_SECONDS: Record<string, number> = {
   QA_PLANNING: 100,
   ESTIMATION: 90,
   VALIDATION: 120,
+  DEBATE: 90,
   COMPILATION: 60,
 };

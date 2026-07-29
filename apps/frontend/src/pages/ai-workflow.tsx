@@ -295,7 +295,7 @@ export default function AiWorkflowPage() {
 
           {/* Detailed Blueprint */}
           <div>
-            <h2 className="text-lg font-bold text-foreground mb-4">Pipeline Blueprint — 14 Agents</h2>
+            <h2 className="text-lg font-bold text-foreground mb-4">Pipeline Blueprint — 15 Agents</h2>
             <div className="space-y-4">
               {AGENT_ORDER.map((key, idx) => {
                 const agent = AGENT_BLUEPRINTS[key];

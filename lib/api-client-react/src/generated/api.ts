@@ -350,6 +350,62 @@ export const useUploadProjectFiles = <TError = ErrorType<unknown>,
       return useMutation(getUploadProjectFilesMutationOptions(options));
     }
 
+
+/* ─── Interview API (Feature 1) ─── */
+
+export const getStartInterviewUrl = () => {
+  return `/api/interviews/start`;
+};
+
+export const startInterview = async (name: string, idea?: string, options?: RequestInit): Promise<{ id: string; projectName: string; idea: string; history: Array<{ role: string; content: string }>; status: string }> => {
+  return customFetch(getStartInterviewUrl(), {
+    ...options, method: "POST", headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify({ name, idea }),
+  });
+};
+
+export const getAnswerInterviewUrl = (id: string) => {
+  return `/api/interviews/${id}/answer`;
+};
+
+export const answerInterview = async (id: string, answer: string, options?: RequestInit): Promise<{ session: any; complete: boolean; projectId?: string }> => {
+  return customFetch(getAnswerInterviewUrl(id), {
+    ...options, method: "POST", headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify({ answer }),
+  });
+};
+
+export const getGetInterviewUrl = (id: string) => {
+  return `/api/interviews/${id}`;
+};
+
+export const getInterview = async (id: string, options?: RequestInit): Promise<{ id: string; projectName: string; idea: string; history: Array<{ role: string; content: string }>; status: string }> => {
+  return customFetch(getGetInterviewUrl(id), { ...options, method: "GET" });
+};
+
+/* ─── Editable Knowledge Items (Feature 5) ─── */
+
+export const getUpdateKnowledgeItemUrl = (projectId: string, knowledgeId: string) => {
+  return `/api/projects/${projectId}/knowledge/${knowledgeId}`;
+};
+
+export const updateKnowledgeItem = async (projectId: string, knowledgeId: string, body: { title?: string; description?: string; status?: string }, options?: RequestInit): Promise<any> => {
+  return customFetch(getUpdateKnowledgeItemUrl(projectId, knowledgeId), {
+    ...options, method: "PATCH", headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(body),
+  });
+};
+
+export const getRegenerateAffectedUrl = (projectId: string, knowledgeId: string) => {
+  return `/api/projects/${projectId}/knowledge/${knowledgeId}/regenerate`;
+};
+
+export const regenerateAffected = async (projectId: string, knowledgeId: string, options?: RequestInit): Promise<{ message: string }> => {
+  return customFetch(getRegenerateAffectedUrl(projectId, knowledgeId), {
+    ...options, method: "POST",
+  });
+};
+
 export const getGetProjectUrl = (id: string,) => {
 
 

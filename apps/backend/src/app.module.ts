@@ -11,6 +11,7 @@ import { HealthModule } from './health/health.module';
 import { RealtimeModule } from './realtime/realtime.module';
 import { AggregateModule } from './aggregate/aggregate.module';
 import { SettingsModule } from './settings/settings.module';
+import { InterviewModule } from './interview/interview.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { SettingsModule } from './settings/settings.module';
     HealthModule,
     AggregateModule,
     SettingsModule,
+    InterviewModule,
   ],
 })
 export class AppModule {}

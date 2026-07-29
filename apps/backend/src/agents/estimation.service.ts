@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { z } from 'zod';
 import { LlmService } from '../llm/llm.service';
-import { AgentItemArray, buildUserPrompt, ensureItemIds, ensureSummary, formatKnowledge } from './agent.utils';
+import { AgentItemArray, buildUserPrompt, ensureItemIds, ensureSummary, formatKnowledge, safeJsonParse } from './agent.utils';
 import type { AgentContext, AgentResult, NewKnowledgeItem } from './types';
 
 const Schema = z.object({
@@ -49,7 +49,7 @@ export class EstimationService {
       },
     ]);
 
-    const data = Schema.parse(JSON.parse(r.content));
+    const data = Schema.parse(safeJsonParse(r.content));
     const estimationSummary = ensureSummary(data.estimationSummary, `Estimation for ${ctx.projectName}`);
     const complexityAssessment = ensureSummary(data.complexityAssessment, 'Medium complexity based on scope and architecture.');
     const teamComposition = ensureItemIds(data.teamComposition, 'TEAM');

@@ -10,7 +10,9 @@ import {
   ClarificationQuestion,
   ValidationIssue,
   Document,
+  DocumentVersion,
   Settings,
+  InterviewSessionEntity,
 } from './entities';
 
 @Module({
@@ -28,7 +30,9 @@ import {
           ClarificationQuestion,
           ValidationIssue,
           Document,
+          DocumentVersion,
           Settings,
+  InterviewSessionEntity,
         ],
         synchronize: config.get<string>('NODE_ENV') !== 'production',
         namingStrategy: new SnakeNamingStrategy(),

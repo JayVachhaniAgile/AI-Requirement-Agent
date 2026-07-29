@@ -25,6 +25,9 @@ export class Project {
 
   @Column({ type: 'text', nullable: true })
   errorMessage: string | null;
+  @Column({ type: 'varchar', length: 100, nullable: true })
+  domain: string | null;
+
 
   @CreateDateColumn()
   createdAt: Date;

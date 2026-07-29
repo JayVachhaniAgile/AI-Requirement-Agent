@@ -42,6 +42,8 @@ export interface Project {
   idea: string;
   status: ProjectStatus;
   /** @nullable */
+  domain?: string | null;
+  /** @nullable */
   currentStage?: string | null;
   /** @nullable */
   errorMessage?: string | null;
@@ -54,6 +56,8 @@ export interface ProjectInput {
   name: string;
   /** @minLength 10 */
   idea: string;
+  /** @nullable */
+  domain?: string | null;
 }
 
 export type WorkflowStepStatus = typeof WorkflowStepStatus[keyof typeof WorkflowStepStatus];

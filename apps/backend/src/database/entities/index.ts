@@ -5,4 +5,6 @@ export { AgentExecution } from './agent-execution.entity';
 export { ClarificationQuestion } from './clarification-question.entity';
 export { ValidationIssue } from './validation-issue.entity';
 export { Document } from './document.entity';
+export { DocumentVersion } from './document-version.entity';
+export { InterviewSessionEntity } from './interview-session.entity';
 export { Settings } from './settings.entity';

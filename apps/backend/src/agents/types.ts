@@ -4,6 +4,13 @@ export interface AgentContext {
   idea: string;
   knowledgeItems: KnowledgeItemSummary[];
   answeredQuestions: AnsweredQuestion[];
+  domain?: string;
+  domainInfo?: {
+    domain: string;
+    standards: string[];
+    regulations: string[];
+    bestPractices: string[];
+  };
 }
 
 export interface KnowledgeItemSummary {
@@ -12,6 +19,8 @@ export interface KnowledgeItemSummary {
   title: string;
   description: string | null;
   status: string;
+  /** Source category — prompt, document, research, ai_analysis, user_input */
+  sourceCategory?: string;
 }
 
 export interface AnsweredQuestion {
@@ -26,6 +35,14 @@ export interface NewKnowledgeItem {
   description?: string;
   status: string;
   relatedIds?: string[];
+  /** Source attribution — where this requirement came from */
+  sourceCategory?: 'prompt' | 'document' | 'research' | 'ai_analysis' | 'user_input' | 'debate';
+  /** Evidence text — excerpts, references, or reasoning that supports this item */
+  evidence?: string;
+  /** AI reasoning trace for debate/transparency */
+  reasoning?: string;
+  /** Confidence score 0-100 */
+  confidence?: number;
 }
 
 export interface NewQuestion {
@@ -54,6 +71,15 @@ export interface AgentTokens {
   model: string;
 }
 
+export interface AgentDebateEntry {
+  agentKey: string;
+  position: string;
+  reasoning: string;
+  alternatives?: string[];
+  vote?: 'approve' | 'challenge' | 'abstain';
+  critique?: string;
+}
+
 export interface AgentResult {
   success: boolean;
   agentKey: string;
@@ -62,5 +88,9 @@ export interface AgentResult {
   validationIssues?: NewValidationIssue[];
   documentContent?: string;
   warnings: string[];
+  /** Debate traces — reasoning that can be shown to users */
+  reasoningTraces?: string[];
+  /** Alternatives considered by this agent */
+  alternativesConsidered?: string[];
   _tokens?: AgentTokens;
 }

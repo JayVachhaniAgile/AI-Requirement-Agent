@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { z } from 'zod';
 import { LlmService } from '../llm/llm.service';
-import { AgentItemArray, buildUserPrompt, ensureItemIds, ensureSummary, formatKnowledge } from './agent.utils';
+import { AgentItemArray, buildUserPrompt, ensureItemIds, ensureSummary, formatKnowledge, safeJsonParse } from './agent.utils';
 import type { AgentContext, AgentResult, NewKnowledgeItem } from './types';
 
 const Schema = z.object({
@@ -47,7 +47,7 @@ export class DataArchitectService {
       },
     ]);
 
-    const data = Schema.parse(JSON.parse(r.content));
+    const data = Schema.parse(safeJsonParse(r.content));
     const databaseSummary = ensureSummary(data.databaseSummary, `Database design for ${ctx.projectName}`);
     const erOverview = ensureSummary(data.erOverview, 'Entity-relationship overview for core domain entities.');
     const tables = ensureItemIds(data.tables, 'TBL');

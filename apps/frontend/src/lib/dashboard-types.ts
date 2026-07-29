@@ -9,6 +9,7 @@ export interface DashboardStep {
   estimatedSeconds: number;
   agentKey: string;
   label: string;
+  progress?: number;
 }
 
 export interface DocumentStats {
@@ -71,6 +72,8 @@ export interface AgentActivityEvent {
   agentKey: string;
   phases: AgentActivityPhase[];
   activePhaseId: string | null;
+  /** Feature 4: Agent reasoning traces for debate transparency */
+  reasoningTraces?: string[];
 }
 
 export interface KnowledgeCreatedEvent {

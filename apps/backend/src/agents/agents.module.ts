@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { LlmModule } from '../llm/llm.module';
+import { RkbModule } from '../rkb/rkb.module';
 import { DiscoveryService } from './discovery.service';
 import { ResearchService } from './research.service';
 import { BusinessAnalystService } from './business-analyst.service';
@@ -14,27 +15,46 @@ import { QaService } from './qa.service';
 import { EstimationService } from './estimation.service';
 import { CriticService } from './critic.service';
 import { CompilerService } from './compiler.service';
-
-const AGENTS = [
-  DiscoveryService,
-  ResearchService,
-  BusinessAnalystService,
-  ProductManagerService,
-  RequirementsEngineerService,
-  UxService,
-  DataArchitectService,
-  AiArchitectService,
-  SolutionArchitectService,
-  SecurityService,
-  QaService,
-  EstimationService,
-  CriticService,
-  CompilerService,
-];
+import { DebateService } from './debate.service';
+import { DomainService } from './domain.service';
 
 @Module({
-  imports: [LlmModule],
-  providers: AGENTS,
-  exports: AGENTS,
+  imports: [LlmModule, RkbModule],
+  providers: [
+    DiscoveryService,
+    ResearchService,
+    BusinessAnalystService,
+    ProductManagerService,
+    RequirementsEngineerService,
+    UxService,
+    DataArchitectService,
+    AiArchitectService,
+    SolutionArchitectService,
+    SecurityService,
+    QaService,
+    EstimationService,
+    CriticService,
+    CompilerService,
+    DebateService,
+    DomainService,
+  ],
+  exports: [
+    DiscoveryService,
+    ResearchService,
+    BusinessAnalystService,
+    ProductManagerService,
+    RequirementsEngineerService,
+    UxService,
+    DataArchitectService,
+    AiArchitectService,
+    SolutionArchitectService,
+    SecurityService,
+    QaService,
+    EstimationService,
+    CriticService,
+    CompilerService,
+    DebateService,
+    DomainService,
+  ],
 })
 export class AgentsModule {}
