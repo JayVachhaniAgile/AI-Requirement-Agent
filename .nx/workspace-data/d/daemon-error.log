@@ -1,0 +1,26 @@
+Failed to start or connect to the Nx Daemon process.
+
+Messages from the log:
+[NX v20.8.4 Daemon Server] - 2026-07-28T06:15:34.985Z - Closed a connection. Number of open connections: 0
+[NX v20.8.4 Daemon Server] - 2026-07-28T06:15:45.000Z - [WATCHER]: libs/shared-types/tsconfig.json was modified
+[NX v20.8.4 Daemon Server] - 2026-07-28T06:15:45.000Z - [WATCHER]: Processing file changes in outputs
+[NX v20.8.4 Daemon Server] - 2026-07-28T06:15:45.101Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v20.8.4 Daemon Server] - 2026-07-28T06:15:45.101Z - [REQUEST]: libs/shared-types/tsconfig.json
+[NX v20.8.4 Daemon Server] - 2026-07-28T06:15:45.101Z - [REQUEST]: 
+[NX v20.8.4 Daemon Server] - 2026-07-28T06:15:45.104Z - Time taken for 'hash changed files from watcher' 0.49528300000019954ms
+[NX v20.8.4 Daemon Server] - 2026-07-28T06:15:45.120Z - Time taken for 'build-project-configs' 10.91001900000083ms
+[NX v20.8.4 Daemon Server] - 2026-07-28T06:15:45.139Z - [SYNC]: collect registered sync generators
+[NX v20.8.4 Daemon Server] - 2026-07-28T06:15:45.140Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v20.8.4 Daemon Server] - 2026-07-28T06:15:45.140Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v20.8.4 Daemon Server] - 2026-07-28T06:15:45.140Z - Time taken for 'total execution time for createProjectGraph()' 15.86226600000009ms
+[NX v20.8.4 Daemon Server] - 2026-07-28T06:15:46.200Z - [WATCHER]: Stopping the watcher for /home/agilelpt130/Jay/Other Projects/Autonomous/Autonomous-Build-Prompt (sources)
+[NX v20.8.4 Daemon Server] - 2026-07-28T06:15:46.200Z - Started listening on: /tmp/da4489a259b95e8800da/d.sock
+[NX v20.8.4 Daemon Server] - 2026-07-28T06:15:46.202Z - [WATCHER]: Subscribed to changes within: /home/agilelpt130/Jay/Other Projects/Autonomous/Autonomous-Build-Prompt (native)
+[NX v20.8.4 Daemon Server] - 2026-07-28T06:15:46.489Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v20.8.4 Daemon Server] - 2026-07-28T06:15:46.490Z - [REQUEST]: 
+[NX v20.8.4 Daemon Server] - 2026-07-28T06:15:46.490Z - [REQUEST]: 
+[NX v20.8.4 Daemon Server] - 2026-07-28T06:15:47.038Z - [SYNC]: collect registered sync generators
+
+
+
+More information: /home/agilelpt130/Jay/Other Projects/Autonomous/Autonomous-Build-Prompt/.nx/workspace-data/d/daemon.log

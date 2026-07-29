@@ -1,0 +1,1 @@
+- [Req Platform Architecture](req-platform-arch.md) — full-stack AI req engineering app; multi-agent pipeline, Express+Drizzle+OpenAI, no Redis.
