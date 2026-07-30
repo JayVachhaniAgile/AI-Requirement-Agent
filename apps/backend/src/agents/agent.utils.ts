@@ -175,7 +175,14 @@ export function withSourceAttribution<K extends Record<string, unknown>>(
     sourceCategory: options.defaultSourceCategory ?? 'ai_analysis',
     reasoning: (item.reasoning as string) ?? `Extracted by ${options.agentKey} agent`,
     evidence: (item.evidence as string) ?? undefined,
-    confidence: (item.confidence as number) ?? 75,
+    confidence: (item.confidence as number) ?? Math.round(
+        [65,
+          item.evidence ? 12 : 0,
+          item.reasoning ? 8 : 0,
+          (item.description as string)?.length > 100 ? 7 : 0,
+          (item.title as string)?.length > 20 ? 5 : 0,
+        ].reduce((a, b) => a + b, 0)
+      ),
   }));
 }
 
