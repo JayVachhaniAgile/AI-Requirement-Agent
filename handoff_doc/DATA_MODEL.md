@@ -128,7 +128,7 @@ projects (N) ──────> (N) settings (key-value)
 | project_id | UUID (FK) | Cascade delete, unique |
 | status | varchar(50) | Default `DRAFT` |
 | markdown_content | text | Nullable |
-| validation_score | text | Nullable |
+| validation_score | text | Nullable — NOTE: no longer set by `saveDocument()` to avoid overriding AI confidence with version number |
 | created_at | timestamptz | Auto |
 | updated_at | timestamptz | Auto |
 

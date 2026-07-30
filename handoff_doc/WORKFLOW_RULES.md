@@ -26,7 +26,7 @@
 └──────────┘    └──────────┘    └──────────┘    └──────────┘
 ```
 
-**Total stages:** 14
+**Total stages:** 15 (DEBATE added)
 
 ## State Machine
 
@@ -37,8 +37,9 @@ Project Status Flow:
          → ESTIMATING → VALIDATING → COMPILING → COMPLETED
 
   Any state → FAILED (on error)
-  Any state → CANCELLED (on user cancel)
-  CREATED | FAILED → (restart)
+  Any running state → CANCELLED (on user cancel)
+  Any running state → PAUSED (on user pause)
+  CREATED | FAILED | PAUSED → (restart / resume)
 ```
 
 ### Workflow Step Status
@@ -49,6 +50,7 @@ Project Status Flow:
 | `RUNNING` | Currently executing agent |
 | `COMPLETED` | Agent finished successfully |
 | `FAILED` | Agent failed with error |
+| `PAUSED` | Pipeline paused by user (current stage completes first) |
 
 ## Agent Mapping
 
@@ -67,6 +69,7 @@ Project Status Flow:
 | QA_PLANNING | `QaService` | `qa-planning` | Test strategy |
 | ESTIMATION | `EstimationService` | `estimation` | Effort estimates |
 | VALIDATION | `CriticService` | `validation` | Quality review |
+| DEBATE | `DebateService` | `debate` | Multi-agent debate on validation findings |
 | COMPILATION | `CompilerService` | `compilation` | Final document assembly |
 
 ## Execution Flow
@@ -97,6 +100,23 @@ Project Status Flow:
 
 - `POST /api/projects/:id/recompile` — runs only the `CompilerService` (stage 14)
 - Useful after document content changes without re-running the full pipeline
+
+## Pause / Resume
+
+- `POST /api/projects/:id/pause` — sets project status to `PAUSED`
+  - Current running stage completes normally and saves results
+  - Pipeline stops before the next stage
+- `POST /api/projects/:id/start` — resumes from the last incomplete/paused stage
+
+## Regenerate from Specific Agent
+
+- `POST /api/projects/:id/regenerate/:agentKey` — re-runs a specific agent and all subsequent stages
+  - Resets all workflow steps from that agent onward to `QUEUED`
+  - Deletes all knowledge items created by those agents (by `createdBy` and `source` fields)
+  - Deletes the compiled document
+  - Starts the workflow pipeline automatically from that stage
+  - Creates a new document version on completion
+  - Example: `POST /api/projects/:id/regenerate/requirements-engineering`
 
 ## Real-time Updates
 

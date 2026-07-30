@@ -38,6 +38,10 @@
 | Real-time agent activity | `done` | WebSocket + polling fallback |
 | Document preview | `done` | Markdown rendering |
 | Document download | `done` | MD export |
+| Agent details modal | `done` | Click any agent card to view outputs in expandable modal |
+| Workflow pause/resume | `done` | Pause button during pipeline, resume from paused state |
+| Agent regenerate | `done` | Regenerate button on any completed agent, re-runs from that stage |
+| Dynamic AI confidence | `done` | Confidence varies per item based on evidence/reasoning/content |
 | Document PDF export | `stub/partial` | Button exists, no implementation |
 | Dark/light theme | `done` | Header toggle, CSS variables |
 | AI Workflow blueprint | `done` | 14-agent detail cards |
@@ -55,13 +59,17 @@
 | Feature | Status | Notes |
 |---|---|---|
 | Project CRUD | `done` | |
-| 14-agent pipeline | `done` | Sequential execution |
+| 15-agent pipeline | `done` | Sequential execution |
 | LLM integration (Groq/OpenAI) | `done` | Configurable via env |
 | WebSocket events | `done` | Agent activity, knowledge, status |
 | Dashboard service | `done` | Aggregated snapshot |
 | Aggregate endpoints | `done` | Cross-project data |
 | Settings persistence | `done` | Pipeline defaults |
 | Health check | `done` | `/api/healthz` |
+| Pause workflow | `done` | `POST /:id/pause` — graceful pause after current stage |
+| Regenerate from agent | `done` | `POST /:id/regenerate/:agentKey` — re-run from specific stage |
+| Agent-specific knowledge query | `done` | `GET /:id/knowledge/by-agent/:agentKey` |
+| Dynamic confidence scoring | `done` | Based on evidence, reasoning, description quality |
 | Authentication | `not started` | No auth model |
 | Rate limiting | `not started` | |
 | API versioning | `not started` | No `/v1` prefix |
@@ -84,7 +92,8 @@
 | QA | `done` | |
 | Estimation | `done` | |
 | Critic (Validation) | `done` | |
-| Compiler | `done` | Assembles final doc |
+| Debate | `done` | Multi-agent debate on validation findings |
+| Compiler | `done` | Assembles final doc, now also produces COMPILED_DOCUMENT knowledge item |
 
 ## Backlog
 

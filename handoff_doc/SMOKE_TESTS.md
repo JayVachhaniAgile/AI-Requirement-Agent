@@ -90,6 +90,33 @@ curl http://localhost:3000/api/projects/PROJECT_ID/validation
 
 **Expected:** HTTP 200 with array of validation issues.
 
+## §8a Knowledge by Agent
+
+```bash
+# Get knowledge items for a specific agent (e.g., discovery)
+curl http://localhost:3000/api/projects/PROJECT_ID/knowledge/by-agent/discovery
+```
+
+**Expected:** HTTP 200 with array of knowledge items for that agent.
+
+## §8b Pause Workflow
+
+```bash
+# Only works while workflow is running
+curl -X POST http://localhost:3000/api/projects/PROJECT_ID/pause
+```
+
+**Expected:** HTTP 200, project status changes to `PAUSED`.
+
+## §8c Regenerate from Agent
+
+```bash
+# Re-run from a specific agent onwards (e.g., requirements-engineering)
+curl -X POST http://localhost:3000/api/projects/PROJECT_ID/regenerate/requirements-engineering
+```
+
+**Expected:** HTTP 200, project restarts from REQUIREMENTS_ENGINEERING stage.
+
 ## §9 Settings
 
 ```bash

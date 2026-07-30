@@ -65,6 +65,11 @@ File: `apps/backend/src/agents/agent.utils.ts`
 
 ## Agent Output Schemas
 
+### ExternalId Handling
+
+All agent Zod schemas now accept `externalId` as optional with `.optional().default("")`. This prevents pipeline crashes when the LLM omits an `externalId` for generated items. The backend generates fallback IDs where needed.
+
+
 All agents use `z.object()` from Zod for parsing. Agents output structured JSON conforming to their schema.
 
 ### Agent Result Type
@@ -97,7 +102,8 @@ interface AgentResult {
 | QA | `TEST_PLAN`, `TEST_SCENARIO`, `QUALITY_GATE` |
 | Estimation | `EFFORT_ESTIMATE`, `TIMELINE_PROJECTION` |
 | Critic | `VALIDATION_SCORES`, `CRITIC_SCORE`, `ISSUE` |
-| Compiler | (Assembles document from all knowledge items) |
+| Debate | `DEBATE_SUMMARY`, `AGENT_POSITION`, `RISKY_ASSUMPTION` |
+| Compiler | `COMPILED_DOCUMENT` (now also produces a knowledge item containing the executive summary) |
 
 ## Fallback Behavior
 

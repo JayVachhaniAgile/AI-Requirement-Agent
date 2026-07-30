@@ -119,8 +119,11 @@ All routes prefixed with `/api` (set in `main.ts`).
 | POST | `/:id/start` | Start/resume workflow |
 | POST | `/:id/recompile` | Recompile document |
 | POST | `/:id/cancel` | Cancel running workflow |
+| POST | `/:id/pause` | Pause running workflow (graceful, stage completes first) |
+| POST | `/:id/regenerate/:agentKey` | Re-run from a specific agent onwards |
 | GET | `/:id/progress` | Get workflow step progress |
 | GET | `/:id/knowledge` | Get all knowledge items |
+| GET | `/:id/knowledge/by-agent/:agentKey` | Get knowledge items for a specific agent |
 | GET | `/:id/requirements` | Get functional requirements |
 | GET | `/:id/assumptions` | Get assumptions |
 | GET | `/:id/questions` | Get clarification questions |
