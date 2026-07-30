@@ -69,6 +69,7 @@ export class RkbService {
     markdownContent: string,
     changeSummary?: string,
     triggerEvent?: string,
+    documentType: string = 'COMPILED_DOCUMENT',
   ): Promise<void> {
     // Determine next version number
     const latestVersion = await this.dvRepo.findOne({
@@ -100,15 +101,16 @@ export class RkbService {
     }));
 
     // Update or create current document
-    const existing = await this.docRepo.findOne({ where: { projectId } });
+    const existing = await this.docRepo.findOne({ where: { projectId, documentType } });
     if (existing) {
       await this.docRepo.update(existing.id, {
         markdownContent,
         status: 'FINAL',
+        documentType,
       });
     } else {
       await this.docRepo.save(this.docRepo.create({
-        id: randomUUID(), projectId, status: 'FINAL', markdownContent,
+        id: randomUUID(), projectId, status: 'FINAL', markdownContent, documentType,
       }));
     }
 

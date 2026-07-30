@@ -29,7 +29,7 @@ This project has specific architectural decisions, known pitfalls, and a careful
 
 ## Project Identity
 
-- **Name:** AI Requirements Engineering Platform
+- **Name:** Crystallize
 - **Stack:** NestJS backend (TypeORM + PostgreSQL), React + Vite frontend (Tailwind CSS + ShadCN/ui)
 - **Monorepo:** pnpm workspaces + Nx, `apps/backend/`, `apps/frontend/`, `lib/`
 - **Pipeline:** 15 sequential AI agents that produce a compiled requirements document

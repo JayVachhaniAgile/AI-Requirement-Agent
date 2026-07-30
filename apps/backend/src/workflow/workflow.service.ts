@@ -19,11 +19,16 @@ import { EstimationService } from '../agents/estimation.service';
 import { CriticService } from '../agents/critic.service';
 import { CompilerService } from '../agents/compiler.service';
 import { DebateService } from "../agents/debate.service";
+import { FrdService } from "../agents/frd.service";
+import { UserStoriesService } from "../agents/user-stories.service";
+import { TechArchService } from "../agents/tech-arch.service";
+import { DbDesignService } from "../agents/db-design.service";
+import { ApiSpecService } from "../agents/api-spec.service";
 import { WorkflowEventsService } from '../realtime/workflow-events.service';
 import { DashboardService } from '../realtime/dashboard.service';
 import type { AgentContext, AgentResult } from '../agents/types';
 
-/** Full PRD pipeline order (15 agents). */
+/** Full PRD pipeline order (20 agents, 15 original + 5 document generators). */
 const STAGES = [
   { key: 'DISCOVERY', projectStatus: 'DISCOVERING' },
   { key: 'RESEARCH', projectStatus: 'RESEARCHING' },
@@ -40,6 +45,11 @@ const STAGES = [
   { key: 'VALIDATION', projectStatus: 'VALIDATING' },
   { key: 'DEBATE', projectStatus: 'VALIDATING' },
   { key: 'COMPILATION', projectStatus: 'COMPILING' },
+  { key: 'FRD_GENERATION', projectStatus: 'COMPILING' },
+  { key: 'USER_STORIES_GENERATION', projectStatus: 'COMPILING' },
+  { key: 'TECH_ARCH_GENERATION', projectStatus: 'COMPILING' },
+  { key: 'DB_DESIGN_GENERATION', projectStatus: 'COMPILING' },
+  { key: 'API_SPEC_GENERATION', projectStatus: 'COMPILING' },
 ] as const;
 
 type StageKey = (typeof STAGES)[number]['key'];
@@ -67,6 +77,11 @@ export class WorkflowService {
     private readonly critic: CriticService,
     private readonly compiler: CompilerService,
     private readonly debate: DebateService,
+    private readonly frd: FrdService,
+    private readonly userStories: UserStoriesService,
+    private readonly techArch: TechArchService,
+    private readonly dbDesign: DbDesignService,
+    private readonly apiSpec: ApiSpecService,
     private readonly events: WorkflowEventsService,
     private readonly dashboard: DashboardService,
   ) {}
@@ -88,6 +103,11 @@ export class WorkflowService {
       VALIDATION: (ctx) => this.critic.run(ctx),
       DEBATE: (ctx) => this.debate.run(ctx),
       COMPILATION: (ctx) => this.compiler.run(ctx),
+      FRD_GENERATION: (ctx) => this.frd.run(ctx),
+      USER_STORIES_GENERATION: (ctx) => this.userStories.run(ctx),
+      TECH_ARCH_GENERATION: (ctx) => this.techArch.run(ctx),
+      DB_DESIGN_GENERATION: (ctx) => this.dbDesign.run(ctx),
+      API_SPEC_GENERATION: (ctx) => this.apiSpec.run(ctx),
     };
   }
 
@@ -278,7 +298,16 @@ export class WorkflowService {
             await this.rkb.saveValidationIssues(projectId, result.validationIssues, agentKey);
           }
           if (result.documentContent) {
-            await this.rkb.saveDocument(projectId, result.documentContent, `Stage ${stage.key} completed with knowledge items`, stage.key);
+            const docTypeMap: Record<string, string> = {
+              COMPILATION: 'COMPILED_DOCUMENT',
+              FRD_GENERATION: 'FRD_DOCUMENT',
+              USER_STORIES_GENERATION: 'USER_STORIES_DOCUMENT',
+              TECH_ARCH_GENERATION: 'TECH_ARCH_DOCUMENT',
+              DB_DESIGN_GENERATION: 'DB_DESIGN_DOCUMENT',
+              API_SPEC_GENERATION: 'API_SPEC_DOCUMENT',
+            };
+            const docType = docTypeMap[stage.key] ?? 'COMPILED_DOCUMENT';
+            await this.rkb.saveDocument(projectId, result.documentContent, `Stage ${stage.key} completed with knowledge items`, stage.key, docType);
           }
 
           const tokens = result._tokens ?? { inputTokens: 0, outputTokens: 0, model: 'unknown' };
@@ -366,9 +395,18 @@ export class WorkflowService {
     }
   }
 
+  // Mapping for agent keys that don't follow the standard stage naming convention
+  private readonly AGENT_TO_STAGE: Record<string, StageKey> = {
+    frd: 'FRD_GENERATION',
+    'user-stories': 'USER_STORIES_GENERATION',
+    'tech-arch': 'TECH_ARCH_GENERATION',
+    'db-design': 'DB_DESIGN_GENERATION',
+    'api-spec': 'API_SPEC_GENERATION',
+  };
+
   async regenerateFromAgent(projectId: string, agentKey: string): Promise<string> {
-    // Convert agentKey to stage key (e.g., "requirements-engineering" -> "REQUIREMENTS_ENGINEERING")
-    const targetStage = agentKey.toUpperCase().replace(/-/g, '_') as StageKey;
+    // Try explicit mapping first, then fall back to conversion
+    const targetStage = this.AGENT_TO_STAGE[agentKey] ?? (agentKey.toUpperCase().replace(/-/g, '_') as StageKey);
     const stageIndex = STAGES.findIndex((s) => s.key === targetStage);
     if (stageIndex === -1) {
       throw new Error(`Unknown agent: ${agentKey}`);

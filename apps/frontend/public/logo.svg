@@ -1,0 +1,27 @@
+<svg width="320" height="72" viewBox="0 0 320 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="drop" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#26D9FF"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#21D4FD"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Icon -->
+  <g transform="translate(6,6)">
+    <!-- Outer Ring -->
+    <path d="M30 2 C12 2 2 18 2 30 C2 47 15 58 30 58 C46 58 58 46 58 30 C58 23 56 16 51 10" stroke="url(#ring)" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <!-- Drop -->
+    <path d="M30 10 C24 18 18 26 18 36 C18 46 24 54 30 54 C36 54 42 46 42 36 C42 26 36 18 30 10Z" fill="url(#drop)"/>
+    <!-- ECG -->
+    <path d="M16 36 H23 L27 33 L31 46 L35 22 L39 36 H46" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <!-- Sparkle -->
+    <path d="M49 12 L51 17 L56 19 L51 21 L49 26 L47 21 L42 19 L47 17Z" fill="#22D3EE"/>
+  </g>
+
+  <!-- Text -->
+  <text x="82" y="44" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="32" font-weight="700" fill="#F8FAFC">Crystallize</text>
+</svg>

@@ -61,7 +61,7 @@ export function ProjectKpiBar({ dashboard }: { dashboard: ProjectDashboard | und
           <div className="min-w-0 flex-1">
             <p className="text-xs font-semibold text-foreground/90">Pipeline completion</p>
             <p className="mt-0.5 text-xs text-muted-foreground/70">
-              {d?.completedAgents ?? 0} / {d?.totalAgents ?? 15} agents
+              {d?.completedAgents ?? 0} / {d?.totalAgents ?? 20} agents
             </p>
           </div>
         </div>
@@ -75,7 +75,7 @@ export function ProjectKpiBar({ dashboard }: { dashboard: ProjectDashboard | und
           <p className="text-xl font-bold text-foreground leading-tight">
             {d?.completedAgents ?? 0}
             <span className="text-sm font-medium text-muted-foreground">
-              {" / "}{d?.totalAgents ?? 15}
+              {" / "}{d?.totalAgents ?? 20}
             </span>
           </p>
           <Progress value={agentPct} className="h-1.5" />

@@ -1,49 +1,54 @@
 # CONTEXT.md — Full Technical Context
 
-> Detailed technical context for the AI Requirements Engineering Platform.
+> Detailed technical context for the Crystallize platform
 
 ## 1. Architecture Overview
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                      Frontend (React + Vite)                        │
-│  ┌───────────────┐  ┌───────────────┐  ┌─────────────────────────┐ │
-│  │  Dashboard     │  │ Project       │  │  Hub Pages              │ │
-│  │  (all projects)│  │ Workspace     │  │  (workflow, validation, │ │
-│  │               │  │ (per-project) │  │   documents, analytics) │ │
-│  └───────┬───────┘  └───────┬───────┘  └───────────┬─────────────┘ │
-│          │                  │                      │                 │
-│          └──────────────────┼──────────────────────┘                 │
-│                             │                                        │
-│                ┌────────────┴────────────┐                          │
-│                │   API Client (React Query)│                          │
-│                │   + WebSocket (socket.io)│                          │
-│                └────────────┬────────────┘                          │
-└─────────────────────────────┼───────────────────────────────────────┘
-                              │  HTTP + WS
-┌─────────────────────────────┼───────────────────────────────────────┐
-│                      Backend (NestJS)                               │
-│  ┌─────────────────────────────────────────────────────────────────┐│
-│  │  ProjectsController        SettingsController                  ││
-│  │  AggregateController       HealthController                    ││
-│  │  ProjectsGateway (WS)                                            ││
-│  └──────────┬───────────────────────────────────┬─────────────────┘│
-│             │                                   │                   │
-│  ┌──────────┴──────────┐           ┌────────────┴───────────────┐  │
-│  │  ProjectsService    │           │  WorkflowService            │  │
-│  │  DashboardService   │           │  (14-agent pipeline)        │  │
-│  │  SettingsService    │           │                             │  │
-│  └──────────┬──────────┘           └────────────┬───────────────┘  │
-│             │                                   │                   │
-│             └───────────────┬───────────────────┘                   │
-│                             │                                       │
-│  ┌──────────────────────────┴─────────────────────────────────────┐ │
-│  │               TypeORM (PostgreSQL)                             │ │
-│  │  projects | knowledge_items | workflow_steps |                 │ │
-│  │  agent_executions | clarification_questions |                  │ │
-│  │  validation_issues | documents | settings                      │ │
-│  └────────────────────────────────────────────────────────────────┘ │
-└─────────────────────────────────────────────────────────────────────┘
+
+```mermaid
+graph TB
+    subgraph Frontend["Frontend (React + Vite)"]
+        direction TB
+        Dashboard["Dashboard<br/>(all projects)"]
+        Workspace["Project Workspace<br/>(per-project)"]
+        Hub["Hub Pages<br/>(workflow, validation,<br/>documents, analytics)"]
+        
+        subgraph APIClient["API Client"]
+            ReactQuery["React Query"]
+            WebSocket["WebSocket (socket.io)"]
+        end
+        
+        Dashboard --> APIClient
+        Workspace --> APIClient
+        Hub --> APIClient
+    end
+
+    subgraph Backend["Backend (NestJS)"]
+        direction TB
+        subgraph Controllers["Controllers"]
+            ProjectsCtrl["ProjectsController"]
+            SettingsCtrl["SettingsController"]
+            AggregateCtrl["AggregateController"]
+            HealthCtrl["HealthController"]
+            WS["ProjectsGateway (WS)"]
+        end
+        
+        subgraph Services["Services"]
+            ProjectsSvc["ProjectsService"]
+            DashboardSvc["DashboardService"]
+            SettingsSvc["SettingsService"]
+            WorkflowSvc["WorkflowService<br/>(14-agent pipeline)"]
+        end
+        
+        subgraph DB["TypeORM (PostgreSQL)"]
+            DBTables["projects | knowledge_items | workflow_steps<br/>agent_executions | clarification_questions<br/>validation_issues | documents | settings"]
+        end
+        
+        Controllers --> Services
+        Services --> DB
+    end
+    
+    APIClient -- "HTTP + WS" --> Backend
 ```
 
 ## 2. Directory Structure
@@ -131,6 +136,8 @@ All routes prefixed with `/api` (set in `main.ts`).
 | GET | `/:id/executions` | Get agent executions |
 | GET | `/:id/validation` | Get validation issues |
 | GET | `/:id/document` | Get compiled document |
+| GET | `/:id/documents` | List all documents by type |
+| GET | `/:id/documents/:documentType` | Get document by type (e.g., FRD_DOCUMENT, USER_STORIES_DOCUMENT) |
 | GET | `/:id/stats` | Get project stats |
 | GET | `/:id/dashboard` | Get full dashboard snapshot |
 

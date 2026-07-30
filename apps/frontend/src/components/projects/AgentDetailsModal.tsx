@@ -80,6 +80,11 @@ const TYPE_ICONS: Record<string, LucideIcon> = {
   DEBATE_SUMMARY: MessageSquare,
   AGENT_POSITION: Users,
   COMPILED_DOCUMENT: FileText,
+  FRD_DOCUMENT: FileText,
+  USER_STORIES_DOCUMENT: Users,
+  TECH_ARCH_DOCUMENT: Database,
+  DB_DESIGN_DOCUMENT: Database,
+  API_SPEC_DOCUMENT: Code2,
 };
 
 const TYPE_COLORS: Record<string, string> = {

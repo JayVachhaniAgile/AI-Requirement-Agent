@@ -23,6 +23,9 @@ export class Document {
   @Column({ type: 'text', nullable: true })
   validationScore: string | null;
 
+  @Column({ type: 'varchar', length: 50, default: 'COMPILED_DOCUMENT' })
+  documentType: string;
+
   @CreateDateColumn()
   createdAt: Date;
 

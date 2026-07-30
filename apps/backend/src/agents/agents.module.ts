@@ -17,6 +17,11 @@ import { CriticService } from './critic.service';
 import { CompilerService } from './compiler.service';
 import { DebateService } from './debate.service';
 import { DomainService } from './domain.service';
+import { FrdService } from './frd.service';
+import { UserStoriesService } from './user-stories.service';
+import { TechArchService } from './tech-arch.service';
+import { DbDesignService } from './db-design.service';
+import { ApiSpecService } from './api-spec.service';
 
 @Module({
   imports: [LlmModule, RkbModule],
@@ -37,6 +42,11 @@ import { DomainService } from './domain.service';
     CompilerService,
     DebateService,
     DomainService,
+    FrdService,
+    UserStoriesService,
+    TechArchService,
+    DbDesignService,
+    ApiSpecService,
   ],
   exports: [
     DiscoveryService,
@@ -55,6 +65,11 @@ import { DomainService } from './domain.service';
     CompilerService,
     DebateService,
     DomainService,
+    FrdService,
+    UserStoriesService,
+    TechArchService,
+    DbDesignService,
+    ApiSpecService,
   ],
 })
 export class AgentsModule {}

@@ -16,7 +16,7 @@ import {
   STAGE_TO_AGENT,
 } from './agent-phases';
 
-const TOTAL_STAGES = 15;
+const TOTAL_STAGES = 20;
 
 @Injectable()
 export class DashboardService {

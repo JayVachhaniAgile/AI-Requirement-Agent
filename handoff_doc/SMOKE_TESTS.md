@@ -82,6 +82,22 @@ curl http://localhost:3000/api/projects/PROJECT_ID/document
 
 **Expected:** HTTP 200 with document object containing `markdownContent`.
 
+## §7b Multi-Document Retrieval
+
+```bash
+# List all documents by type
+curl http://localhost:3000/api/projects/PROJECT_ID/documents
+
+# Get specific document type
+curl http://localhost:3000/api/projects/PROJECT_ID/documents/FRD_DOCUMENT
+curl http://localhost:3000/api/projects/PROJECT_ID/documents/USER_STORIES_DOCUMENT
+curl http://localhost:3000/api/projects/PROJECT_ID/documents/TECH_ARCH_DOCUMENT
+curl http://localhost:3000/api/projects/PROJECT_ID/documents/DB_DESIGN_DOCUMENT
+curl http://localhost:3000/api/projects/PROJECT_ID/documents/API_SPEC_DOCUMENT
+```
+
+**Expected:** HTTP 200 with document objects, each containing `markdownContent` and `documentType`.
+
 ## §8 Validation Issues
 
 ```bash

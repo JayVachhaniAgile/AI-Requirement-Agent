@@ -4,42 +4,66 @@
 
 ## Pipeline Stages
 
-```
-┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐
-│ 1. DISCOVERY │──▶│ 2. RESEARCH │──▶│ 3. BUSINESS │──▶│ 4. PRODUCT │
-│            │    │            │    │ _ANALYSIS  │    │ _ANALYSIS  │
-└──────────┘    └──────────┘    └──────────┘    └──────────┘
-                                                            │
-┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┘
-│ 14. COMPIL- │◀──│ 13. VALIDA- │◀──│ 12. ESTIMA- │◀──│ 5. REQUIRE- │
-│ ATION      │    │ TION       │    │ TION       │    │ MENTS_ENG   │
-└──────────┘    └──────────┘    └──────────┘    └──────────┘
-                                                              │
-┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐
-│ 11. QA_    │◀──│ 10. SECURITY│◀──│ 9. SOLUTION│◀──│ 6. UX_     │
-│ PLANNING   │    │ _REVIEW    │    │ _ARCH      │    │ DESIGN     │
-└──────────┘    └──────────┘    └──────────┘    └──────────┘
-                                                          │
-┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┘
-│            │    │ 8. AI_     │◀──│ 7. DATA_   │◀──│            │
-│            │    │ ARCH       │    │ ARCHITECT  │    │            │
-└──────────┘    └──────────┘    └──────────┘    └──────────┘
+```mermaid
+graph LR
+    A["1. DISCOVERY"] --> B["2. RESEARCH"]
+    B --> C["3. BUSINESS_ANALYSIS"]
+    C --> D["4. PRODUCT_ANALYSIS"]
+    D --> E["5. REQUIREMENTS_ENGINEERING"]
+    E --> F["6. UX_DESIGN"]
+    F --> G["7. DATA_ARCHITECTURE"]
+    G --> H["8. AI_ARCHITECTURE"]
+    H --> I["9. SOLUTION_ARCHITECTURE"]
+    I --> J["10. SECURITY_REVIEW"]
+    J --> K["11. QA_PLANNING"]
+    K --> L["12. ESTIMATION"]
+    L --> M["13. VALIDATION"]
+    M --> N["14. COMPILATION"]
+    
+    style A fill:#3b82f6
+    style B fill:#06b6d4
+    style C fill:#10b981
+    style D fill:#f59e0b
+    style E fill:#14b8a2
+    style F fill:#8b5cf6
+    style G fill:#6366f1
+    style H fill:#06b6d4
+    style I fill:#f59e0b
+    style J fill:#ef4444
+    style K fill:#10b981
+    style L fill:#eab308
+    style M fill:#8b5cf6
+    style N fill:#6366f1
 ```
 
-**Total stages:** 15 (DEBATE added)
+**Total stages:** 20 (5 new document generators added)
 
 ## State Machine
 
-```
-Project Status Flow:
-  CREATED → DISCOVERING → RESEARCHING → ANALYSING → GENERATING_REQUIREMENTS
-         → DESIGNING → ARCHITECTING → SECURITY_REVIEW → QA_ANALYSIS
-         → ESTIMATING → VALIDATING → COMPILING → COMPLETED
-
-  Any state → FAILED (on error)
-  Any running state → CANCELLED (on user cancel)
-  Any running state → PAUSED (on user pause)
-  CREATED | FAILED | PAUSED → (restart / resume)
+```mermaid
+stateDiagram-v2
+    [*] --> CREATED
+    CREATED --> DISCOVERING
+    DISCOVERING --> RESEARCHING
+    RESEARCHING --> ANALYSING
+    ANALYSING --> GENERATING_REQUIREMENTS
+    GENERATING_REQUIREMENTS --> DESIGNING
+    DESIGNING --> ARCHITECTING
+    ARCHITECTING --> SECURITY_REVIEW
+    SECURITY_REVIEW --> QA_ANALYSIS
+    QA_ANALYSIS --> ESTIMATING
+    ESTIMATING --> VALIDATING
+    VALIDATING --> COMPILING
+    COMPILING --> COMPLETED
+    
+    state "Any state" as ANY
+    ANY --> FAILED: on error
+    ANY --> CANCELLED: on user cancel
+    ANY --> PAUSED: on user pause
+    
+    CREATED --> CREATED: restart
+    FAILED --> CREATED: restart
+    PAUSED --> CREATED: resume
 ```
 
 ### Workflow Step Status
@@ -71,6 +95,11 @@ Project Status Flow:
 | VALIDATION | `CriticService` | `validation` | Quality review |
 | DEBATE | `DebateService` | `debate` | Multi-agent debate on validation findings |
 | COMPILATION | `CompilerService` | `compilation` | Final document assembly |
+| FRD_GENERATION | `FrdService` | `frd` | Functional Requirements Document |
+| USER_STORIES_GENERATION | `UserStoriesService` | `user-stories` | User Stories & Acceptance Criteria |
+| TECH_ARCH_GENERATION | `TechArchService` | `tech-arch` | Technical Architecture (HLD) |
+| DB_DESIGN_GENERATION | `DbDesignService` | `db-design` | Database Design & Schema |
+| API_SPEC_GENERATION | `ApiSpecService` | `api-spec` | OpenAPI/Swagger Specification |
 
 ## Execution Flow
 

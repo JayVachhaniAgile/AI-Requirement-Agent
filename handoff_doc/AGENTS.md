@@ -6,7 +6,7 @@
 
 | Field | Value |
 |---|---|
-| Name | AI Requirements Engineering Platform (Req Platform) |
+| Name | Crystallize |
 | Description | Multi-agent AI system that ingests a software idea and produces a complete requirements document via a 14-agent sequential pipeline |
 | Handoff root | `handoff_doc/` |
 | Repo structure | Monorepo — Nx workspace with pnpm |

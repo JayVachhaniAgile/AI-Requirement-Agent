@@ -180,6 +180,19 @@ export class ProjectsController {
     return this.projectsService.getDocument(id);
   }
 
+  @Get(':id/documents')
+  getDocumentsByType(@Param('id', ParseUUIDPipe) id: string) {
+    return this.projectsService.getDocumentsByType(id);
+  }
+
+  @Get(':id/documents/:documentType')
+  getDocumentByType(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Param('documentType') documentType: string,
+  ) {
+    return this.projectsService.getDocumentByType(id, documentType);
+  }
+
   @Get(':id/stats')
   getStats(@Param('id', ParseUUIDPipe) id: string) {
     return this.projectsService.getStats(id);

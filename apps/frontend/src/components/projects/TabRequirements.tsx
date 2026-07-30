@@ -163,11 +163,7 @@ export function TabRequirements({ projectId, dashboard }: { projectId: string; d
                     <SourceIcon className="h-3 w-3" />
                     {SOURCE_LABELS[sourceCat] || sourceCat}
                   </span>
-                  {confidence !== null && (
-                    <span className={`text-xs font-medium ${confidence >= 70 ? "text-success" : confidence >= 40 ? "text-warning" : "text-destructive"}`}>
-                      {confidence}% confident
-                    </span>
-                  )}
+
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
                   <Badge variant={isRegenerating === req.id ? "default" : STATUS_COLORS[req.status] || "default"}>{isRegenerating === req.id ? "Regenerating" : req.status}</Badge>

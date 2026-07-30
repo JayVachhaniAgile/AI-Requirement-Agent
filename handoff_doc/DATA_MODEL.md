@@ -4,14 +4,15 @@
 
 ## Entity Relationship Overview
 
-```
-projects (1) ──────< (N) workflow_steps
-projects (1) ──────< (N) knowledge_items
-projects (1) ──────< (N) agent_executions
-projects (1) ──────< (N) clarification_questions
-projects (1) ──────< (N) validation_issues
-projects (1) ──────── (1) documents
-projects (N) ──────> (N) settings (key-value)
+```mermaid
+erDiagram
+    projects ||--o{ workflow_steps : ""
+    projects ||--o{ knowledge_items : ""
+    projects ||--o{ agent_executions : ""
+    projects ||--o{ clarification_questions : ""
+    projects ||--o{ validation_issues : ""
+    projects ||--|| documents : ""
+    projects }o--}o{ settings : ""
 ```
 
 ## Tables

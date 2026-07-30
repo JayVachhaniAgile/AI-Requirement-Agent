@@ -25,7 +25,7 @@ import { LlmService } from '../llm/llm.service';
 import { CreateProjectDto } from './dto/create-project.dto';
 import { AnswerQuestionDto } from './dto/answer-question.dto';
 
-const RESTARTABLE_STATUSES = ['CREATED', 'FAILED', 'WAITING_FOR_USER', 'PAUSED'];
+const RESTARTABLE_STATUSES = ['CREATED', 'FAILED', 'WAITING_FOR_USER', 'PAUSED', 'COMPLETED'];
 
 @Injectable()
 export class ProjectsService {
@@ -296,8 +296,18 @@ export class ProjectsService {
   }
 
   async getDocument(id: string): Promise<Document> {
-    const doc = await this.documentRepo.findOne({ where: { projectId: id } });
+    const doc = await this.documentRepo.findOne({ where: { projectId: id }, order: { updatedAt: 'DESC' } });
     if (!doc) throw new NotFoundException('Document not yet generated');
+    return doc;
+  }
+
+  async getDocumentsByType(id: string): Promise<Document[]> {
+    return this.documentRepo.find({ where: { projectId: id }, order: { documentType: 'ASC', updatedAt: 'DESC' } });
+  }
+
+  async getDocumentByType(id: string, documentType: string): Promise<Document> {
+    const doc = await this.documentRepo.findOne({ where: { projectId: id, documentType } });
+    if (!doc) throw new NotFoundException(`Document of type '${documentType}' not found`);
     return doc;
   }
 

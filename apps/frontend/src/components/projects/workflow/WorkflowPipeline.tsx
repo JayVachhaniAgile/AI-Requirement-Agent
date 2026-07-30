@@ -26,6 +26,11 @@ const AGENT_ICONS: Record<string, string> = {
   validation: "/agentBackgrounds/ValidationAgent.png",
   compilation: "/agentBackgrounds/CompilationAgent.png",
   debate: "/agentBackgrounds/ValidationAgent.png",
+  frd: "/agentBackgrounds/FRD.png",
+  "user-stories": "/agentBackgrounds/UserStrories.png",
+  "tech-arch": "/agentBackgrounds/TechArchitect.png",
+  "db-design": "/agentBackgrounds/DatabaseDesign.png",
+  "api-spec": "/agentBackgrounds/APISpecification.png",
 };
 
 const AGENT_GRADIENTS: Record<string, string> = {
@@ -44,6 +49,11 @@ const AGENT_GRADIENTS: Record<string, string> = {
   validation: "bg-gradient-to-br from-violet-500 to-purple-700",
   compilation: "bg-gradient-to-br from-primary to-primary/80",
   debate: "bg-gradient-to-br from-orange-500 to-red-600",
+  frd: "bg-gradient-to-br from-blue-500 to-indigo-600",
+  "user-stories": "bg-gradient-to-br from-emerald-400 to-teal-600",
+  "tech-arch": "bg-gradient-to-br from-purple-400 to-violet-600",
+  "db-design": "bg-gradient-to-br from-pink-400 to-rose-600",
+  "api-spec": "bg-gradient-to-br from-cyan-400 to-sky-600",
 };
 
 const AGENTS: Array<{ id: string; stage: string; label: string; agentKey: string }> = [
@@ -62,6 +72,11 @@ const AGENTS: Array<{ id: string; stage: string; label: string; agentKey: string
   { id: "critic", stage: "VALIDATION", label: "Critic Agent", agentKey: "validation" },
   { id: "debate", stage: "DEBATE", label: "Debate Agent", agentKey: "debate" },
   { id: "compiler", stage: "COMPILATION", label: "Compiler Agent", agentKey: "compilation" },
+  { id: "frd", stage: "FRD_GENERATION", label: "FRD Generator", agentKey: "frd" },
+  { id: "user-stories", stage: "USER_STORIES_GENERATION", label: "User Stories Generator", agentKey: "user-stories" },
+  { id: "tech-arch", stage: "TECH_ARCH_GENERATION", label: "Tech Architecture Generator", agentKey: "tech-arch" },
+  { id: "db-design", stage: "DB_DESIGN_GENERATION", label: "Database Design Generator", agentKey: "db-design" },
+  { id: "api-spec", stage: "API_SPEC_GENERATION", label: "API Specification Generator", agentKey: "api-spec" },
 ];
 
 const COLS = 4;

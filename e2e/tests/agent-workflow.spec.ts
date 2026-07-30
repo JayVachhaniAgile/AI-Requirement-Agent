@@ -1,11 +1,11 @@
 import { test, expect } from "@playwright/test";
 
-test.describe("AI Requirements Agent System", () => {
+test.describe("Crystallize Agent System", () => {
   
   test("1. App loads and redirects to dashboard", async ({ page }) => {
     await page.goto("/", { waitUntil: "networkidle", timeout: 15000 });
     await expect(page).toHaveURL(/\/dashboard/, { timeout: 8000 });
-    await expect(page.locator("text=REQ PLATFORM")).toBeVisible({ timeout: 5000 });
+    await expect(page.locator("text=Crystallize")).toBeVisible({ timeout: 5000 });
   });
 
   test("2. Dashboard shows project list or create prompt", async ({ page }) => {
@@ -98,7 +98,7 @@ test.describe("AI Requirements Agent System", () => {
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto("/dashboard", { waitUntil: "networkidle", timeout: 15000 });
     // Should still render properly
-    await expect(page.locator("text=REQ PLATFORM")).toBeVisible({ timeout: 5000 });
+    await expect(page.locator("text=Crystallize")).toBeVisible({ timeout: 5000 });
     await page.setViewportSize({ width: 1440, height: 900 });
   });
 

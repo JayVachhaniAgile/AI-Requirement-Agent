@@ -104,6 +104,11 @@ interface AgentResult {
 | Critic | `VALIDATION_SCORES`, `CRITIC_SCORE`, `ISSUE` |
 | Debate | `DEBATE_SUMMARY`, `AGENT_POSITION`, `RISKY_ASSUMPTION` |
 | Compiler | `COMPILED_DOCUMENT` (now also produces a knowledge item containing the executive summary) |
+| FRD Generator | `FRD_DOCUMENT` — Functional Requirements Document (grouped by module/feature, numbered FR-xxx) |
+| User Stories Generator | `USER_STORIES_DOCUMENT` — Stories in As a/I want/So that format with Given/When/Then AC |
+| Tech Architecture Generator | `TECH_ARCH_DOCUMENT` — HLD with system architecture, tech stack, data flow |
+| Database Design Generator | `DB_DESIGN_DOCUMENT` — ER diagrams, SQL schema, indexes, migration strategy |
+| API Spec Generator | `API_SPEC_DOCUMENT` — OpenAPI 3.0 style endpoints, schemas, auth, error handling |
 
 ## Fallback Behavior
 
