@@ -131,12 +131,19 @@ export function ProjectKpiBar({ dashboard }: { dashboard: ProjectDashboard | und
       key: "confidence",
       title: "AI Confidence",
       body: (
-        <div className="flex flex-col justify-center gap-1">
-          <p className="text-xl font-bold text-foreground leading-tight">{d?.aiConfidence ?? 0}%</p>
-          <p className={cn("text-xs font-semibold", confidence.className)}>
-            <Sparkles className="mr-1 inline h-3 w-3" />
-            {confidence.text}
-          </p>
+        <div className="flex items-center gap-3">
+          <div className="flex h-[72px] w-[72px] shrink-0 items-center justify-center">
+            <Ring value={d?.aiConfidence ?? 0} />
+            <span className="absolute text-sm font-bold text-foreground">
+              {d?.aiConfidence ?? 0}%
+            </span>
+          </div>
+          <div className="min-w-0 flex-1">
+            <p className={cn("text-xs font-semibold", confidence.className)}>
+              <Sparkles className="mr-1 inline h-3 w-3" />
+              {confidence.text}
+            </p>
+          </div>
         </div>
       ),
     },

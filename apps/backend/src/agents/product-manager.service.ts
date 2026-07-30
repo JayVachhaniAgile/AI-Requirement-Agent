@@ -7,10 +7,10 @@ import { safeJsonParse } from './agent.utils';
 const Schema = z.object({
   productVision: z.string(),
   valueProposition: z.string(),
-  personas: z.array(z.object({ externalId: z.string(), title: z.string(), description: z.string() })),
-  modules: z.array(z.object({ externalId: z.string(), title: z.string(), description: z.string() })),
+  personas: z.array(z.object({ externalId: z.string().optional().default(""), title: z.string(), description: z.string() })),
+  modules: z.array(z.object({ externalId: z.string().optional().default(""), title: z.string(), description: z.string() })),
   features: z.array(z.object({
-    externalId: z.string(), title: z.string(), description: z.string(),
+    externalId: z.string().optional().default(""), title: z.string(), description: z.string(),
     priority: z.enum(['MUST_HAVE', 'SHOULD_HAVE', 'COULD_HAVE', 'FUTURE']),
     module: z.string(), relatedBR: z.string().nullish(),
   })),

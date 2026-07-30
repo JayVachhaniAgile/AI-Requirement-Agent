@@ -1557,6 +1557,15 @@
         "hash": "sha512-ySSq7Py/DFozzZdNDH67m/vHoeVdphDniWBnl6q5QVoXldDdrZIHLXLRMPayTDh5A95nt7jjJzmD4qpTbNQ6tA=="
       }
     },
+    "npm:@nestjs/platform-socket.io": {
+      "type": "npm",
+      "name": "npm:@nestjs/platform-socket.io",
+      "data": {
+        "version": "10.4.22",
+        "packageName": "@nestjs/platform-socket.io",
+        "hash": "sha512-xxGw3R0Ihr51/Omq23z3//bKmCXyVKaikxbH0/pkwqMsQrxkUv9NabNUZ22b4Jnlwwi02X+zlwo8GRa9u8oV9g=="
+      }
+    },
     "npm:@nestjs/schematics": {
       "type": "npm",
       "name": "npm:@nestjs/schematics",
@@ -1573,6 +1582,15 @@
         "version": "10.0.2",
         "packageName": "@nestjs/typeorm",
         "hash": "sha512-H738bJyydK4SQkRCTeh1aFBxoO1E9xdL/HaLGThwrqN95os5mEyAtK7BLADOS+vldP4jDZ2VQPLj4epWwRqCeQ=="
+      }
+    },
+    "npm:@nestjs/websockets": {
+      "type": "npm",
+      "name": "npm:@nestjs/websockets",
+      "data": {
+        "version": "10.4.22",
+        "packageName": "@nestjs/websockets",
+        "hash": "sha512-OLd4i0Faq7vgdtB5vVUrJ54hWEtcXy9poJ6n7kbbh/5ms+KffUl+wwGsbe7uSXLrkoyI8xXU6fZPkFArI+XiRg=="
       }
     },
     "npm:@nodelib/fs.scandir": {
@@ -1825,6 +1843,15 @@
         "version": "0.11.0",
         "packageName": "@pkgjs/parseargs",
         "hash": "sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg=="
+      }
+    },
+    "npm:@playwright/test": {
+      "type": "npm",
+      "name": "npm:@playwright/test",
+      "data": {
+        "version": "1.62.0",
+        "packageName": "@playwright/test",
+        "hash": "sha512-9zOJ6ZQRAena31MpOH9VSzIz8Ou3YJ/wtY/eQm5T2uhfhG7/U3COrMS8xOtUrZrp9OgdmzEnIYODye3nY1VqzA=="
       }
     },
     "npm:@radix-ui/number": {
@@ -2718,6 +2745,15 @@
         "hash": "sha512-tlqY9xq5ukxTUZBmoOp+m61cqwQD5pHJtFY3Mn8CA8ps6yghLH/Hw8UPdqg4OLmFW3IFlcXnQNmo/dh8HzXYIQ=="
       }
     },
+    "npm:@socket.io/component-emitter": {
+      "type": "npm",
+      "name": "npm:@socket.io/component-emitter",
+      "data": {
+        "version": "3.1.2",
+        "packageName": "@socket.io/component-emitter",
+        "hash": "sha512-9BCxFwvbGg/RsZK9tjXd8s4UcwR0MWeFQ1XEKIQVVvAGJyINdrqKMcTRyLoK8Rse1GjzLV9cwjWV1olXRWEXVA=="
+      }
+    },
     "npm:@sqltools/formatter": {
       "type": "npm",
       "name": "npm:@sqltools/formatter",
@@ -3168,6 +3204,15 @@
         "hash": "sha512-iO90scth9WAbmgv7ogoq57O9YpKmFBbmoEoCHDB2xMBY0+/KVrqAaCDyCE16dUspeOvIxFFRI+0sEtqDqy2b4A=="
       }
     },
+    "npm:@types/d3-drag": {
+      "type": "npm",
+      "name": "npm:@types/d3-drag",
+      "data": {
+        "version": "3.0.7",
+        "packageName": "@types/d3-drag",
+        "hash": "sha512-HE3jVKlzU9AaMazNufooRJ5ZpWmLIoc90A37WU2JMmeq28w1FQqCZswHZ3xR+SuxYftzHq6WU6KJHvqxKzTxxQ=="
+      }
+    },
     "npm:@types/d3-ease": {
       "type": "npm",
       "name": "npm:@types/d3-ease",
@@ -3204,6 +3249,15 @@
         "hash": "sha512-dLmtwB8zkAeO/juAMfnV+sItKjlsw2lKdZVVy6LRr0cBmegxSABiLEpGVmSJJ8O08i4+sGR6qQtb6WtuwJdvVw=="
       }
     },
+    "npm:@types/d3-selection": {
+      "type": "npm",
+      "name": "npm:@types/d3-selection",
+      "data": {
+        "version": "3.0.11",
+        "packageName": "@types/d3-selection",
+        "hash": "sha512-bhAXu23DJWsrI45xafYpkQ4NtcKMwWnAC/vKrd2l+nxMFuvOT3XMYTIj2opv8vq8AO5Yh7Qac/nSeP/3zjTK0w=="
+      }
+    },
     "npm:@types/d3-shape": {
       "type": "npm",
       "name": "npm:@types/d3-shape",
@@ -3229,6 +3283,24 @@
         "version": "3.0.2",
         "packageName": "@types/d3-timer",
         "hash": "sha512-Ps3T8E8dZDam6fUyNiMkekK3XUsaUEik+idO9/YjPtfj2qruF8tFBXS7XhtE4iIXBLxhmLjP3SXpLhVf21I9Lw=="
+      }
+    },
+    "npm:@types/d3-transition": {
+      "type": "npm",
+      "name": "npm:@types/d3-transition",
+      "data": {
+        "version": "3.0.9",
+        "packageName": "@types/d3-transition",
+        "hash": "sha512-uZS5shfxzO3rGlu0cC3bjmMFKsXv+SmZZcgp0KD22ts4uGXp5EVYGzu/0YdwZeKmddhcAccYtREJKkPfXkZuCg=="
+      }
+    },
+    "npm:@types/d3-zoom": {
+      "type": "npm",
+      "name": "npm:@types/d3-zoom",
+      "data": {
+        "version": "3.0.8",
+        "packageName": "@types/d3-zoom",
+        "hash": "sha512-iqMC4/YlFCSlO8+2Ii1GGGliCAY4XdeG748w5vQUbevlbDu0zSjH/+jojorQVBK/se0j6DUFNPBGSqD3YWYnDw=="
       }
     },
     "npm:@types/debug": {
@@ -3463,6 +3535,15 @@
         "version": "13.15.10",
         "packageName": "@types/validator",
         "hash": "sha512-T8L6i7wCuyoK8A/ZeLYt1+q0ty3Zb9+qbSSvrIVitzT3YjZqkTZ40IbRsPanlB4h1QB3JVL1SYCdR6ngtFYcuA=="
+      }
+    },
+    "npm:@types/ws": {
+      "type": "npm",
+      "name": "npm:@types/ws",
+      "data": {
+        "version": "8.18.1",
+        "packageName": "@types/ws",
+        "hash": "sha512-ThVF6DCVhA8kUGy+aazFQ4kXQ7E1Ty7A3ypFOe0IcJV8O/M511G99AW24irKrW56Wt44yG9+ij8FaqoBGkuBXg=="
       }
     },
     "npm:@ungap/structured-clone": {
@@ -3724,6 +3805,24 @@
         "version": "4.2.2",
         "packageName": "@xtuc/long",
         "hash": "sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ=="
+      }
+    },
+    "npm:@xyflow/react": {
+      "type": "npm",
+      "name": "npm:@xyflow/react",
+      "data": {
+        "version": "12.11.2",
+        "packageName": "@xyflow/react",
+        "hash": "sha512-eLAlDWJfWnQEhJwGMjlWdAXO9eYllKpliUmPQlAmOLxz6mExXuzMVDUKLMquixgkrtmMFFtug3jGKmYYld12cA=="
+      }
+    },
+    "npm:@xyflow/system": {
+      "type": "npm",
+      "name": "npm:@xyflow/system",
+      "data": {
+        "version": "0.0.79",
+        "packageName": "@xyflow/system",
+        "hash": "sha512-czLyOh91NF0hIzbNzwi8I6GlqG23BHh2435OddfI6uiaLH3xdrdygO93gqgH1Bv9mhy8XPFQJOBn1FTq4LvEWA=="
       }
     },
     "npm:@yarnpkg/lockfile": {
@@ -4158,6 +4257,15 @@
         "hash": "sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA=="
       }
     },
+    "npm:base64id": {
+      "type": "npm",
+      "name": "npm:base64id",
+      "data": {
+        "version": "2.0.0",
+        "packageName": "base64id",
+        "hash": "sha512-lGe34o6EHj9y3Kts9R4ZYs/Gr+6N7MCaMlIFA3F1R2O5/m7K06AxfSeO5530PEERE6/WyEg3lsuyw4GHlPZHog=="
+      }
+    },
     "npm:baseline-browser-mapping": {
       "type": "npm",
       "name": "npm:baseline-browser-mapping",
@@ -4507,6 +4615,15 @@
         "version": "0.7.1",
         "packageName": "class-variance-authority",
         "hash": "sha512-Ka+9Trutv7G8M6WT6SeiRWz792K5qEqIGEGzXKhAE6xOWAY6pPH8U+9IY3oCMv6kqTmLsv7Xh/2w2RigkePMsg=="
+      }
+    },
+    "npm:classcat": {
+      "type": "npm",
+      "name": "npm:classcat",
+      "data": {
+        "version": "5.0.5",
+        "packageName": "classcat",
+        "hash": "sha512-JhZUT7JFcQy/EzW605k/ktHtncoo9vnyW/2GspNYwFlN1C/WmjuV/xtS04e9SOkL2sTdw0VAZ2UGCcQ9lR6p6w=="
       }
     },
     "npm:cli-cursor": {
@@ -4896,6 +5013,24 @@
         "hash": "sha512-zg/chbXyeBtMQ1LbD/WSoW2DpC3I0mpmPdW+ynRTj/x2DAWYrIY7qeZIHidozwV24m4iavr15lNwIwLxRmOxhA=="
       }
     },
+    "npm:d3-dispatch": {
+      "type": "npm",
+      "name": "npm:d3-dispatch",
+      "data": {
+        "version": "3.0.1",
+        "packageName": "d3-dispatch",
+        "hash": "sha512-rzUyPU/S7rwUflMyLc1ETDeBj0NRuHKKAcvukozwhshr6g6c5d8zh4c2gQjY2bZ0dXeGLWc1PF174P2tVvKhfg=="
+      }
+    },
+    "npm:d3-drag": {
+      "type": "npm",
+      "name": "npm:d3-drag",
+      "data": {
+        "version": "3.0.0",
+        "packageName": "d3-drag",
+        "hash": "sha512-pWbUJLdETVA8lQNJecMxoXfH6x+mO2UQo8rSmZ+QqxcbyA3hfeprFgIT//HW2nlHChWeIIMwS2Fq+gEARkhTkg=="
+      }
+    },
     "npm:d3-ease": {
       "type": "npm",
       "name": "npm:d3-ease",
@@ -4941,6 +5076,15 @@
         "hash": "sha512-GZW464g1SH7ag3Y7hXjf8RoUuAFIqklOAq3MRl4OaWabTFJY9PN/E1YklhXLh+OQ3fM9yS2nOkCoS+WLZ6kvxQ=="
       }
     },
+    "npm:d3-selection": {
+      "type": "npm",
+      "name": "npm:d3-selection",
+      "data": {
+        "version": "3.0.0",
+        "packageName": "d3-selection",
+        "hash": "sha512-fmTRWbNMmsmWq6xJV8D19U/gw/bwrHfNXxrIN+HfZgnzqTHp9jOmKMhsTUjXOJnZOdZY9Q28y4yebKzqDKlxlQ=="
+      }
+    },
     "npm:d3-shape": {
       "type": "npm",
       "name": "npm:d3-shape",
@@ -4975,6 +5119,24 @@
         "version": "3.0.1",
         "packageName": "d3-timer",
         "hash": "sha512-ndfJ/JxxMd3nw31uyKoY2naivF+r29V+Lc0svZxe1JvvIRmi8hUsrMvdOwgS1o6uBHmiz91geQ0ylPP0aj1VUA=="
+      }
+    },
+    "npm:d3-transition": {
+      "type": "npm",
+      "name": "npm:d3-transition",
+      "data": {
+        "version": "3.0.1",
+        "packageName": "d3-transition",
+        "hash": "sha512-ApKvfjsSR6tg06xrL434C0WydLr7JewBB3V+/39RMHsaXTOG0zmt/OAXeng5M5LBm0ojmxJrpomQVZ1aPvBL4w=="
+      }
+    },
+    "npm:d3-zoom": {
+      "type": "npm",
+      "name": "npm:d3-zoom",
+      "data": {
+        "version": "3.0.0",
+        "packageName": "d3-zoom",
+        "hash": "sha512-b8AmV3kfQaqWAuacbPuNbL6vahnOJflOhexLzMMNLga62+/nh0JzvJ0aO/5a5MVgUFGS7Hu1P9P03o3fJkDCyw=="
       }
     },
     "npm:date-fns-jalali": {
@@ -5029,6 +5191,15 @@
         "version": "2.6.9",
         "packageName": "debug",
         "hash": "sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA=="
+      }
+    },
+    "npm:debug@4.3.7": {
+      "type": "npm",
+      "name": "npm:debug@4.3.7",
+      "data": {
+        "version": "4.3.7",
+        "packageName": "debug",
+        "hash": "sha512-Er2nc/H7RrMXZBFCEim6TCmMk02Z8vLC2Rbi1KEBggpo0fS6l0S1nnapwmIi3yW/+GOJap1Krg4w0Hg80oCqgQ=="
       }
     },
     "npm:debug@4.4.3": {
@@ -5380,6 +5551,33 @@
         "version": "1.4.5",
         "packageName": "end-of-stream",
         "hash": "sha512-ooEGc6HP26xXq/N+GCGOT0JKCLDGrq2bQUZrQ7gyrJiZANJ/8YDTxTpQBXGMn+WbIQXNVpyWymm7KYVICQnyOg=="
+      }
+    },
+    "npm:engine.io-client": {
+      "type": "npm",
+      "name": "npm:engine.io-client",
+      "data": {
+        "version": "6.6.6",
+        "packageName": "engine.io-client",
+        "hash": "sha512-iY6QdftLQ9pyiPoX082bpf/u1UewnOaJrtJIF9T0++QB34lZrj0uP+Q/bj8AlUsAxqhnkTV2BS8SBZSxOmoV5Q=="
+      }
+    },
+    "npm:engine.io-parser": {
+      "type": "npm",
+      "name": "npm:engine.io-parser",
+      "data": {
+        "version": "5.2.3",
+        "packageName": "engine.io-parser",
+        "hash": "sha512-HqD3yTBfnBxIrbnM1DoD6Pcq8NECnh8d4As1Qgh0z5Gg3jRRIqijury0CL3ghu/edArpUYiYqQiDUQBIs4np3Q=="
+      }
+    },
+    "npm:engine.io": {
+      "type": "npm",
+      "name": "npm:engine.io",
+      "data": {
+        "version": "6.6.9",
+        "packageName": "engine.io",
+        "hash": "sha512-clKkw4C7nJ22mGgoVcCg6V/W/TxdNyIOTr89k2ONZu81qqkddPFDF0LXcbAwhzPD8DjkiRCjzuiO6Y+fkpD4vg=="
       }
     },
     "npm:enhanced-resolve": {
@@ -6075,9 +6273,18 @@
         "hash": "sha512-QMUezzXWII9EV5aTFXW1UBVUO77wYPpjqIF8/AviUCThNeSYZykpoTixUeaNNBwmCev0AMDWMAni+f8Hxb1IFw=="
       }
     },
-    "npm:fsevents": {
+    "npm:fsevents@2.3.2": {
       "type": "npm",
-      "name": "npm:fsevents",
+      "name": "npm:fsevents@2.3.2",
+      "data": {
+        "version": "2.3.2",
+        "packageName": "fsevents",
+        "hash": "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA=="
+      }
+    },
+    "npm:fsevents@2.3.3": {
+      "type": "npm",
+      "name": "npm:fsevents@2.3.3",
       "data": {
         "version": "2.3.3",
         "packageName": "fsevents",
@@ -7938,6 +8145,15 @@
         "hash": "sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg=="
       }
     },
+    "npm:object-hash": {
+      "type": "npm",
+      "name": "npm:object-hash",
+      "data": {
+        "version": "3.0.0",
+        "packageName": "object-hash",
+        "hash": "sha512-RSn9F68PjH9HqtltsSnqYC1XXoWe9Bju5+213R98cNGttag9q9yAOTzdbsqvIa7aNm5WffBZFpWYr2aWrklWAw=="
+      }
+    },
     "npm:object-inspect": {
       "type": "npm",
       "name": "npm:object-inspect",
@@ -8368,6 +8584,24 @@
         "version": "4.9.3",
         "packageName": "piscina",
         "hash": "sha512-3e3ka9QCE8RJ5I9uszdAADZnkcYi21cqmF3gxox3u884N72qpFHCsIVhHt8cEQ9t3Auq/NqoiCEuhxlxxQuDWA=="
+      }
+    },
+    "npm:playwright-core": {
+      "type": "npm",
+      "name": "npm:playwright-core",
+      "data": {
+        "version": "1.62.0",
+        "packageName": "playwright-core",
+        "hash": "sha512-nsNRyq0r2zsG8AcRHWknc9QRA5XCueC7gWMrs+Gx2tlZn9hcl8zudfh00lhJPY1DE7NmZ6bDsT9g2yey8mXljA=="
+      }
+    },
+    "npm:playwright": {
+      "type": "npm",
+      "name": "npm:playwright",
+      "data": {
+        "version": "1.62.0",
+        "packageName": "playwright",
+        "hash": "sha512-Z14dG305dgaLu6foB1TXQagFiW8JfSUIUaUuPaKQ6NtBPKF1P/qXcqfh6c6K/icPqdy37JmjbiBXf6JNg6Sylw=="
       }
     },
     "npm:pluralize": {
@@ -9268,6 +9502,51 @@
         "version": "3.0.0",
         "packageName": "slash",
         "hash": "sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q=="
+      }
+    },
+    "npm:socket.io-adapter": {
+      "type": "npm",
+      "name": "npm:socket.io-adapter",
+      "data": {
+        "version": "2.5.8",
+        "packageName": "socket.io-adapter",
+        "hash": "sha512-6Oy52pbg+kvdCVvjcN+FnY7BvxZ7cIHNScbvztT/It5d0vbwoJoVZmF2gjJmnV0/4WlXRfG15zc45ySk9Ah8bw=="
+      }
+    },
+    "npm:socket.io-client": {
+      "type": "npm",
+      "name": "npm:socket.io-client",
+      "data": {
+        "version": "4.8.3",
+        "packageName": "socket.io-client",
+        "hash": "sha512-uP0bpjWrjQmUt5DTHq9RuoCBdFJF10cdX9X+a368j/Ft0wmaVgxlrjvK3kjvgCODOMMOz9lcaRzxmso0bTWZ/g=="
+      }
+    },
+    "npm:socket.io-parser": {
+      "type": "npm",
+      "name": "npm:socket.io-parser",
+      "data": {
+        "version": "4.2.7",
+        "packageName": "socket.io-parser",
+        "hash": "sha512-IH/iSeO9T6gz1KkFleGDWkG9N3dl4jXVYUtMhIqH10Md0ttMer8nUNWiP1DKuNrybD2xBrixLJdCC9J6ECoYkg=="
+      }
+    },
+    "npm:socket.io@4.8.1": {
+      "type": "npm",
+      "name": "npm:socket.io@4.8.1",
+      "data": {
+        "version": "4.8.1",
+        "packageName": "socket.io",
+        "hash": "sha512-oZ7iUCxph8WYRHHcjBEc9unw3adt5CmSNlppj/5Q4k2RIrhl8Z5yY2Xr4j9zj0+wzVZ0bxmYoGSzKJnRl6A4yg=="
+      }
+    },
+    "npm:socket.io@4.8.3": {
+      "type": "npm",
+      "name": "npm:socket.io@4.8.3",
+      "data": {
+        "version": "4.8.3",
+        "packageName": "socket.io",
+        "hash": "sha512-2Dd78bqzzjE6KPkD5fHZmDAKRNe3J15q+YHDrIsy9WEkqttc7GY+kT9OBLSMaPbQaEd0x1BjcmtMtXkfpc+T5A=="
       }
     },
     "npm:sonic-boom": {
@@ -10386,6 +10665,24 @@
         "hash": "sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ=="
       }
     },
+    "npm:ws": {
+      "type": "npm",
+      "name": "npm:ws",
+      "data": {
+        "version": "8.21.1",
+        "packageName": "ws",
+        "hash": "sha512-+0NTnW77fFN/DjQi6k/Sq/Yvk4Sgajw7urW8V+asjXnRgDs9gyGkdb7EzgfhA4goXsRIZKE28fzIXBHEzhuiWw=="
+      }
+    },
+    "npm:xmlhttprequest-ssl": {
+      "type": "npm",
+      "name": "npm:xmlhttprequest-ssl",
+      "data": {
+        "version": "2.1.2",
+        "packageName": "xmlhttprequest-ssl",
+        "hash": "sha512-TEU+nJVUUnA4CYJFLvK5X9AOeH4KvDvhIfm0vV1GaQRtchnG0hgK5p8hw/xjv8cunWYCsiPCSDzObPyhEwq3KQ=="
+      }
+    },
     "npm:xtend": {
       "type": "npm",
       "name": "npm:xtend",
@@ -10474,6 +10771,15 @@
         "version": "3.25.76",
         "packageName": "zod",
         "hash": "sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ=="
+      }
+    },
+    "npm:zustand": {
+      "type": "npm",
+      "name": "npm:zustand",
+      "data": {
+        "version": "4.5.7",
+        "packageName": "zustand",
+        "hash": "sha512-CHOUy7mu3lbD6o6LJLfllpjkzhHXSBlX8B9+qPddUsIfeF5S/UZ5q0kmCsnRqT1UHFQZchNFDDzMbQsuesHWlw=="
       }
     },
     "npm:zwitch": {
@@ -11348,6 +11654,11 @@
       "type": "static"
     },
     {
+      "source": "npm:@nestjs/core",
+      "target": "npm:@nestjs/websockets",
+      "type": "static"
+    },
+    {
       "source": "npm:@nestjs/platform-express",
       "target": "npm:@nestjs/common",
       "type": "static"
@@ -11379,6 +11690,31 @@
     },
     {
       "source": "npm:@nestjs/platform-express",
+      "target": "npm:tslib",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nestjs/platform-socket.io",
+      "target": "npm:@nestjs/common",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nestjs/platform-socket.io",
+      "target": "npm:@nestjs/websockets",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nestjs/platform-socket.io",
+      "target": "npm:rxjs@7.8.2",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nestjs/platform-socket.io",
+      "target": "npm:socket.io@4.8.1",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nestjs/platform-socket.io",
       "target": "npm:tslib",
       "type": "static"
     },
@@ -11470,6 +11806,46 @@
     {
       "source": "npm:@nestjs/typeorm",
       "target": "npm:uuid@9.0.1",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nestjs/websockets",
+      "target": "npm:@nestjs/common",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nestjs/websockets",
+      "target": "npm:@nestjs/core",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nestjs/websockets",
+      "target": "npm:iterare",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nestjs/websockets",
+      "target": "npm:object-hash",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nestjs/websockets",
+      "target": "npm:reflect-metadata",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nestjs/websockets",
+      "target": "npm:rxjs@7.8.2",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nestjs/websockets",
+      "target": "npm:tslib",
+      "type": "static"
+    },
+    {
+      "source": "npm:@nestjs/websockets",
+      "target": "npm:@nestjs/platform-socket.io",
       "type": "static"
     },
     {
@@ -11680,6 +12056,11 @@
     {
       "source": "npm:@orval/zod",
       "target": "npm:remeda",
+      "type": "static"
+    },
+    {
+      "source": "npm:@playwright/test",
+      "target": "npm:playwright",
       "type": "static"
     },
     {
@@ -14443,6 +14824,11 @@
       "type": "static"
     },
     {
+      "source": "npm:@types/d3-drag",
+      "target": "npm:@types/d3-selection",
+      "type": "static"
+    },
+    {
       "source": "npm:@types/d3-interpolate",
       "target": "npm:@types/d3-color",
       "type": "static"
@@ -14455,6 +14841,21 @@
     {
       "source": "npm:@types/d3-shape",
       "target": "npm:@types/d3-path",
+      "type": "static"
+    },
+    {
+      "source": "npm:@types/d3-transition",
+      "target": "npm:@types/d3-selection",
+      "type": "static"
+    },
+    {
+      "source": "npm:@types/d3-zoom",
+      "target": "npm:@types/d3-interpolate",
+      "type": "static"
+    },
+    {
+      "source": "npm:@types/d3-zoom",
+      "target": "npm:@types/d3-selection",
       "type": "static"
     },
     {
@@ -14589,6 +14990,11 @@
     },
     {
       "source": "npm:@types/serve-static",
+      "target": "npm:@types/node@25.9.5",
+      "type": "static"
+    },
+    {
+      "source": "npm:@types/ws",
       "target": "npm:@types/node@25.9.5",
       "type": "static"
     },
@@ -14990,6 +15396,86 @@
     {
       "source": "npm:@xhmikosr/os-filter-obj",
       "target": "npm:arch",
+      "type": "static"
+    },
+    {
+      "source": "npm:@xyflow/react",
+      "target": "npm:@xyflow/system",
+      "type": "static"
+    },
+    {
+      "source": "npm:@xyflow/react",
+      "target": "npm:classcat",
+      "type": "static"
+    },
+    {
+      "source": "npm:@xyflow/react",
+      "target": "npm:react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@xyflow/react",
+      "target": "npm:react-dom",
+      "type": "static"
+    },
+    {
+      "source": "npm:@xyflow/react",
+      "target": "npm:zustand",
+      "type": "static"
+    },
+    {
+      "source": "npm:@xyflow/react",
+      "target": "npm:@types/react",
+      "type": "static"
+    },
+    {
+      "source": "npm:@xyflow/react",
+      "target": "npm:@types/react-dom",
+      "type": "static"
+    },
+    {
+      "source": "npm:@xyflow/system",
+      "target": "npm:@types/d3-drag",
+      "type": "static"
+    },
+    {
+      "source": "npm:@xyflow/system",
+      "target": "npm:@types/d3-interpolate",
+      "type": "static"
+    },
+    {
+      "source": "npm:@xyflow/system",
+      "target": "npm:@types/d3-selection",
+      "type": "static"
+    },
+    {
+      "source": "npm:@xyflow/system",
+      "target": "npm:@types/d3-transition",
+      "type": "static"
+    },
+    {
+      "source": "npm:@xyflow/system",
+      "target": "npm:@types/d3-zoom",
+      "type": "static"
+    },
+    {
+      "source": "npm:@xyflow/system",
+      "target": "npm:d3-drag",
+      "type": "static"
+    },
+    {
+      "source": "npm:@xyflow/system",
+      "target": "npm:d3-interpolate",
+      "type": "static"
+    },
+    {
+      "source": "npm:@xyflow/system",
+      "target": "npm:d3-selection",
+      "type": "static"
+    },
+    {
+      "source": "npm:@xyflow/system",
+      "target": "npm:d3-zoom",
       "type": "static"
     },
     {
@@ -15579,7 +16065,7 @@
     },
     {
       "source": "npm:chokidar@3.6.0",
-      "target": "npm:fsevents",
+      "target": "npm:fsevents@2.3.3",
       "type": "static"
     },
     {
@@ -15808,6 +16294,16 @@
       "type": "static"
     },
     {
+      "source": "npm:d3-drag",
+      "target": "npm:d3-dispatch",
+      "type": "static"
+    },
+    {
+      "source": "npm:d3-drag",
+      "target": "npm:d3-selection",
+      "type": "static"
+    },
+    {
       "source": "npm:d3-interpolate",
       "target": "npm:d3-color",
       "type": "static"
@@ -15853,8 +16349,68 @@
       "type": "static"
     },
     {
+      "source": "npm:d3-transition",
+      "target": "npm:d3-color",
+      "type": "static"
+    },
+    {
+      "source": "npm:d3-transition",
+      "target": "npm:d3-dispatch",
+      "type": "static"
+    },
+    {
+      "source": "npm:d3-transition",
+      "target": "npm:d3-ease",
+      "type": "static"
+    },
+    {
+      "source": "npm:d3-transition",
+      "target": "npm:d3-interpolate",
+      "type": "static"
+    },
+    {
+      "source": "npm:d3-transition",
+      "target": "npm:d3-selection",
+      "type": "static"
+    },
+    {
+      "source": "npm:d3-transition",
+      "target": "npm:d3-timer",
+      "type": "static"
+    },
+    {
+      "source": "npm:d3-zoom",
+      "target": "npm:d3-dispatch",
+      "type": "static"
+    },
+    {
+      "source": "npm:d3-zoom",
+      "target": "npm:d3-drag",
+      "type": "static"
+    },
+    {
+      "source": "npm:d3-zoom",
+      "target": "npm:d3-interpolate",
+      "type": "static"
+    },
+    {
+      "source": "npm:d3-zoom",
+      "target": "npm:d3-selection",
+      "type": "static"
+    },
+    {
+      "source": "npm:d3-zoom",
+      "target": "npm:d3-transition",
+      "type": "static"
+    },
+    {
       "source": "npm:debug@2.6.9",
       "target": "npm:ms@2.0.0",
+      "type": "static"
+    },
+    {
+      "source": "npm:debug@4.3.7",
+      "target": "npm:ms@2.1.3",
       "type": "static"
     },
     {
@@ -15990,6 +16546,81 @@
     {
       "source": "npm:end-of-stream",
       "target": "npm:once",
+      "type": "static"
+    },
+    {
+      "source": "npm:engine.io-client",
+      "target": "npm:@socket.io/component-emitter",
+      "type": "static"
+    },
+    {
+      "source": "npm:engine.io-client",
+      "target": "npm:debug@4.4.3",
+      "type": "static"
+    },
+    {
+      "source": "npm:engine.io-client",
+      "target": "npm:engine.io-parser",
+      "type": "static"
+    },
+    {
+      "source": "npm:engine.io-client",
+      "target": "npm:ws",
+      "type": "static"
+    },
+    {
+      "source": "npm:engine.io-client",
+      "target": "npm:xmlhttprequest-ssl",
+      "type": "static"
+    },
+    {
+      "source": "npm:engine.io",
+      "target": "npm:@types/cors",
+      "type": "static"
+    },
+    {
+      "source": "npm:engine.io",
+      "target": "npm:@types/node@25.9.5",
+      "type": "static"
+    },
+    {
+      "source": "npm:engine.io",
+      "target": "npm:@types/ws",
+      "type": "static"
+    },
+    {
+      "source": "npm:engine.io",
+      "target": "npm:accepts@1.3.8",
+      "type": "static"
+    },
+    {
+      "source": "npm:engine.io",
+      "target": "npm:base64id",
+      "type": "static"
+    },
+    {
+      "source": "npm:engine.io",
+      "target": "npm:cookie",
+      "type": "static"
+    },
+    {
+      "source": "npm:engine.io",
+      "target": "npm:cors@2.8.6",
+      "type": "static"
+    },
+    {
+      "source": "npm:engine.io",
+      "target": "npm:debug@4.4.3",
+      "type": "static"
+    },
+    {
+      "source": "npm:engine.io",
+      "target": "npm:engine.io-parser",
+      "type": "static"
+    },
+    {
+      "source": "npm:engine.io",
+      "target": "npm:ws",
       "type": "static"
     },
     {
@@ -19189,6 +19820,11 @@
     },
     {
       "source": "npm:openai",
+      "target": "npm:ws",
+      "type": "static"
+    },
+    {
+      "source": "npm:openai",
       "target": "npm:zod",
       "type": "static"
     },
@@ -19725,6 +20361,16 @@
     {
       "source": "npm:piscina",
       "target": "npm:@napi-rs/nice",
+      "type": "static"
+    },
+    {
+      "source": "npm:playwright",
+      "target": "npm:playwright-core",
+      "type": "static"
+    },
+    {
+      "source": "npm:playwright",
+      "target": "npm:fsevents@2.3.2",
       "type": "static"
     },
     {
@@ -20384,7 +21030,7 @@
     },
     {
       "source": "npm:rollup",
-      "target": "npm:fsevents",
+      "target": "npm:fsevents@2.3.3",
       "type": "static"
     },
     {
@@ -20763,6 +21409,116 @@
       "type": "static"
     },
     {
+      "source": "npm:socket.io-adapter",
+      "target": "npm:debug@4.4.3",
+      "type": "static"
+    },
+    {
+      "source": "npm:socket.io-adapter",
+      "target": "npm:ws",
+      "type": "static"
+    },
+    {
+      "source": "npm:socket.io-client",
+      "target": "npm:@socket.io/component-emitter",
+      "type": "static"
+    },
+    {
+      "source": "npm:socket.io-client",
+      "target": "npm:debug@4.4.3",
+      "type": "static"
+    },
+    {
+      "source": "npm:socket.io-client",
+      "target": "npm:engine.io-client",
+      "type": "static"
+    },
+    {
+      "source": "npm:socket.io-client",
+      "target": "npm:socket.io-parser",
+      "type": "static"
+    },
+    {
+      "source": "npm:socket.io-parser",
+      "target": "npm:@socket.io/component-emitter",
+      "type": "static"
+    },
+    {
+      "source": "npm:socket.io-parser",
+      "target": "npm:debug@4.4.3",
+      "type": "static"
+    },
+    {
+      "source": "npm:socket.io@4.8.1",
+      "target": "npm:accepts@1.3.8",
+      "type": "static"
+    },
+    {
+      "source": "npm:socket.io@4.8.1",
+      "target": "npm:base64id",
+      "type": "static"
+    },
+    {
+      "source": "npm:socket.io@4.8.1",
+      "target": "npm:cors@2.8.6",
+      "type": "static"
+    },
+    {
+      "source": "npm:socket.io@4.8.1",
+      "target": "npm:debug@4.3.7",
+      "type": "static"
+    },
+    {
+      "source": "npm:socket.io@4.8.1",
+      "target": "npm:engine.io",
+      "type": "static"
+    },
+    {
+      "source": "npm:socket.io@4.8.1",
+      "target": "npm:socket.io-adapter",
+      "type": "static"
+    },
+    {
+      "source": "npm:socket.io@4.8.1",
+      "target": "npm:socket.io-parser",
+      "type": "static"
+    },
+    {
+      "source": "npm:socket.io@4.8.3",
+      "target": "npm:accepts@1.3.8",
+      "type": "static"
+    },
+    {
+      "source": "npm:socket.io@4.8.3",
+      "target": "npm:base64id",
+      "type": "static"
+    },
+    {
+      "source": "npm:socket.io@4.8.3",
+      "target": "npm:cors@2.8.6",
+      "type": "static"
+    },
+    {
+      "source": "npm:socket.io@4.8.3",
+      "target": "npm:debug@4.4.3",
+      "type": "static"
+    },
+    {
+      "source": "npm:socket.io@4.8.3",
+      "target": "npm:engine.io",
+      "type": "static"
+    },
+    {
+      "source": "npm:socket.io@4.8.3",
+      "target": "npm:socket.io-adapter",
+      "type": "static"
+    },
+    {
+      "source": "npm:socket.io@4.8.3",
+      "target": "npm:socket.io-parser",
+      "type": "static"
+    },
+    {
       "source": "npm:sonic-boom",
       "target": "npm:atomic-sleep",
       "type": "static"
@@ -21129,7 +21885,7 @@
     },
     {
       "source": "npm:tsx",
-      "target": "npm:fsevents",
+      "target": "npm:fsevents@2.3.3",
       "type": "static"
     },
     {
@@ -21589,7 +22345,7 @@
     },
     {
       "source": "npm:vite",
-      "target": "npm:fsevents",
+      "target": "npm:fsevents@2.3.3",
       "type": "static"
     },
     {
@@ -21910,6 +22666,21 @@
     {
       "source": "npm:yauzl",
       "target": "npm:pend",
+      "type": "static"
+    },
+    {
+      "source": "npm:zustand",
+      "target": "npm:use-sync-external-store",
+      "type": "static"
+    },
+    {
+      "source": "npm:zustand",
+      "target": "npm:@types/react",
+      "type": "static"
+    },
+    {
+      "source": "npm:zustand",
+      "target": "npm:react",
       "type": "static"
     }
   ]

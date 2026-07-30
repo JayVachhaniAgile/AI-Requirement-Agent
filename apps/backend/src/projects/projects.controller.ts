@@ -114,9 +114,30 @@ export class ProjectsController {
     return this.projectsService.cancel(id);
   }
 
+  @Post(':id/pause')
+  pause(@Param('id', ParseUUIDPipe) id: string) {
+    return this.projectsService.pause(id);
+  }
+
+  @Post(':id/regenerate/:agentKey')
+  regenerateFromAgent(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Param('agentKey') agentKey: string,
+  ) {
+    return this.projectsService.regenerateFromAgent(id, agentKey);
+  }
+
   @Get(':id/progress')
   getProgress(@Param('id', ParseUUIDPipe) id: string) {
     return this.projectsService.getProgress(id);
+  }
+
+  @Get(':id/knowledge/by-agent/:agentKey')
+  getKnowledgeByAgent(  
+    @Param('id', ParseUUIDPipe) id: string,
+    @Param('agentKey') agentKey: string,
+  ) {
+    return this.projectsService.getKnowledgeByAgent(id, agentKey);
   }
 
   @Get(':id/knowledge')

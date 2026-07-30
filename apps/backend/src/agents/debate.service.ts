@@ -16,7 +16,7 @@ const ContradictionSchema = z.object({
     requiresHumanDecision: z.boolean(),
   })).nullish().default([]),
   assumptions: z.array(z.object({
-    externalId: z.string(),
+    externalId: z.string().optional().default(""),
     title: z.string(),
     description: z.string(),
     riskLevel: z.enum(['LOW', 'MEDIUM', 'HIGH']),

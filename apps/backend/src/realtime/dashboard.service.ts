@@ -186,25 +186,31 @@ export class DashboardService {
     let aiConfidence: number | null = null;
 
     if (scoresItem?.description) {
+      // Extract all score values like "fieldName: 7/10" or "fieldName: 7"
+      const allScores = [...scoresItem.description.matchAll(/(\d+(?:\.\d+)?)\s*\/\s*\d+/g)];
+      const allValues = allScores.map((m) => Number(m[1])).filter((v) => v >= 0 && v <= 10);
+
       const completenessMatch = scoresItem.description.match(
         /completeness[^0-9]*(\d+(?:\.\d+)?)/i,
       );
       const confidenceMatch = scoresItem.description.match(
         /confidence[^0-9]*(\d+(?:\.\d+)?)/i,
       );
-      const scoreMatch = scoresItem.description.match(
-        /(?:overall|score)[^0-9]*(\d+(?:\.\d+)?)/i,
-      );
+
       if (completenessMatch) {
         const v = Number(completenessMatch[1]);
         requirementCompleteness = v <= 10 ? Math.round(v * 10) : Math.round(v);
       }
+
       if (confidenceMatch) {
         const v = Number(confidenceMatch[1]);
         aiConfidence = v <= 10 ? Math.round(v * 10) : Math.round(v);
-      } else if (scoreMatch) {
-        const v = Number(scoreMatch[1]);
-        aiConfidence = v <= 10 ? Math.round(v * 10) : Math.round(v);
+      }
+
+      // If no explicit confidence field, compute average from all scores
+      if (aiConfidence === null && allValues.length > 0) {
+        const avg = allValues.reduce((a, b) => a + b, 0) / allValues.length;
+        aiConfidence = Math.round(avg * 10);
       }
     }
 

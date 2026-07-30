@@ -44,7 +44,18 @@ export class CompilerService {
     return {
       success: true,
       agentKey: 'compiler',
-      knowledgeItems: [],
+      knowledgeItems: [{
+        type: 'COMPILED_DOCUMENT',
+        title: `${ctx.projectName} — Compiled Requirement Document`,
+        description: `Executive Summary:
+
+${executiveSummary}
+
+Full document contains specifications, requirements, and technical details.`,
+        status: 'CONFIRMED' as const,
+        sourceCategory: 'ai_analysis' as const,
+        confidence: 85,
+      }],
       questions: [],
       documentContent,
       warnings: [],

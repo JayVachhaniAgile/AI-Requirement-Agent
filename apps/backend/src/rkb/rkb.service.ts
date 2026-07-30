@@ -105,12 +105,10 @@ export class RkbService {
       await this.docRepo.update(existing.id, {
         markdownContent,
         status: 'FINAL',
-        validationScore: String(nextVersion),
       });
     } else {
       await this.docRepo.save(this.docRepo.create({
         id: randomUUID(), projectId, status: 'FINAL', markdownContent,
-        validationScore: String(nextVersion),
       }));
     }
 
@@ -176,6 +174,20 @@ export class RkbService {
 
   async deleteKnowledgeBySource(projectId: string, agentKey: string): Promise<void> {
     await this.kiRepo.delete({ projectId, source: agentKey });
+  }
+
+  async deleteKnowledgeByCreatedBy(projectId: string, agentKey: string): Promise<void> {
+    // Delete by createdBy first, then by source prefix (source = "agentKey::category")
+    await this.kiRepo.delete({ projectId, createdBy: agentKey });
+    await this.kiRepo
+      .createQueryBuilder()
+      .delete()
+      .from(KnowledgeItem)
+      .where('project_id = :pid AND source LIKE :pattern', {
+        pid: projectId,
+        pattern: `${agentKey}%`,
+      })
+      .execute();
   }
 
   async deleteValidationIssues(projectId: string): Promise<void> {

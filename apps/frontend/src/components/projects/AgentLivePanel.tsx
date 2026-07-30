@@ -90,10 +90,6 @@ export function AgentLivePanel({
   const step = dashboard?.steps.find((s) => s.agentKey === key);
   const isLive = step?.status === "RUNNING";
   const isDone = step?.status === "COMPLETED";
-  const progress =
-    isLive && dashboard?.currentAgentKey === key
-      ? dashboard.currentStepProgress
-      : isDone
         ? 100
         : 0;
 
@@ -187,16 +183,6 @@ export function AgentLivePanel({
           </div>
         </div>
 
-        <div className="mt-3">
-          <div className="mb-1 flex justify-between text-xs font-medium text-muted-foreground">
-            <span>Progress</span>
-            <span className="text-primary">{progress}%</span>
-          </div>
-          <div className="h-2 overflow-hidden rounded-full bg-muted/40">
-            <div
-              className="h-full rounded-full bg-primary transition-all duration-500"
-              style={{ width: `${progress}%` }}
-            />
           </div>
         </div>
       </div>

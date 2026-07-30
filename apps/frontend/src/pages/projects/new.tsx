@@ -175,11 +175,11 @@ export default function NewProjectPage() {
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-2">
-                <label htmlFor="name" className="text-sm font-semibold">Project Name</label>
+                <label htmlFor="name" className="block text-sm font-semibold mb-1.5">Project Name</label>
                 <Input id="name" placeholder="e.g. Acme Inventory Tracker" value={name} onChange={(e) => setName(e.target.value)} autoFocus />
               </div>
               <div className="space-y-2">
-                <label htmlFor="idea" className="text-sm font-semibold flex justify-between">
+                <label htmlFor="idea" className="text-sm font-semibold flex justify-between mb-1.5">
                   <span>Description</span>
                   <span className="text-muted-foreground font-normal text-xs">{idea.length} chars</span>
                 </label>
@@ -187,7 +187,7 @@ export default function NewProjectPage() {
               </div>
               {/* File Upload */}
               <div className="space-y-2">
-                <label className="text-sm font-semibold">Requirement Files (optional)</label>
+                <label className="block text-sm font-semibold mb-1.5">Requirement Files (optional)</label>
                 <div
                   onDragOver={handleDragOver}
                   onDragLeave={handleDragLeave}

@@ -31,15 +31,15 @@ const AGENT_GRADIENTS: Record<string, string> = {
   Discovery: "bg-gradient-to-br from-blue-600 to-purple-700",
   Research: "bg-gradient-to-br from-cyan-500 to-blue-600",
   "Business Analyst": "bg-gradient-to-br from-green-500 to-emerald-600",
-  "Product Manager": "bg-gradient-to-br from-orange-500 to-amber-600",
+  "Product Manager": "bg-gradient-to-br from-orange-600 to-amber-700",
   "Requirements Agent": "bg-gradient-to-br from-teal-500 to-cyan-600",
   "UX Agent": "bg-gradient-to-br from-purple-500 to-pink-600",
   "Data Architect": "bg-gradient-to-br from-indigo-500 to-purple-600",
-  "AI Architect": "bg-gradient-to-br from-cyan-400 to-teal-600",
-  "Solution Architect": "bg-gradient-to-br from-amber-500 to-yellow-600",
+  "AI Architect": "bg-gradient-to-br from-cyan-500 to-teal-700",
+  "Solution Architect": "bg-gradient-to-br from-amber-600 to-yellow-700",
   "Security Agent": "bg-gradient-to-br from-red-500 to-rose-600",
   "QA Agent": "bg-gradient-to-br from-emerald-500 to-green-600",
-  Estimation: "bg-gradient-to-br from-yellow-400 to-orange-500",
+  Estimation: "bg-gradient-to-br from-yellow-600 to-orange-700",
   Critic: "bg-gradient-to-br from-violet-500 to-purple-700",
   Debate: "bg-gradient-to-br from-orange-500 to-red-600",
   Compiler: "bg-gradient-to-br from-primary to-primary/80",
@@ -51,7 +51,6 @@ export type WorkflowNodeData = {
   status: string;
   index?: number;
   durationLabel?: string;
-  progress?: number;
   ideaPreview?: string;
   selected?: boolean;
   onSelect?: () => void;
@@ -191,10 +190,10 @@ function WorkflowNodeComponent({ data }: NodeProps) {
           <span
             className={cn(
               "text-xs font-semibold",
-              isDone && "text-success",
-              isRunning && "text-primary",
-              isWaiting && "text-warning",
-              isFailed && "text-destructive",
+              isDone && "text-green-200",
+              isRunning && "text-blue-200",
+              isWaiting && "text-yellow-200",
+              isFailed && "text-red-200",
             )}
           >
             {isDone && "Completed"}
@@ -217,26 +216,12 @@ function WorkflowNodeComponent({ data }: NodeProps) {
           <p className="mt-1 text-xs text-white/80">{d.durationLabel}</p>
         )}
 
-        {isRunning && (
-          <div className="mt-3">
-            <div className="mb-1 flex justify-between text-xs font-semibold text-white">
-              <span>Progress</span>
-              <span>{d.progress ?? 0}%</span>
-            </div>
-            <div className="h-2 overflow-hidden rounded-full bg-white/20">
-              <div
-                className="h-full rounded-full bg-primary transition-all duration-500"
-                style={{ width: `${Math.min(100, d.progress ?? 35)}%` }}
-              />
-            </div>
-          </div>
-        )}
       </div>
 
       <span className="absolute right-3.5 top-3.5">
         {isDone && <span className="inline-flex items-center rounded-full bg-emerald-600 px-2 py-0.5 text-xs font-semibold text-white">Completed</span>}
-        {isWaiting && <Clock3 className="h-5 w-5 text-warning/70" />}
-        {isFailed && <AlertTriangle className="h-5 w-5 text-destructive" />}
+        {isWaiting && <Clock3 className="h-5 w-5 text-yellow-200/80" />}
+        {isFailed && <AlertTriangle className="h-5 w-5 text-red-200" />}
       </span>
 
       <Handle

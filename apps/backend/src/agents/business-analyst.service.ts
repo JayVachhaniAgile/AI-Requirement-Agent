@@ -4,7 +4,7 @@ import { LlmService } from '../llm/llm.service';
 import type { AgentContext, AgentResult, NewKnowledgeItem } from './types';
 import { safeJsonParse } from './agent.utils';
 
-const ItemSchema = z.object({ externalId: z.string(), title: z.string(), description: z.string() });
+const ItemSchema = z.object({ externalId: z.string().optional().default(""), title: z.string(), description: z.string() });
 const Schema = z.object({
   businessProblem: z.string(),
   businessObjectives: z.array(ItemSchema),

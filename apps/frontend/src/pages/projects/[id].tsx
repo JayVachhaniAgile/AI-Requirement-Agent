@@ -19,6 +19,7 @@ import { useWorkspaceHeader } from "@/components/layouts/workspace-header-contex
 // import { ProjectKpiBar } from "@/components/projects/ProjectKpiBar";
 import { WorkflowPipeline } from "@/components/projects/workflow/WorkflowPipeline";
 import { AgentLivePanel } from "@/components/projects/AgentLivePanel";
+import { AgentDetailsModal } from "@/components/projects/AgentDetailsModal";
 import { DocumentSummaryFooter } from "@/components/projects/DocumentSummaryFooter";
 import { TabExecutions } from "@/components/projects/TabExecutions";
 import { TabDocument } from "@/components/projects/TabDocument";
@@ -48,8 +49,10 @@ function formatDuration(seconds: number): string {
   if (seconds <= 0) return "—";
   if (seconds < 60) return `${seconds}s`;
   const m = Math.floor(seconds / 60);
-  const s = seconds % 60;
-  return s > 0 ? `${m}m ${s}s` : `${m}m`;
+  const s = Math.floor(seconds % 60);
+  // return m > 0 ? `${m}m ${s}s` : `${m}m`;
+  return m > 0 ? `${m}m` : `${s}s`;
+
 }
 
 function formatDate(dateStr: string): string {
@@ -76,6 +79,9 @@ export default function ProjectWorkspace() {
   const [tab, setTab] = useState("workflow");
   const [selectedAgentKey, setSelectedAgentKey] = useState<string | null>(null);
   const [showIdeaModal, setShowIdeaModal] = useState(false);
+  const [showAgentModal, setShowAgentModal] = useState(false);
+  const [agentModalKey, setAgentModalKey] = useState<string | null>(null);
+  const [isPausing, setIsPausing] = useState(false);
 
   const live = useProjectSocket(id);
 
@@ -165,7 +171,8 @@ export default function ProjectWorkspace() {
     project.status as (typeof RUNNING_STATUSES)[number],
   );
   const isCreated = project.status === "CREATED";
-  const canRestart = ["CREATED", "FAILED", "WAITING_FOR_USER"].includes(project.status);
+  const canRestart = ["CREATED", "FAILED", "WAITING_FOR_USER", "PAUSED"].includes(project.status);
+  const isPaused = project.status === "PAUSED";
 
   const handleStart = () => {
     const resuming = !isCreated;
@@ -208,6 +215,25 @@ export default function ProjectWorkspace() {
     );
   };
 
+  const handlePause = () => {
+    setIsPausing(true);
+    fetch(`/api/projects/${id}/pause`, { method: "POST" })
+      .then(async (res) => {
+        if (!res.ok) {
+          let msg = `HTTP ${res.status}`;
+          try { const body = await res.json(); if (body.message) msg = body.message; } catch {}
+          throw new Error(msg);
+        }
+        toast({ title: "Analysis Paused", description: "Current stage will complete, then pipeline will pause." });
+        void queryClient.invalidateQueries({ queryKey: getGetProjectQueryKey(id) });
+        void queryClient.invalidateQueries({ queryKey: getProjectDashboardQueryKey(id) });
+      })
+      .catch((err: Error) => {
+        toast({ title: "Failed to pause", description: err.message, variant: "destructive" });
+      })
+      .finally(() => setIsPausing(false));
+  };
+
   const handleDownload = () => {
     const md = document?.markdownContent;
     if (!md) {
@@ -248,18 +274,29 @@ export default function ProjectWorkspace() {
               disabled={startProject.isPending}
               className="gap-2 rounded-xl bg-primary hover:bg-primary-hover"
             >
-              <Play className="h-4 w-4" /> {isCreated ? "Start Analysis" : "Resume Analysis"}
+              <Play className="h-4 w-4" /> {isCreated ? "Start Analysis" : isPaused ? "Resume Analysis" : "Resume Analysis"}
             </Button>
           )}
           {isRunning && (
-            <Button
-              onClick={handleCancel}
-              disabled={cancelProject.isPending}
-              variant="destructive"
-              className="gap-2 rounded-xl"
-            >
-              <XOctagon className="h-4 w-4" /> Cancel
-            </Button>
+            <>
+              <Button
+                onClick={handlePause}
+                disabled={isPausing}
+                variant="outline"
+                className="gap-2 rounded-xl"
+              >
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+                Pause
+              </Button>
+              <Button
+                onClick={handleCancel}
+                disabled={cancelProject.isPending}
+                variant="destructive"
+                className="gap-2 rounded-xl"
+              >
+                <XOctagon className="h-4 w-4" /> Cancel
+              </Button>
+            </>
           )}
         </div>
       </div>
@@ -301,6 +338,8 @@ export default function ProjectWorkspace() {
                     setShowIdeaModal(true);
                   } else {
                     setSelectedAgentKey(key);
+                    setAgentModalKey(key);
+                    setShowAgentModal(true);
                   }
                 }}
               />
@@ -335,7 +374,7 @@ export default function ProjectWorkspace() {
                 <div className="rounded-2xl border p-5" style={{ backgroundColor: "#111827", borderColor: "rgba(255,255,255,0.08)" }}>
                   <h3 className="text-xs font-semibold uppercase tracking-wider mb-4" style={{ color: "#64748B" }}>Generation Details</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <InfoRow label="Execution Time" value={dashboard ? formatDuration(dashboard.etaSeconds ?? 0) : "—"} icon={Clock} accent="#06B6D4" />
+                    <InfoRow label="Execution Time" value={dashboard ? formatDuration((dashboard.steps ?? []).reduce((sum, s) => sum + (s.durationMs ?? 0), 0) / 1000) : "—"} icon={Clock} accent="#06B6D4" />
                     <InfoRow label="Completed At" value={dashboard?.updatedAt ? formatDate(dashboard.updatedAt) : "—"} icon={CalendarIcon} accent="#3B82F6" />
                     <InfoRow label="Generated By" value="AI Requirements Engine" icon={Zap} accent="#10B981" />
                   </div>
@@ -395,6 +434,17 @@ export default function ProjectWorkspace() {
         dashboard={dashboard}
         onPreview={() => setTab("documents")}
         onDownload={handleDownload}
+      />
+
+      {/* Agent Details Modal */}
+      <AgentDetailsModal
+        projectId={id}
+        agentKey={agentModalKey}
+        open={showAgentModal}
+        onOpenChange={(open) => {
+          setShowAgentModal(open);
+          if (!open) setAgentModalKey(null);
+        }}
       />
 
       {/* User Idea Modal */}

@@ -32,15 +32,15 @@ const AGENT_GRADIENTS: Record<string, string> = {
   discovery: "bg-gradient-to-br from-blue-600 to-purple-700",
   research: "bg-gradient-to-br from-cyan-500 to-blue-600",
   "business-analysis": "bg-gradient-to-br from-green-500 to-emerald-600",
-  "product-analysis": "bg-gradient-to-br from-orange-500 to-amber-600",
+  "product-analysis": "bg-gradient-to-br from-orange-600 to-amber-700",
   "requirements-engineering": "bg-gradient-to-br from-teal-500 to-cyan-600",
   "ux-design": "bg-gradient-to-br from-purple-500 to-pink-600",
   "data-architecture": "bg-gradient-to-br from-indigo-500 to-purple-600",
-  "ai-architecture": "bg-gradient-to-br from-cyan-400 to-teal-600",
-  "solution-architecture": "bg-gradient-to-br from-amber-500 to-yellow-600",
+  "ai-architecture": "bg-gradient-to-br from-cyan-500 to-teal-700",
+  "solution-architecture": "bg-gradient-to-br from-amber-600 to-yellow-700",
   "security-review": "bg-gradient-to-br from-red-500 to-rose-600",
   "qa-planning": "bg-gradient-to-br from-emerald-500 to-green-600",
-  estimation: "bg-gradient-to-br from-yellow-400 to-orange-500",
+  estimation: "bg-gradient-to-br from-yellow-600 to-orange-700",
   validation: "bg-gradient-to-br from-violet-500 to-purple-700",
   compilation: "bg-gradient-to-br from-primary to-primary/80",
   debate: "bg-gradient-to-br from-orange-500 to-red-600",
@@ -136,7 +136,6 @@ function AgentCard({
   label,
   status,
   durationLabel,
-  progress,
   selected,
   onSelect,
   onResume,
@@ -147,8 +146,6 @@ function AgentCard({
   label: string;
   status: string;
   durationLabel: string;
-  progress?: number;
-  selected: boolean;
   onSelect: () => void;
   onResume?: () => void;
   imageSrc: string;
@@ -210,14 +207,13 @@ function AgentCard({
         <p className="mb-1 truncate text-center text-sm font-semibold text-white">{label}</p>
         <p
           className={cn(
-            "text-xs font-semibold",
-            isRunning && "text-primary",
-            isWaiting && "text-warning",
-            isFailed && "text-destructive",
+            isRunning && "text-blue-200",
+            isWaiting && "text-yellow-200",
+            isFailed && "text-red-200",
           )}
         >
           {isRunning && (
-            <span className="inline-flex items-center gap-1 rounded-full bg-primary/15 px-2 py-0.5 text-xs font-semibold text-primary">
+            <span className="inline-flex items-center gap-1 rounded-full bg-primary/60 px-2 py-0.5 text-xs font-semibold text-white">
               In Progress
               <span className="inline-flex gap-0.5">
                 <span className="h-1 w-1 animate-pulse rounded-full bg-primary" />
@@ -226,37 +222,23 @@ function AgentCard({
               </span>
             </span>
           )}
-          {isWaiting && <span className="inline-flex items-center gap-1 rounded-full bg-warning/15 px-2 py-0.5 text-xs font-semibold text-warning">Waiting</span>}
-          {isFailed && <span className="inline-flex items-center gap-1 rounded-full bg-destructive/15 px-2 py-0.5 text-xs font-semibold text-destructive">Failed</span>}
+          {isWaiting && <span className="inline-flex items-center gap-1 rounded-full bg-yellow-600/80 px-2 py-0.5 text-xs font-semibold text-white">Waiting</span>}
+          {isFailed && <span className="inline-flex items-center gap-1 rounded-full bg-destructive/70 px-2 py-0.5 text-xs font-semibold text-white">Failed</span>}
         {isFailed && onResume && (
           <button
             type="button"
             onClick={(e) => { e.stopPropagation(); onResume(); }}
-            className="mt-2 inline-flex items-center gap-1 rounded-full bg-primary/20 px-3 py-1 text-xs font-semibold text-primary hover:bg-primary/30 transition-colors"
+            className="mt-2 inline-flex items-center gap-1 rounded-full bg-primary/60 px-3 py-1 text-xs font-semibold text-white hover:bg-primary/70 transition-colors"
           >
             <RefreshCw className="h-3 w-3" />
             Resume
           </button>
         )}
         </p>
-        {isRunning && (
-          <div className="mt-2.5 w-full">
-            <div className="mb-1 flex justify-between text-xs font-semibold text-white">
-              <span>Progress</span>
-              <span>{progress ?? 0}%</span>
-            </div>
-            <div className="h-1.5 overflow-hidden rounded-full bg-white/20">
-              <div
-                className="h-full rounded-full transition-all"
-                style={{ width: `${Math.min(100, progress ?? 35)}%`, background: 'linear-gradient(90deg, rgba(59,130,246,0.6), rgba(59,130,246,1), rgba(59,130,246,0.6))', backgroundSize: '200% 100%', animation: 'gradientShift 2s ease infinite' }}
-              />
-            </div>
-          </div>
-        )}
         <span className="absolute left-3 top-3">
           {isDone && <span className="inline-flex items-center rounded-full bg-emerald-600 px-2 py-0.5 text-xs font-semibold text-white">Completed</span>}
-          {isWaiting && <span className="inline-flex items-center gap-1 rounded-full bg-warning/20 px-2 py-0.5 text-xs font-semibold text-warning"><Clock3 className="h-3 w-3" />Waiting</span>}
-          {isFailed && <span className="inline-flex items-center gap-1 rounded-full bg-destructive/20 px-2 py-0.5 text-xs font-semibold text-destructive"><AlertTriangle className="h-3 w-3" />Failed</span>}
+          {isWaiting && <span className="inline-flex items-center gap-1 rounded-full bg-yellow-600/80 px-2 py-0.5 text-xs font-semibold text-white"><Clock3 className="h-3 w-3" />Waiting</span>}
+          {isFailed && <span className="inline-flex items-center gap-1 rounded-full bg-destructive/70 px-2 py-0.5 text-xs font-semibold text-white"><AlertTriangle className="h-3 w-3" />Failed</span>}
         </span>
         <span className="absolute right-3 top-3 text-xs font-semibold text-white/80">
           {isDone && durationLabel}
@@ -498,11 +480,6 @@ export function WorkflowPipeline({
                         label={agent.label}
                         status={status}
                         durationLabel={formatDuration(step, status)}
-                        progress={
-                          running
-                            ? (step?.progress ?? (running ? 50 : undefined))
-                            : undefined
-                        }
                         selected={selectedAgentKey === agent.agentKey}
                         onSelect={() => onSelectAgent(agent.agentKey, agent.stage)}
                         onResume={status === 'FAILED' && dashboard?.projectId ? () => {
@@ -543,32 +520,39 @@ export function WorkflowPipeline({
       <FlowLine direction="vertical" state={lastToFinal} />
 
       {/* Final document */}
-      <button
-        type="button"
-        onClick={() => onSelectAgent("compilation", "COMPILATION")}
-        className={cn(
-          "flex w-full items-center gap-4 rounded-2xl border bg-card px-5 py-4 text-left shadow-sm",
-          finalReady ? "border-success/20" : "border-primary/20",
-        )}
-      >
-        <FileText className="h-6 w-6 shrink-0 text-primary" />
-        <div className="min-w-0 flex-1">
-          <p className="text-sm font-semibold text-foreground">Requirement Document</p>
-          <p className="mt-0.5 text-xs text-muted-foreground">
-            {finalReady
-              ? "Final output is ready for export."
-              : "Final output will be ready for export."}
-          </p>
-        </div>
-        <span
+      <div className="flex justify-center py-2">
+        <button
+          type="button"
+          onClick={() => onSelectAgent("compilation", "COMPILATION")}
           className={cn(
-            "rounded-full px-2.5 py-1 text-xs font-semibold",
-            finalReady ? "bg-success/10 text-success/90" : "bg-warning/10 text-warning",
+            "group flex w-full max-w-md items-center gap-4 rounded-2xl border bg-card px-6 py-5 text-left shadow-sm transition-all hover:shadow-md",
+            finalReady ? "border-success/30 hover:border-success/50" : "border-primary/20 hover:border-primary/40",
           )}
         >
-          {finalReady ? "Ready" : "Pending"}
-        </span>
-      </button>
+          <div className={cn(
+            "flex h-11 w-11 shrink-0 items-center justify-center rounded-xl",
+            finalReady ? "bg-success/10" : "bg-primary/10",
+          )}>
+            <FileText className={cn("h-5 w-5", finalReady ? "text-success" : "text-primary")} />
+          </div>
+          <div className="min-w-0 flex-1">
+            <p className="text-sm font-semibold text-foreground">Requirement Document</p>
+            <p className="mt-0.5 text-xs text-muted-foreground">
+              {finalReady
+                ? "Final output is ready for export."
+                : "Final output will be ready for export."}
+            </p>
+          </div>
+          <span
+            className={cn(
+              "rounded-full px-3 py-1 text-xs font-semibold",
+              finalReady ? "bg-success/15 text-success" : "bg-warning/15 text-warning",
+            )}
+          >
+            {finalReady ? "Ready" : "Pending"}
+          </span>
+        </button>
+      </div>
     </div>
   );
 }

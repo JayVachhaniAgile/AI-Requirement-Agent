@@ -308,16 +308,16 @@ export function AiInterview({ onComplete }: { onComplete?: () => void }) {
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-2">
-            <label className="text-sm font-semibold">Project Name *</label>
+            <label className="block text-sm font-semibold mb-1.5">Project Name *</label>
             <Input placeholder="e.g. Acme Inventory Tracker" value={name} onChange={(e) => setName(e.target.value)} autoFocus />
           </div>
           <div className="space-y-2">
-            <label className="text-sm font-semibold">Initial Idea (optional)</label>
+            <label className="block text-sm font-semibold mb-1.5">Initial Idea (optional)</label>
             <Textarea placeholder="Briefly describe what you want to build..." value={initialIdea} onChange={(e) => setInitialIdea(e.target.value)} className="min-h-[100px]" />
           </div>
           {/* File Upload for Interview */}
           <div className="space-y-2">
-            <label className="text-sm font-semibold">Upload Requirement Files (optional)</label>
+            <label className="block text-sm font-semibold mb-1.5">Upload Requirement Files (optional)</label>
             <div
               onDragOver={handleDragOver}
               onDragLeave={handleDragLeave}

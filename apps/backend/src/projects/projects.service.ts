@@ -5,7 +5,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository, Like } from 'typeorm';
 import { randomUUID } from 'crypto';
 import {
   Project,
@@ -25,7 +25,7 @@ import { LlmService } from '../llm/llm.service';
 import { CreateProjectDto } from './dto/create-project.dto';
 import { AnswerQuestionDto } from './dto/answer-question.dto';
 
-const RESTARTABLE_STATUSES = ['CREATED', 'FAILED', 'WAITING_FOR_USER'];
+const RESTARTABLE_STATUSES = ['CREATED', 'FAILED', 'WAITING_FOR_USER', 'PAUSED'];
 
 @Injectable()
 export class ProjectsService {
@@ -150,6 +150,64 @@ export class ProjectsService {
     return this.getById(id);
   }
 
+  async pause(id: string): Promise<Project> {
+    const project = await this.getById(id);
+    if (!['DISCOVERING', 'RESEARCHING', 'ANALYSING', 'GENERATING_REQUIREMENTS', 'DESIGNING', 'ARCHITECTING', 'SECURITY_REVIEW', 'QA_ANALYSIS', 'ESTIMATING', 'VALIDATING', 'COMPILING'].includes(project.status)) {
+      throw new BadRequestException('Project is not in a running state');
+    }
+    await this.projectRepo.update(id, { status: 'PAUSED' });
+    this.events.emitProjectStatus(id, { status: 'PAUSED', currentStage: project.currentStage });
+    try {
+      const snapshot = await this.dashboard.buildSnapshot(id);
+      this.events.emitDashboardSnapshot(id, snapshot);
+    } catch {
+      /* ignore */
+    }
+    return this.getById(id);
+  }
+
+  async regenerateFromAgent(id: string, agentKey: string): Promise<Project> {
+    const project = await this.getById(id);
+    const completedStatuses = ['COMPLETED', 'FAILED'];
+    // Find stage for this agent
+    const targetStage = agentKey.toUpperCase().replace(/-/g, '_');
+
+    const stageKey = await this.workflow.regenerateFromAgent(id, agentKey);
+
+    // Update project status
+    const stageDef = [
+      { key: 'DISCOVERY', status: 'DISCOVERING' },
+      { key: 'RESEARCH', status: 'RESEARCHING' },
+      { key: 'BUSINESS_ANALYSIS', status: 'ANALYSING' },
+      { key: 'PRODUCT_ANALYSIS', status: 'ANALYSING' },
+      { key: 'REQUIREMENTS_ENGINEERING', status: 'GENERATING_REQUIREMENTS' },
+      { key: 'UX_DESIGN', status: 'DESIGNING' },
+      { key: 'DATA_ARCHITECTURE', status: 'ARCHITECTING' },
+      { key: 'AI_ARCHITECTURE', status: 'ARCHITECTING' },
+      { key: 'SOLUTION_ARCHITECTURE', status: 'ARCHITECTING' },
+      { key: 'SECURITY_REVIEW', status: 'SECURITY_REVIEW' },
+      { key: 'QA_PLANNING', status: 'QA_ANALYSIS' },
+      { key: 'ESTIMATION', status: 'ESTIMATING' },
+      { key: 'VALIDATION', status: 'VALIDATING' },
+      { key: 'DEBATE', status: 'VALIDATING' },
+      { key: 'COMPILATION', status: 'COMPILING' },
+    ];
+    const sDef = stageDef.find((s) => s.key === stageKey);
+    const projectStatus = sDef?.status ?? 'PROCESSING';
+    await this.projectRepo.update(id, { status: projectStatus, currentStage: stageKey });
+
+    this.events.emitProjectStatus(id, { status: projectStatus, currentStage: stageKey, errorMessage: null });
+
+    // Start the workflow asynchronously
+    setImmediate(() => {
+      this.workflow.runWorkflow(id).catch((err: unknown) => {
+        this.logger.error(`Regeneration workflow crashed for project ${id}:`, err);
+      });
+    });
+
+    return this.getById(id);
+  }
+
   async getDashboard(id: string) {
     return this.dashboard.buildSnapshot(id);
   }
@@ -166,6 +224,17 @@ export class ProjectsService {
   async getKnowledge(id: string): Promise<KnowledgeItem[]> {
     return this.knowledgeRepo.find({
       where: { projectId: id },
+      order: { createdAt: 'ASC' },
+    });
+  }
+
+  async getKnowledgeByAgent(id: string, agentKey: string): Promise<KnowledgeItem[]> {
+    // Match items by createdBy or source (source stores "agentKey::category" or just "agentKey")
+    return this.knowledgeRepo.find({
+      where: [
+        { projectId: id, createdBy: agentKey },
+        { projectId: id, source: Like(`${agentKey}%`) },
+      ],
       order: { createdAt: 'ASC' },
     });
   }

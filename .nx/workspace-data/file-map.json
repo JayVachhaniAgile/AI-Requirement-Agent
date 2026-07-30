@@ -4,300 +4,345 @@
   "pathMappings": {},
   "nxJsonPlugins": [],
   "fileMap": {
-    "nonProjectFiles": [
-      {
-        "file": ".npmrc",
-        "hash": "4914798315669331657"
-      },
-      {
-        "file": ".env.example",
-        "hash": "1699282485077039700"
-      },
-      {
-        "file": "package.json",
-        "hash": "10680523395725310977"
-      },
-      {
-        "file": ".agents/memory/req-platform-arch.md",
-        "hash": "6056035815770033693"
-      },
-      {
-        "file": "nx.json",
-        "hash": "12000087671240979826"
-      },
-      {
-        "file": ".replitignore",
-        "hash": "15037560543002592894"
-      },
-      {
-        "file": "pnpm-workspace.yaml",
-        "hash": "15255049361494064405"
-      },
-      {
-        "file": "tsconfig.json",
-        "hash": "4524313083382972009"
-      },
-      {
-        "file": ".agents/memory/MEMORY.md",
-        "hash": "10808198223326320769"
-      },
-      {
-        "file": "pnpm-lock.yaml",
-        "hash": "15672549794590224621"
-      },
-      {
-        "file": ".replit",
-        "hash": "6179485415120850391"
-      },
-      {
-        "file": "replit.md",
-        "hash": "2884493494684170397"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "7116471946271321251"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "15058594932547804684"
-      },
-      {
-        "file": "attached_assets/Pasted--Autonomous-Build-Prompt-AI-Requirements-Engineering-Pl_1785137554091.txt",
-        "hash": "10242773326595188971"
-      }
-    ],
     "projectFileMap": {
-      "@workspace/api-zod": [
+      "@workspace/api-client-react": [
         {
-          "file": "lib/api-zod/package.json",
-          "hash": "11658053158177879389",
+          "file": "lib/api-client-react/package.json",
+          "hash": "13620420313382471562",
           "deps": [
-            "npm:zod"
+            "npm:react",
+            "npm:@tanstack/react-query"
           ]
         },
         {
-          "file": "lib/api-zod/src/generated/api.ts",
-          "hash": "13157563089555376928"
+          "file": "lib/api-client-react/src/custom-fetch.ts",
+          "hash": "6394159018594311258"
         },
         {
-          "file": "lib/api-zod/src/generated/types/agentExecution.ts",
-          "hash": "11797574531799996821"
+          "file": "lib/api-client-react/src/generated/api.schemas.ts",
+          "hash": "12334360716153526785"
         },
         {
-          "file": "lib/api-zod/src/generated/types/agentExecutionStatus.ts",
-          "hash": "16355863971542501484"
+          "file": "lib/api-client-react/src/generated/api.ts",
+          "hash": "2958231509112560418"
         },
         {
-          "file": "lib/api-zod/src/generated/types/clarificationQuestion.ts",
-          "hash": "12274874365383888103"
+          "file": "lib/api-client-react/src/index.ts",
+          "hash": "575578354702400319"
         },
         {
-          "file": "lib/api-zod/src/generated/types/clarificationQuestionStatus.ts",
-          "hash": "2159657825894088917"
-        },
-        {
-          "file": "lib/api-zod/src/generated/types/errorResponse.ts",
-          "hash": "5407926266552579275"
-        },
-        {
-          "file": "lib/api-zod/src/generated/types/healthStatus.ts",
-          "hash": "5856629071313185890"
-        },
-        {
-          "file": "lib/api-zod/src/generated/types/index.ts",
-          "hash": "2334910008164358737"
-        },
-        {
-          "file": "lib/api-zod/src/generated/types/knowledgeItem.ts",
-          "hash": "16206001630720733510"
-        },
-        {
-          "file": "lib/api-zod/src/generated/types/knowledgeItemStatus.ts",
-          "hash": "9162286238977605093"
-        },
-        {
-          "file": "lib/api-zod/src/generated/types/project.ts",
-          "hash": "12178143905296127319"
-        },
-        {
-          "file": "lib/api-zod/src/generated/types/projectInput.ts",
-          "hash": "8168865533615786094"
-        },
-        {
-          "file": "lib/api-zod/src/generated/types/projectProgress.ts",
-          "hash": "10660197175649359358"
-        },
-        {
-          "file": "lib/api-zod/src/generated/types/projectStats.ts",
-          "hash": "727055895684195106"
-        },
-        {
-          "file": "lib/api-zod/src/generated/types/projectStatus.ts",
-          "hash": "1068812296069592427"
-        },
-        {
-          "file": "lib/api-zod/src/generated/types/questionAnswer.ts",
-          "hash": "14760257133039515787"
-        },
-        {
-          "file": "lib/api-zod/src/generated/types/requirementsDocument.ts",
-          "hash": "17216303424361025989"
-        },
-        {
-          "file": "lib/api-zod/src/generated/types/requirementsDocumentStatus.ts",
-          "hash": "5607424286438882086"
-        },
-        {
-          "file": "lib/api-zod/src/generated/types/validationIssue.ts",
-          "hash": "14694990663469762060"
-        },
-        {
-          "file": "lib/api-zod/src/generated/types/validationIssueSeverity.ts",
-          "hash": "14764682137332972099"
-        },
-        {
-          "file": "lib/api-zod/src/generated/types/validationIssueStatus.ts",
-          "hash": "11216817704950314608"
-        },
-        {
-          "file": "lib/api-zod/src/generated/types/workflowStep.ts",
-          "hash": "88993103675488509"
-        },
-        {
-          "file": "lib/api-zod/src/generated/types/workflowStepStatus.ts",
-          "hash": "11005512714122852496"
-        },
-        {
-          "file": "lib/api-zod/src/index.ts",
-          "hash": "4566223190989022745"
-        },
-        {
-          "file": "lib/api-zod/tsconfig.json",
-          "hash": "16388413490028601142"
+          "file": "lib/api-client-react/tsconfig.json",
+          "hash": "8402695609774635646"
         }
       ],
-      "@workspace/api-server": [
+      "backend": [
         {
-          "file": "artifacts/api-server/.replit-artifact/artifact.toml",
-          "hash": "11274339980271258416"
+          "file": "apps/backend/.gitignore",
+          "hash": "579407527470525204"
         },
         {
-          "file": "artifacts/api-server/build.mjs",
-          "hash": "2791549869423107741"
+          "file": "apps/backend/nest-cli.json",
+          "hash": "16268559638959798008"
         },
         {
-          "file": "artifacts/api-server/package.json",
-          "hash": "15087977191596659639",
+          "file": "apps/backend/package.json",
+          "hash": "10815422648653458106",
           "deps": [
-            "npm:@types/cookie-parser",
-            "npm:@types/cors",
+            "npm:@nestjs/cli",
+            "npm:@nestjs/schematics",
+            "npm:@swc/cli",
+            "npm:@swc/core",
             "npm:@types/express",
             "npm:@types/node@25.9.5",
-            "npm:esbuild@0.27.3",
-            "npm:esbuild-plugin-pino",
-            "npm:pino-pretty",
-            "npm:thread-stream",
-            "@workspace/api-zod",
-            "@workspace/db",
-            "npm:cookie-parser",
-            "npm:cors@2.8.6",
-            "npm:drizzle-orm",
-            "npm:express@5.2.1",
+            "npm:@types/pg",
+            "npm:@types/ws",
+            "npm:typescript",
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/core",
+            "npm:@nestjs/platform-express",
+            "npm:@nestjs/platform-socket.io",
+            "npm:@nestjs/typeorm",
+            "npm:@nestjs/websockets",
+            "npm:class-transformer",
+            "npm:class-validator",
             "npm:openai",
+            "npm:pg",
             "npm:pino",
             "npm:pino-http",
+            "npm:reflect-metadata",
+            "npm:rxjs@7.8.2",
+            "npm:socket.io@4.8.3",
+            "npm:typeorm",
+            "npm:typeorm-naming-strategies",
             "npm:zod"
           ]
         },
         {
-          "file": "artifacts/api-server/src/agents/business-analyst.ts",
-          "hash": "8232463291488467678"
+          "file": "apps/backend/project.json",
+          "hash": "17006428470384989454"
         },
         {
-          "file": "artifacts/api-server/src/agents/compiler.ts",
-          "hash": "18357474707318737003"
+          "file": "apps/backend/src/agents/agent.utils.ts",
+          "hash": "16815465034527883883"
         },
         {
-          "file": "artifacts/api-server/src/agents/critic.ts",
-          "hash": "1320215276103077372"
+          "file": "apps/backend/src/agents/agents.module.ts",
+          "hash": "6480532834065007510"
         },
         {
-          "file": "artifacts/api-server/src/agents/discovery.ts",
-          "hash": "5708491266831285072"
+          "file": "apps/backend/src/agents/ai-architect.service.ts",
+          "hash": "5562562915669943438"
         },
         {
-          "file": "artifacts/api-server/src/agents/product-manager.ts",
-          "hash": "11931717877388584198"
+          "file": "apps/backend/src/agents/business-analyst.service.ts",
+          "hash": "541654581823504421"
         },
         {
-          "file": "artifacts/api-server/src/agents/requirements-engineer.ts",
-          "hash": "9825399326701684040"
+          "file": "apps/backend/src/agents/compiler.service.ts",
+          "hash": "14951218829576331213"
         },
         {
-          "file": "artifacts/api-server/src/agents/types.ts",
-          "hash": "2929592934093957825"
+          "file": "apps/backend/src/agents/critic.service.ts",
+          "hash": "15287974400436731481"
         },
         {
-          "file": "artifacts/api-server/src/app.ts",
-          "hash": "12782931862270930432"
+          "file": "apps/backend/src/agents/data-architect.service.ts",
+          "hash": "527857010870671365"
         },
         {
-          "file": "artifacts/api-server/src/index.ts",
-          "hash": "14598204283373055545"
+          "file": "apps/backend/src/agents/debate.service.ts",
+          "hash": "1735152198601930739"
         },
         {
-          "file": "artifacts/api-server/src/lib/.gitkeep",
-          "hash": "3244421341483603138"
+          "file": "apps/backend/src/agents/discovery.service.ts",
+          "hash": "15178224327818625929"
         },
         {
-          "file": "artifacts/api-server/src/lib/llm.ts",
-          "hash": "16939442071725992429"
+          "file": "apps/backend/src/agents/domain.service.ts",
+          "hash": "14163406204384240388"
         },
         {
-          "file": "artifacts/api-server/src/lib/logger.ts",
-          "hash": "937274214374951533"
+          "file": "apps/backend/src/agents/estimation.service.ts",
+          "hash": "16167314146924476130"
         },
         {
-          "file": "artifacts/api-server/src/middlewares/.gitkeep",
-          "hash": "3244421341483603138"
+          "file": "apps/backend/src/agents/product-manager.service.ts",
+          "hash": "14582180190263681447"
         },
         {
-          "file": "artifacts/api-server/src/orchestrator/workflow.ts",
-          "hash": "11779227054813942281"
+          "file": "apps/backend/src/agents/qa.service.ts",
+          "hash": "988253610174793741"
         },
         {
-          "file": "artifacts/api-server/src/routes/health.ts",
-          "hash": "1867309249212349760"
+          "file": "apps/backend/src/agents/requirements-engineer.service.ts",
+          "hash": "2787856218032653652"
         },
         {
-          "file": "artifacts/api-server/src/routes/index.ts",
-          "hash": "5333820304698709011"
+          "file": "apps/backend/src/agents/research.service.ts",
+          "hash": "14558822052832001665"
         },
         {
-          "file": "artifacts/api-server/src/routes/projects.ts",
-          "hash": "16008240066429776355"
+          "file": "apps/backend/src/agents/security.service.ts",
+          "hash": "14197587070934663848"
         },
         {
-          "file": "artifacts/api-server/src/services/rkb.ts",
-          "hash": "18010720642434258649"
+          "file": "apps/backend/src/agents/solution-architect.service.ts",
+          "hash": "8998010130029841666"
         },
         {
-          "file": "artifacts/api-server/tsconfig.json",
-          "hash": "125075851330863903"
+          "file": "apps/backend/src/agents/types.ts",
+          "hash": "14037317603300828157"
+        },
+        {
+          "file": "apps/backend/src/agents/ux.service.ts",
+          "hash": "14454423512838562131"
+        },
+        {
+          "file": "apps/backend/src/aggregate/aggregate.controller.ts",
+          "hash": "6714920326251261124"
+        },
+        {
+          "file": "apps/backend/src/aggregate/aggregate.module.ts",
+          "hash": "10331714241868088491"
+        },
+        {
+          "file": "apps/backend/src/app.module.ts",
+          "hash": "1384671439117717040"
+        },
+        {
+          "file": "apps/backend/src/database/database.module.ts",
+          "hash": "15242807998890719201"
+        },
+        {
+          "file": "apps/backend/src/database/entities/agent-execution.entity.ts",
+          "hash": "5998264055449532101"
+        },
+        {
+          "file": "apps/backend/src/database/entities/clarification-question.entity.ts",
+          "hash": "921668997633333286"
+        },
+        {
+          "file": "apps/backend/src/database/entities/document-version.entity.ts",
+          "hash": "17871644924307160567"
+        },
+        {
+          "file": "apps/backend/src/database/entities/document.entity.ts",
+          "hash": "5841267879429810594"
+        },
+        {
+          "file": "apps/backend/src/database/entities/index.ts",
+          "hash": "2132908929873070610"
+        },
+        {
+          "file": "apps/backend/src/database/entities/interview-session.entity.ts",
+          "hash": "17887194369709445129"
+        },
+        {
+          "file": "apps/backend/src/database/entities/knowledge-item.entity.ts",
+          "hash": "3239882311979236599"
+        },
+        {
+          "file": "apps/backend/src/database/entities/project.entity.ts",
+          "hash": "3321295568663424127"
+        },
+        {
+          "file": "apps/backend/src/database/entities/settings.entity.ts",
+          "hash": "15620808504048802021"
+        },
+        {
+          "file": "apps/backend/src/database/entities/validation-issue.entity.ts",
+          "hash": "8624568986941396009"
+        },
+        {
+          "file": "apps/backend/src/database/entities/workflow-step.entity.ts",
+          "hash": "7738926087953557367"
+        },
+        {
+          "file": "apps/backend/src/health/health.controller.ts",
+          "hash": "4059146715417528083"
+        },
+        {
+          "file": "apps/backend/src/health/health.module.ts",
+          "hash": "13590658636451639308"
+        },
+        {
+          "file": "apps/backend/src/interview/interview.controller.ts",
+          "hash": "1570640307062877599"
+        },
+        {
+          "file": "apps/backend/src/interview/interview.module.ts",
+          "hash": "7194012420862156330"
+        },
+        {
+          "file": "apps/backend/src/interview/interview.service.ts",
+          "hash": "14816523785582364578"
+        },
+        {
+          "file": "apps/backend/src/llm/llm.module.ts",
+          "hash": "7429235048337241550"
+        },
+        {
+          "file": "apps/backend/src/llm/llm.service.ts",
+          "hash": "7316084243792659777"
+        },
+        {
+          "file": "apps/backend/src/main.ts",
+          "hash": "6666238230741664799"
+        },
+        {
+          "file": "apps/backend/src/projects/dto/answer-question.dto.ts",
+          "hash": "5964827902562891903"
+        },
+        {
+          "file": "apps/backend/src/projects/dto/create-project.dto.ts",
+          "hash": "11896561311339022986"
+        },
+        {
+          "file": "apps/backend/src/projects/projects.controller.ts",
+          "hash": "8625161703047889409"
+        },
+        {
+          "file": "apps/backend/src/projects/projects.module.ts",
+          "hash": "14056862710278996322"
+        },
+        {
+          "file": "apps/backend/src/projects/projects.service.ts",
+          "hash": "1267309303208493490"
+        },
+        {
+          "file": "apps/backend/src/realtime/agent-phases.ts",
+          "hash": "6004892393555661998"
+        },
+        {
+          "file": "apps/backend/src/realtime/dashboard.service.ts",
+          "hash": "4034537033326579037"
+        },
+        {
+          "file": "apps/backend/src/realtime/projects.gateway.ts",
+          "hash": "8766490069930042029"
+        },
+        {
+          "file": "apps/backend/src/realtime/realtime.module.ts",
+          "hash": "10696912321724591984"
+        },
+        {
+          "file": "apps/backend/src/realtime/workflow-events.service.ts",
+          "hash": "17712554412521644320"
+        },
+        {
+          "file": "apps/backend/src/rkb/rkb.module.ts",
+          "hash": "11021821808004201042"
+        },
+        {
+          "file": "apps/backend/src/rkb/rkb.service.ts",
+          "hash": "6784077459323503266"
+        },
+        {
+          "file": "apps/backend/src/settings/settings.controller.ts",
+          "hash": "5647899872659496235"
+        },
+        {
+          "file": "apps/backend/src/settings/settings.module.ts",
+          "hash": "4608009886509920960"
+        },
+        {
+          "file": "apps/backend/src/settings/settings.service.ts",
+          "hash": "15617561321204048645"
+        },
+        {
+          "file": "apps/backend/src/workflow/workflow.module.ts",
+          "hash": "15581041568549778544"
+        },
+        {
+          "file": "apps/backend/src/workflow/workflow.service.ts",
+          "hash": "12281898535837758692"
+        },
+        {
+          "file": "apps/backend/tsconfig.build.json",
+          "hash": "11777601254810462358"
+        },
+        {
+          "file": "apps/backend/tsconfig.json",
+          "hash": "11126579092379449102"
         }
       ],
       "frontend": [
+        {
+          "file": "apps/frontend/.gitignore",
+          "hash": "11091884865853158211"
+        },
         {
           "file": "apps/frontend/components.json",
           "hash": "15683893185755193329"
         },
         {
           "file": "apps/frontend/index.html",
-          "hash": "15245505557208063359"
+          "hash": "14562196190713050699"
         },
         {
           "file": "apps/frontend/package.json",
-          "hash": "2467849448539256207",
+          "hash": "8918950924837871535",
           "deps": [
             "npm:@hookform/resolvers",
             "npm:@radix-ui/react-accordion",
@@ -362,12 +407,70 @@
             "npm:vite",
             "npm:wouter",
             "npm:zod",
-            "npm:react-markdown"
+            "npm:@xyflow/react",
+            "npm:react-markdown",
+            "npm:socket.io-client"
           ]
         },
         {
           "file": "apps/frontend/project.json",
           "hash": "761450082788242099"
+        },
+        {
+          "file": "apps/frontend/public/agentBackgrounds/AIArchitect.png",
+          "hash": "7114255073570176234"
+        },
+        {
+          "file": "apps/frontend/public/agentBackgrounds/BusinessAnalyst.png",
+          "hash": "5045331722080017918"
+        },
+        {
+          "file": "apps/frontend/public/agentBackgrounds/CompilationAgent.png",
+          "hash": "6498527331542537553"
+        },
+        {
+          "file": "apps/frontend/public/agentBackgrounds/DataArchitect.png",
+          "hash": "13027219692179118410"
+        },
+        {
+          "file": "apps/frontend/public/agentBackgrounds/Discovery.png",
+          "hash": "13743982044086132989"
+        },
+        {
+          "file": "apps/frontend/public/agentBackgrounds/EstimationAgent.png",
+          "hash": "4601504300668011165"
+        },
+        {
+          "file": "apps/frontend/public/agentBackgrounds/ProductManager.png",
+          "hash": "6789566376525047018"
+        },
+        {
+          "file": "apps/frontend/public/agentBackgrounds/QAAgent.png",
+          "hash": "17213356612162118930"
+        },
+        {
+          "file": "apps/frontend/public/agentBackgrounds/RequirementAgent.png",
+          "hash": "4646705397265626332"
+        },
+        {
+          "file": "apps/frontend/public/agentBackgrounds/Research.png",
+          "hash": "7561162953785890791"
+        },
+        {
+          "file": "apps/frontend/public/agentBackgrounds/SecurityAgent.png",
+          "hash": "12427719980678632379"
+        },
+        {
+          "file": "apps/frontend/public/agentBackgrounds/SolutionArchitect.png",
+          "hash": "17716958312349886060"
+        },
+        {
+          "file": "apps/frontend/public/agentBackgrounds/UXAgent.png",
+          "hash": "5339941143927263104"
+        },
+        {
+          "file": "apps/frontend/public/agentBackgrounds/ValidationAgent.png",
+          "hash": "15971803810833505130"
         },
         {
           "file": "apps/frontend/public/favicon.svg",
@@ -379,43 +482,139 @@
         },
         {
           "file": "apps/frontend/src/App.tsx",
-          "hash": "16841202713103099126"
+          "hash": "1648621365290549994"
+        },
+        {
+          "file": "apps/frontend/src/assets/agent-icons/ai-architecture.png",
+          "hash": "6646144506014512097"
+        },
+        {
+          "file": "apps/frontend/src/assets/agent-icons/business-analysis.png",
+          "hash": "13054006485466765485"
+        },
+        {
+          "file": "apps/frontend/src/assets/agent-icons/compilation.png",
+          "hash": "14067664194661316650"
+        },
+        {
+          "file": "apps/frontend/src/assets/agent-icons/data-architecture.png",
+          "hash": "17578230736129553587"
+        },
+        {
+          "file": "apps/frontend/src/assets/agent-icons/discovery.png",
+          "hash": "3708102732659132337"
+        },
+        {
+          "file": "apps/frontend/src/assets/agent-icons/estimation.png",
+          "hash": "7140554547052332633"
+        },
+        {
+          "file": "apps/frontend/src/assets/agent-icons/product-analysis.png",
+          "hash": "1070673131033380649"
+        },
+        {
+          "file": "apps/frontend/src/assets/agent-icons/qa-planning.png",
+          "hash": "3580656466653066676"
+        },
+        {
+          "file": "apps/frontend/src/assets/agent-icons/requirements-engineering.png",
+          "hash": "5861425540754969007"
+        },
+        {
+          "file": "apps/frontend/src/assets/agent-icons/research.png",
+          "hash": "5614292212578791360"
+        },
+        {
+          "file": "apps/frontend/src/assets/agent-icons/security-review.png",
+          "hash": "4186305010952250655"
+        },
+        {
+          "file": "apps/frontend/src/assets/agent-icons/solution-architecture.png",
+          "hash": "4261076854072555995"
+        },
+        {
+          "file": "apps/frontend/src/assets/agent-icons/ux-design.png",
+          "hash": "9719183290908290550"
+        },
+        {
+          "file": "apps/frontend/src/assets/agent-icons/validation.png",
+          "hash": "2296321108831755802"
         },
         {
           "file": "apps/frontend/src/components/layouts/AppLayout.tsx",
-          "hash": "16576444804391573876"
+          "hash": "2031154664098682548"
+        },
+        {
+          "file": "apps/frontend/src/components/layouts/workspace-header-context.tsx",
+          "hash": "10728876968872813058"
+        },
+        {
+          "file": "apps/frontend/src/components/projects/AgentLivePanel.tsx",
+          "hash": "5100355286676660160"
         },
         {
           "file": "apps/frontend/src/components/projects/AgentPipelineTimeline.tsx",
-          "hash": "1931489482422477385"
+          "hash": "11120926932532125228"
         },
         {
-          "file": "apps/frontend/src/components/projects/TabAssumptions.tsx",
-          "hash": "17297727887935845862"
+          "file": "apps/frontend/src/components/projects/AiInterview.tsx",
+          "hash": "1729113811633887202"
+        },
+        {
+          "file": "apps/frontend/src/components/projects/DocumentSummaryFooter.tsx",
+          "hash": "17342134694091697198"
+        },
+        {
+          "file": "apps/frontend/src/components/projects/ProjectIdeaRenderer.tsx",
+          "hash": "10857292829015644588"
+        },
+        {
+          "file": "apps/frontend/src/components/projects/ProjectKpiBar.tsx",
+          "hash": "3418570210459537585"
+        },
+        {
+          "file": "apps/frontend/src/components/projects/RequirementSummaryDashboard.tsx",
+          "hash": "381157158260172074"
         },
         {
           "file": "apps/frontend/src/components/projects/TabDocument.tsx",
-          "hash": "3837876069900106034"
+          "hash": "17960626750910398225"
         },
         {
           "file": "apps/frontend/src/components/projects/TabExecutions.tsx",
           "hash": "16375736734820278991"
         },
         {
-          "file": "apps/frontend/src/components/projects/TabOverview.tsx",
-          "hash": "9759525154705976269"
-        },
-        {
           "file": "apps/frontend/src/components/projects/TabQuestions.tsx",
-          "hash": "16464342143863787013"
+          "hash": "17778637598651498453"
         },
         {
           "file": "apps/frontend/src/components/projects/TabRequirements.tsx",
-          "hash": "7526541602406133904"
+          "hash": "2630028008112208188"
         },
         {
           "file": "apps/frontend/src/components/projects/TabValidation.tsx",
-          "hash": "16825090313697675786"
+          "hash": "5705867484158585518"
+        },
+        {
+          "file": "apps/frontend/src/components/projects/VersionDiffViewer.tsx",
+          "hash": "9806227424822390696"
+        },
+        {
+          "file": "apps/frontend/src/components/projects/workflow/WorkflowNode.tsx",
+          "hash": "7602244105532462117"
+        },
+        {
+          "file": "apps/frontend/src/components/projects/workflow/WorkflowPipeline.tsx",
+          "hash": "747575229404726051"
+        },
+        {
+          "file": "apps/frontend/src/components/theme-provider.tsx",
+          "hash": "2925700417535108853"
+        },
+        {
+          "file": "apps/frontend/src/components/theme-toggle.tsx",
+          "hash": "15286838081879407203"
         },
         {
           "file": "apps/frontend/src/components/ui/accordion.tsx",
@@ -439,31 +638,19 @@
         },
         {
           "file": "apps/frontend/src/components/ui/badge.tsx",
-          "hash": "3153040079644659881"
+          "hash": "3033267341301501066"
         },
         {
           "file": "apps/frontend/src/components/ui/breadcrumb.tsx",
           "hash": "10623033629959980977"
         },
         {
-          "file": "apps/frontend/src/components/ui/button-group.tsx",
-          "hash": "10948129202024955790"
-        },
-        {
           "file": "apps/frontend/src/components/ui/button.tsx",
-          "hash": "14314509391008603700"
-        },
-        {
-          "file": "apps/frontend/src/components/ui/calendar.tsx",
-          "hash": "2531983864414302400"
+          "hash": "10790173847319242176"
         },
         {
           "file": "apps/frontend/src/components/ui/card.tsx",
-          "hash": "7431185938524499495"
-        },
-        {
-          "file": "apps/frontend/src/components/ui/carousel.tsx",
-          "hash": "14168144799370875172"
+          "hash": "1657439130176020984"
         },
         {
           "file": "apps/frontend/src/components/ui/chart.tsx",
@@ -478,10 +665,6 @@
           "hash": "18077187219340559564"
         },
         {
-          "file": "apps/frontend/src/components/ui/command.tsx",
-          "hash": "6892238609997919251"
-        },
-        {
           "file": "apps/frontend/src/components/ui/context-menu.tsx",
           "hash": "18382077997995309494"
         },
@@ -490,20 +673,8 @@
           "hash": "3944235804494254970"
         },
         {
-          "file": "apps/frontend/src/components/ui/drawer.tsx",
-          "hash": "7651636793152019898"
-        },
-        {
           "file": "apps/frontend/src/components/ui/dropdown-menu.tsx",
           "hash": "10855176969198739520"
-        },
-        {
-          "file": "apps/frontend/src/components/ui/empty.tsx",
-          "hash": "1799850791247328648"
-        },
-        {
-          "file": "apps/frontend/src/components/ui/field.tsx",
-          "hash": "15702404526685982252"
         },
         {
           "file": "apps/frontend/src/components/ui/form.tsx",
@@ -514,24 +685,12 @@
           "hash": "5794475718052074785"
         },
         {
-          "file": "apps/frontend/src/components/ui/input-group.tsx",
-          "hash": "7518113354351150411"
-        },
-        {
           "file": "apps/frontend/src/components/ui/input-otp.tsx",
           "hash": "18099714574172708048"
         },
         {
           "file": "apps/frontend/src/components/ui/input.tsx",
-          "hash": "11169122266299924583"
-        },
-        {
-          "file": "apps/frontend/src/components/ui/item.tsx",
-          "hash": "10352160319114952268"
-        },
-        {
-          "file": "apps/frontend/src/components/ui/kbd.tsx",
-          "hash": "6560364327982308925"
+          "hash": "3091780015704347589"
         },
         {
           "file": "apps/frontend/src/components/ui/label.tsx",
@@ -544,10 +703,6 @@
         {
           "file": "apps/frontend/src/components/ui/navigation-menu.tsx",
           "hash": "8148453813673466242"
-        },
-        {
-          "file": "apps/frontend/src/components/ui/pagination.tsx",
-          "hash": "1749644572716348972"
         },
         {
           "file": "apps/frontend/src/components/ui/popover.tsx",
@@ -582,10 +737,6 @@
           "hash": "4334552740867666918"
         },
         {
-          "file": "apps/frontend/src/components/ui/sidebar.tsx",
-          "hash": "10767982275610559993"
-        },
-        {
           "file": "apps/frontend/src/components/ui/skeleton.tsx",
           "hash": "15338518350120691583"
         },
@@ -598,28 +749,20 @@
           "hash": "14733493988520615657"
         },
         {
-          "file": "apps/frontend/src/components/ui/spinner.tsx",
-          "hash": "11182914830379348172"
-        },
-        {
           "file": "apps/frontend/src/components/ui/switch.tsx",
           "hash": "9458540483866395989"
         },
         {
-          "file": "apps/frontend/src/components/ui/table.tsx",
-          "hash": "384048525877716678"
-        },
-        {
           "file": "apps/frontend/src/components/ui/tabs.tsx",
-          "hash": "14481705184087306279"
+          "hash": "18131398260797721415"
         },
         {
           "file": "apps/frontend/src/components/ui/textarea.tsx",
-          "hash": "10144350745080769437"
+          "hash": "202385874987952656"
         },
         {
           "file": "apps/frontend/src/components/ui/toast.tsx",
-          "hash": "9124633595793931971"
+          "hash": "16664961036016788421"
         },
         {
           "file": "apps/frontend/src/components/ui/toaster.tsx",
@@ -642,20 +785,32 @@
           "hash": "3259769645110772650"
         },
         {
+          "file": "apps/frontend/src/hooks/use-project-socket.ts",
+          "hash": "7390793724643645301"
+        },
+        {
           "file": "apps/frontend/src/hooks/use-toast.ts",
           "hash": "1984456507941444099"
         },
         {
           "file": "apps/frontend/src/index.css",
-          "hash": "9721417592627128707"
+          "hash": "16110819097682394231"
+        },
+        {
+          "file": "apps/frontend/src/lib/aggregate-api.ts",
+          "hash": "14717124706245660328"
         },
         {
           "file": "apps/frontend/src/lib/constants.ts",
           "hash": "7834089492441695999"
         },
         {
+          "file": "apps/frontend/src/lib/dashboard-types.ts",
+          "hash": "7248177712454832027"
+        },
+        {
           "file": "apps/frontend/src/lib/project-api.ts",
-          "hash": "6815279746610729749"
+          "hash": "17046855488750730115"
         },
         {
           "file": "apps/frontend/src/lib/utils.ts",
@@ -666,20 +821,48 @@
           "hash": "7838894925415519907"
         },
         {
+          "file": "apps/frontend/src/pages/ai-workflow.tsx",
+          "hash": "5985161093461397050"
+        },
+        {
+          "file": "apps/frontend/src/pages/analytics.tsx",
+          "hash": "4691528167122273503"
+        },
+        {
+          "file": "apps/frontend/src/pages/dashboard.tsx",
+          "hash": "8871464304876176489"
+        },
+        {
+          "file": "apps/frontend/src/pages/documents-hub.tsx",
+          "hash": "10273491565071328728"
+        },
+        {
           "file": "apps/frontend/src/pages/not-found.tsx",
           "hash": "1384368927602603148"
         },
         {
+          "file": "apps/frontend/src/pages/placeholder.tsx",
+          "hash": "1872049913644009282"
+        },
+        {
           "file": "apps/frontend/src/pages/projects/[id].tsx",
-          "hash": "13298605700330503886"
+          "hash": "13277623531242123512"
         },
         {
           "file": "apps/frontend/src/pages/projects/index.tsx",
-          "hash": "9384790017290023498"
+          "hash": "17113690915316812027"
         },
         {
           "file": "apps/frontend/src/pages/projects/new.tsx",
-          "hash": "5974705086053776667"
+          "hash": "16319048923160939874"
+        },
+        {
+          "file": "apps/frontend/src/pages/settings.tsx",
+          "hash": "17120294224228181944"
+        },
+        {
+          "file": "apps/frontend/src/pages/validation-hub.tsx",
+          "hash": "4480372480920561242"
         },
         {
           "file": "apps/frontend/tsconfig.json",
@@ -687,650 +870,7 @@
         },
         {
           "file": "apps/frontend/vite.config.ts",
-          "hash": "1761915675618153300"
-        }
-      ],
-      "@workspace/scripts": [
-        {
-          "file": "scripts/package.json",
-          "hash": "5667046278417977617",
-          "deps": [
-            "npm:@types/node@25.9.5",
-            "npm:tsx"
-          ]
-        },
-        {
-          "file": "scripts/post-merge.sh",
-          "hash": "10379701268642483405"
-        },
-        {
-          "file": "scripts/src/hello.ts",
-          "hash": "8702667678976027421"
-        },
-        {
-          "file": "scripts/tsconfig.json",
-          "hash": "8887829370223542393"
-        }
-      ],
-      "@workspace/mockup-sandbox": [
-        {
-          "file": "artifacts/mockup-sandbox/.replit-artifact/artifact.toml",
-          "hash": "15435037435666485119"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/components.json",
-          "hash": "14395887666922773707"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/index.html",
-          "hash": "13075044388179404893"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/mockupPreviewPlugin.ts",
-          "hash": "3029944813762112001"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/package.json",
-          "hash": "18269788865686547677",
-          "deps": [
-            "npm:@hookform/resolvers",
-            "npm:@radix-ui/react-accordion",
-            "npm:@radix-ui/react-alert-dialog",
-            "npm:@radix-ui/react-aspect-ratio",
-            "npm:@radix-ui/react-avatar",
-            "npm:@radix-ui/react-checkbox",
-            "npm:@radix-ui/react-collapsible",
-            "npm:@radix-ui/react-context-menu",
-            "npm:@radix-ui/react-dialog",
-            "npm:@radix-ui/react-dropdown-menu",
-            "npm:@radix-ui/react-hover-card",
-            "npm:@radix-ui/react-label",
-            "npm:@radix-ui/react-menubar",
-            "npm:@radix-ui/react-navigation-menu",
-            "npm:@radix-ui/react-popover",
-            "npm:@radix-ui/react-progress",
-            "npm:@radix-ui/react-radio-group",
-            "npm:@radix-ui/react-scroll-area",
-            "npm:@radix-ui/react-select",
-            "npm:@radix-ui/react-separator",
-            "npm:@radix-ui/react-slider",
-            "npm:@radix-ui/react-slot",
-            "npm:@radix-ui/react-switch",
-            "npm:@radix-ui/react-tabs",
-            "npm:@radix-ui/react-toast",
-            "npm:@radix-ui/react-toggle",
-            "npm:@radix-ui/react-toggle-group",
-            "npm:@radix-ui/react-tooltip",
-            "npm:@replit/vite-plugin-cartographer",
-            "npm:@replit/vite-plugin-runtime-error-modal",
-            "npm:@tailwindcss/vite",
-            "npm:@types/node@25.9.5",
-            "npm:@types/react",
-            "npm:@types/react-dom",
-            "npm:@vitejs/plugin-react",
-            "npm:chokidar@4.0.3",
-            "npm:class-variance-authority",
-            "npm:clsx",
-            "npm:cmdk",
-            "npm:date-fns@3.6.0",
-            "npm:embla-carousel-react",
-            "npm:fast-glob",
-            "npm:framer-motion",
-            "npm:input-otp",
-            "npm:lucide-react",
-            "npm:next-themes",
-            "npm:react",
-            "npm:react-day-picker",
-            "npm:react-dom",
-            "npm:react-hook-form",
-            "npm:react-resizable-panels",
-            "npm:recharts",
-            "npm:sonner",
-            "npm:tailwind-merge",
-            "npm:tailwindcss",
-            "npm:tailwindcss-animate",
-            "npm:tw-animate-css",
-            "npm:vaul",
-            "npm:vite",
-            "npm:zod"
-          ]
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/.generated/mockup-components.ts",
-          "hash": "2202499162528773117"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/App.tsx",
-          "hash": "6077498405610672951"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/accordion.tsx",
-          "hash": "1570378455557266624"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/alert-dialog.tsx",
-          "hash": "5585576857993870640"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/alert.tsx",
-          "hash": "7317990078770239904"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/aspect-ratio.tsx",
-          "hash": "12340592216594228921"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/avatar.tsx",
-          "hash": "8660661188500548189"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/badge.tsx",
-          "hash": "3445746883977428523"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/breadcrumb.tsx",
-          "hash": "16363177524338459737"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/button-group.tsx",
-          "hash": "5114573669256272080"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/button.tsx",
-          "hash": "15823374572746044653"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/calendar.tsx",
-          "hash": "13578474545646439516"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/card.tsx",
-          "hash": "10705375868451136261"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/carousel.tsx",
-          "hash": "16025284428382211109"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/chart.tsx",
-          "hash": "15619377843692085488"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/checkbox.tsx",
-          "hash": "4252558033679975419"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/collapsible.tsx",
-          "hash": "11550741736187478023"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/command.tsx",
-          "hash": "10225242495018976643"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/context-menu.tsx",
-          "hash": "11002711316949119073"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/dialog.tsx",
-          "hash": "7755375973925996779"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/drawer.tsx",
-          "hash": "506114188505693642"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/dropdown-menu.tsx",
-          "hash": "5292294336904181534"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/empty.tsx",
-          "hash": "2597369037502234338"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/field.tsx",
-          "hash": "16840947704083011872"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/form.tsx",
-          "hash": "7120535280063912354"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/hover-card.tsx",
-          "hash": "10631286100895865377"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/input-group.tsx",
-          "hash": "7924356028662756238"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/input-otp.tsx",
-          "hash": "5915142166816545742"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/input.tsx",
-          "hash": "10270228290145902228"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/item.tsx",
-          "hash": "16401729393412380450"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/kbd.tsx",
-          "hash": "7540407395522427479"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/label.tsx",
-          "hash": "17461498100996495370"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/menubar.tsx",
-          "hash": "12425569805952261181"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/navigation-menu.tsx",
-          "hash": "3514364603340052709"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/pagination.tsx",
-          "hash": "11536195279719397334"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/popover.tsx",
-          "hash": "5935926758117154287"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/progress.tsx",
-          "hash": "5483064031844279887"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/radio-group.tsx",
-          "hash": "11253721217064623089"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/resizable.tsx",
-          "hash": "7119411678047791219"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/scroll-area.tsx",
-          "hash": "7372559361306884482"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/select.tsx",
-          "hash": "8169151051754820774"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/separator.tsx",
-          "hash": "9152929968593344539"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/sheet.tsx",
-          "hash": "16939179561819926374"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/sidebar.tsx",
-          "hash": "14760875022710878163"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/skeleton.tsx",
-          "hash": "8682262600359381656"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/slider.tsx",
-          "hash": "7097279068176877852"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/sonner.tsx",
-          "hash": "997587589519513927"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/spinner.tsx",
-          "hash": "2878780946769821587"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/switch.tsx",
-          "hash": "8211517068109270827"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/table.tsx",
-          "hash": "10632063416869730844"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/tabs.tsx",
-          "hash": "11336260622020413340"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/textarea.tsx",
-          "hash": "8546314463615081444"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/toast.tsx",
-          "hash": "1326391758004731988"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/toaster.tsx",
-          "hash": "16997361785471586676"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/toggle-group.tsx",
-          "hash": "12069551333688425799"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/toggle.tsx",
-          "hash": "3189303801972596902"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/components/ui/tooltip.tsx",
-          "hash": "11425028276116169833"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/hooks/use-mobile.tsx",
-          "hash": "14900138732519213047"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/hooks/use-toast.ts",
-          "hash": "14126314747961564796"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/index.css",
-          "hash": "3624008536344695756"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/lib/utils.ts",
-          "hash": "6483145186850064023"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/src/main.tsx",
-          "hash": "8175982933107999308"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/tsconfig.json",
-          "hash": "15835515898674872988"
-        },
-        {
-          "file": "artifacts/mockup-sandbox/vite.config.ts",
-          "hash": "6750591300214622945"
-        }
-      ],
-      "@workspace/api-client-react": [
-        {
-          "file": "lib/api-client-react/package.json",
-          "hash": "13620420313382471562",
-          "deps": [
-            "npm:react",
-            "npm:@tanstack/react-query"
-          ]
-        },
-        {
-          "file": "lib/api-client-react/src/custom-fetch.ts",
-          "hash": "6394159018594311258"
-        },
-        {
-          "file": "lib/api-client-react/src/generated/api.schemas.ts",
-          "hash": "13982457903036050733"
-        },
-        {
-          "file": "lib/api-client-react/src/generated/api.ts",
-          "hash": "348727000537958036"
-        },
-        {
-          "file": "lib/api-client-react/src/index.ts",
-          "hash": "575578354702400319"
-        },
-        {
-          "file": "lib/api-client-react/tsconfig.json",
-          "hash": "8402695609774635646"
-        }
-      ],
-      "backend": [
-        {
-          "file": "apps/backend/.env",
-          "hash": "12643454716641894978"
-        },
-        {
-          "file": "apps/backend/nest-cli.json",
-          "hash": "16268559638959798008"
-        },
-        {
-          "file": "apps/backend/package.json",
-          "hash": "3226763871853621877",
-          "deps": [
-            "npm:@nestjs/cli",
-            "npm:@nestjs/schematics",
-            "npm:@swc/cli",
-            "npm:@swc/core",
-            "npm:@types/express",
-            "npm:@types/node@25.9.5",
-            "npm:@types/pg",
-            "npm:typescript",
-            "npm:@nestjs/common",
-            "npm:@nestjs/core",
-            "npm:@nestjs/platform-express",
-            "npm:@nestjs/typeorm",
-            "npm:@nestjs/config",
-            "npm:typeorm",
-            "npm:typeorm-naming-strategies",
-            "npm:pg",
-            "npm:reflect-metadata",
-            "npm:rxjs@7.8.2",
-            "npm:openai",
-            "npm:zod",
-            "npm:class-validator",
-            "npm:class-transformer",
-            "npm:pino",
-            "npm:pino-http"
-          ]
-        },
-        {
-          "file": "apps/backend/project.json",
-          "hash": "17006428470384989454"
-        },
-        {
-          "file": "apps/backend/src/agents/agent.utils.ts",
-          "hash": "5613127552724929124"
-        },
-        {
-          "file": "apps/backend/src/agents/agents.module.ts",
-          "hash": "11813066626177350125"
-        },
-        {
-          "file": "apps/backend/src/agents/ai-architect.service.ts",
-          "hash": "12224243495107258351"
-        },
-        {
-          "file": "apps/backend/src/agents/business-analyst.service.ts",
-          "hash": "7496817805409290119"
-        },
-        {
-          "file": "apps/backend/src/agents/compiler.service.ts",
-          "hash": "14951218829576331213"
-        },
-        {
-          "file": "apps/backend/src/agents/critic.service.ts",
-          "hash": "15182080212232095494"
-        },
-        {
-          "file": "apps/backend/src/agents/data-architect.service.ts",
-          "hash": "3192500210563227873"
-        },
-        {
-          "file": "apps/backend/src/agents/discovery.service.ts",
-          "hash": "10293078187553614257"
-        },
-        {
-          "file": "apps/backend/src/agents/estimation.service.ts",
-          "hash": "14504480627972335624"
-        },
-        {
-          "file": "apps/backend/src/agents/product-manager.service.ts",
-          "hash": "12175707406415105738"
-        },
-        {
-          "file": "apps/backend/src/agents/qa.service.ts",
-          "hash": "8957644347299090916"
-        },
-        {
-          "file": "apps/backend/src/agents/requirements-engineer.service.ts",
-          "hash": "7442484357241168060"
-        },
-        {
-          "file": "apps/backend/src/agents/research.service.ts",
-          "hash": "18358127289419039713"
-        },
-        {
-          "file": "apps/backend/src/agents/security.service.ts",
-          "hash": "7591078710658662650"
-        },
-        {
-          "file": "apps/backend/src/agents/solution-architect.service.ts",
-          "hash": "14427299600057441931"
-        },
-        {
-          "file": "apps/backend/src/agents/types.ts",
-          "hash": "14837779385207142558"
-        },
-        {
-          "file": "apps/backend/src/agents/ux.service.ts",
-          "hash": "10340607305957689508"
-        },
-        {
-          "file": "apps/backend/src/app.module.ts",
-          "hash": "13892914260728349135"
-        },
-        {
-          "file": "apps/backend/src/database/database.module.ts",
-          "hash": "497272789782013165"
-        },
-        {
-          "file": "apps/backend/src/database/entities/agent-execution.entity.ts",
-          "hash": "5998264055449532101"
-        },
-        {
-          "file": "apps/backend/src/database/entities/clarification-question.entity.ts",
-          "hash": "921668997633333286"
-        },
-        {
-          "file": "apps/backend/src/database/entities/document.entity.ts",
-          "hash": "5841267879429810594"
-        },
-        {
-          "file": "apps/backend/src/database/entities/index.ts",
-          "hash": "12175468498424650734"
-        },
-        {
-          "file": "apps/backend/src/database/entities/knowledge-item.entity.ts",
-          "hash": "3239882311979236599"
-        },
-        {
-          "file": "apps/backend/src/database/entities/project.entity.ts",
-          "hash": "6262746134940851755"
-        },
-        {
-          "file": "apps/backend/src/database/entities/validation-issue.entity.ts",
-          "hash": "8624568986941396009"
-        },
-        {
-          "file": "apps/backend/src/database/entities/workflow-step.entity.ts",
-          "hash": "7738926087953557367"
-        },
-        {
-          "file": "apps/backend/src/health/health.controller.ts",
-          "hash": "4059146715417528083"
-        },
-        {
-          "file": "apps/backend/src/health/health.module.ts",
-          "hash": "13590658636451639308"
-        },
-        {
-          "file": "apps/backend/src/llm/llm.module.ts",
-          "hash": "7429235048337241550"
-        },
-        {
-          "file": "apps/backend/src/llm/llm.service.ts",
-          "hash": "12850742301013638397"
-        },
-        {
-          "file": "apps/backend/src/main.ts",
-          "hash": "5295227700603074924"
-        },
-        {
-          "file": "apps/backend/src/projects/dto/answer-question.dto.ts",
-          "hash": "5964827902562891903"
-        },
-        {
-          "file": "apps/backend/src/projects/dto/create-project.dto.ts",
-          "hash": "9285398783997188673"
-        },
-        {
-          "file": "apps/backend/src/projects/projects.controller.ts",
-          "hash": "1476582843853599121"
-        },
-        {
-          "file": "apps/backend/src/projects/projects.module.ts",
-          "hash": "15795747771042741762"
-        },
-        {
-          "file": "apps/backend/src/projects/projects.service.ts",
-          "hash": "17504631682091614543"
-        },
-        {
-          "file": "apps/backend/src/rkb/rkb.module.ts",
-          "hash": "8340913024994398496"
-        },
-        {
-          "file": "apps/backend/src/rkb/rkb.service.ts",
-          "hash": "12644219539143415503"
-        },
-        {
-          "file": "apps/backend/src/workflow/workflow.module.ts",
-          "hash": "155346780960384536"
-        },
-        {
-          "file": "apps/backend/src/workflow/workflow.service.ts",
-          "hash": "3762668940645848373"
-        },
-        {
-          "file": "apps/backend/tsconfig.build.json",
-          "hash": "11777601254810462358"
-        },
-        {
-          "file": "apps/backend/tsconfig.json",
-          "hash": "11126579092379449102"
-        }
-      ],
-      "shared-types": [
-        {
-          "file": "libs/shared-types/package.json",
-          "hash": "4670671087661070820"
-        },
-        {
-          "file": "libs/shared-types/project.json",
-          "hash": "5958937435377616416"
-        },
-        {
-          "file": "libs/shared-types/src/index.ts",
-          "hash": "16775693346070008924"
-        },
-        {
-          "file": "libs/shared-types/tsconfig.json",
-          "hash": "12871839847401744389"
-        }
-      ],
-      "@workspace/api-spec": [
-        {
-          "file": "lib/api-spec/openapi.yaml",
-          "hash": "14613313718344726046"
-        },
-        {
-          "file": "lib/api-spec/orval.config.ts",
-          "hash": "4209243832091214747"
-        },
-        {
-          "file": "lib/api-spec/package.json",
-          "hash": "2152659874941377741",
-          "deps": [
-            "npm:orval"
-          ]
+          "hash": "16837194603623576654"
         }
       ],
       "@workspace/db": [
@@ -1391,403 +931,125 @@
           "file": "lib/db/tsconfig.json",
           "hash": "9328059104153465819"
         }
-      ],
-      "@workspace/req-platform": [
-        {
-          "file": "artifacts/req-platform/.replit-artifact/artifact.toml",
-          "hash": "15540913812081922201"
-        },
-        {
-          "file": "artifacts/req-platform/components.json",
-          "hash": "15683893185755193329"
-        },
-        {
-          "file": "artifacts/req-platform/index.html",
-          "hash": "4557646502314807450"
-        },
-        {
-          "file": "artifacts/req-platform/package.json",
-          "hash": "7222597618719360177",
-          "deps": [
-            "npm:@hookform/resolvers",
-            "npm:@radix-ui/react-accordion",
-            "npm:@radix-ui/react-alert-dialog",
-            "npm:@radix-ui/react-aspect-ratio",
-            "npm:@radix-ui/react-avatar",
-            "npm:@radix-ui/react-checkbox",
-            "npm:@radix-ui/react-collapsible",
-            "npm:@radix-ui/react-context-menu",
-            "npm:@radix-ui/react-dialog",
-            "npm:@radix-ui/react-dropdown-menu",
-            "npm:@radix-ui/react-hover-card",
-            "npm:@radix-ui/react-label",
-            "npm:@radix-ui/react-menubar",
-            "npm:@radix-ui/react-navigation-menu",
-            "npm:@radix-ui/react-popover",
-            "npm:@radix-ui/react-progress",
-            "npm:@radix-ui/react-radio-group",
-            "npm:@radix-ui/react-scroll-area",
-            "npm:@radix-ui/react-select",
-            "npm:@radix-ui/react-separator",
-            "npm:@radix-ui/react-slider",
-            "npm:@radix-ui/react-slot",
-            "npm:@radix-ui/react-switch",
-            "npm:@radix-ui/react-tabs",
-            "npm:@radix-ui/react-toast",
-            "npm:@radix-ui/react-toggle",
-            "npm:@radix-ui/react-toggle-group",
-            "npm:@radix-ui/react-tooltip",
-            "npm:@replit/vite-plugin-cartographer",
-            "npm:@replit/vite-plugin-dev-banner",
-            "npm:@replit/vite-plugin-runtime-error-modal",
-            "npm:@tailwindcss/typography",
-            "npm:@tailwindcss/vite",
-            "npm:@tanstack/react-query",
-            "npm:@types/node@25.9.5",
-            "npm:@types/react",
-            "npm:@types/react-dom",
-            "npm:@vitejs/plugin-react",
-            "@workspace/api-client-react",
-            "npm:class-variance-authority",
-            "npm:clsx",
-            "npm:cmdk",
-            "npm:date-fns@3.6.0",
-            "npm:embla-carousel-react",
-            "npm:framer-motion",
-            "npm:input-otp",
-            "npm:lucide-react",
-            "npm:next-themes",
-            "npm:react",
-            "npm:react-day-picker",
-            "npm:react-dom",
-            "npm:react-hook-form",
-            "npm:react-icons",
-            "npm:react-resizable-panels",
-            "npm:recharts",
-            "npm:sonner",
-            "npm:tailwind-merge",
-            "npm:tailwindcss",
-            "npm:tw-animate-css",
-            "npm:vaul",
-            "npm:vite",
-            "npm:wouter",
-            "npm:zod",
-            "npm:react-markdown"
-          ]
-        },
-        {
-          "file": "artifacts/req-platform/public/favicon.svg",
-          "hash": "12097109422963814562"
-        },
-        {
-          "file": "artifacts/req-platform/public/robots.txt",
-          "hash": "2661324626124696959"
-        },
-        {
-          "file": "artifacts/req-platform/src/App.tsx",
-          "hash": "16841202713103099126"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/layouts/AppLayout.tsx",
-          "hash": "16576444804391573876"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/projects/TabAssumptions.tsx",
-          "hash": "17297727887935845862"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/projects/TabDocument.tsx",
-          "hash": "15810806253027248862"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/projects/TabExecutions.tsx",
-          "hash": "16375736734820278991"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/projects/TabOverview.tsx",
-          "hash": "17857505875656970215"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/projects/TabQuestions.tsx",
-          "hash": "16464342143863787013"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/projects/TabRequirements.tsx",
-          "hash": "7526541602406133904"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/projects/TabValidation.tsx",
-          "hash": "16825090313697675786"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/accordion.tsx",
-          "hash": "4664299822008123357"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/alert-dialog.tsx",
-          "hash": "6443789506803356812"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/alert.tsx",
-          "hash": "6190919551902995887"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/aspect-ratio.tsx",
-          "hash": "2178604877814588304"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/avatar.tsx",
-          "hash": "16813269051296395971"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/badge.tsx",
-          "hash": "3153040079644659881"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/breadcrumb.tsx",
-          "hash": "10623033629959980977"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/button-group.tsx",
-          "hash": "10948129202024955790"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/button.tsx",
-          "hash": "14314509391008603700"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/calendar.tsx",
-          "hash": "2531983864414302400"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/card.tsx",
-          "hash": "7431185938524499495"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/carousel.tsx",
-          "hash": "14168144799370875172"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/chart.tsx",
-          "hash": "3189785858951903186"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/checkbox.tsx",
-          "hash": "18206861406118134061"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/collapsible.tsx",
-          "hash": "18077187219340559564"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/command.tsx",
-          "hash": "6892238609997919251"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/context-menu.tsx",
-          "hash": "18382077997995309494"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/dialog.tsx",
-          "hash": "3944235804494254970"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/drawer.tsx",
-          "hash": "7651636793152019898"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/dropdown-menu.tsx",
-          "hash": "10855176969198739520"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/empty.tsx",
-          "hash": "1799850791247328648"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/field.tsx",
-          "hash": "15702404526685982252"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/form.tsx",
-          "hash": "12920757313811090075"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/hover-card.tsx",
-          "hash": "5794475718052074785"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/input-group.tsx",
-          "hash": "7518113354351150411"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/input-otp.tsx",
-          "hash": "18099714574172708048"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/input.tsx",
-          "hash": "11169122266299924583"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/item.tsx",
-          "hash": "10352160319114952268"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/kbd.tsx",
-          "hash": "6560364327982308925"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/label.tsx",
-          "hash": "328622733552418795"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/menubar.tsx",
-          "hash": "3156066199455069185"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/navigation-menu.tsx",
-          "hash": "8148453813673466242"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/pagination.tsx",
-          "hash": "1749644572716348972"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/popover.tsx",
-          "hash": "3934967003475709239"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/progress.tsx",
-          "hash": "2552972473020885111"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/radio-group.tsx",
-          "hash": "5052141613458459383"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/resizable.tsx",
-          "hash": "14690624007427547238"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/scroll-area.tsx",
-          "hash": "3401458015991137287"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/select.tsx",
-          "hash": "3382282945705044972"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/separator.tsx",
-          "hash": "10058046257362207363"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/sheet.tsx",
-          "hash": "4334552740867666918"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/sidebar.tsx",
-          "hash": "10767982275610559993"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/skeleton.tsx",
-          "hash": "15338518350120691583"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/slider.tsx",
-          "hash": "12483127883101443083"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/sonner.tsx",
-          "hash": "14733493988520615657"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/spinner.tsx",
-          "hash": "11182914830379348172"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/switch.tsx",
-          "hash": "9458540483866395989"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/table.tsx",
-          "hash": "384048525877716678"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/tabs.tsx",
-          "hash": "14481705184087306279"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/textarea.tsx",
-          "hash": "10144350745080769437"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/toast.tsx",
-          "hash": "9124633595793931971"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/toaster.tsx",
-          "hash": "16552458563791378131"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/toggle-group.tsx",
-          "hash": "16618269913120327710"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/toggle.tsx",
-          "hash": "11636531839069386939"
-        },
-        {
-          "file": "artifacts/req-platform/src/components/ui/tooltip.tsx",
-          "hash": "16734600645698543222"
-        },
-        {
-          "file": "artifacts/req-platform/src/hooks/use-mobile.tsx",
-          "hash": "3259769645110772650"
-        },
-        {
-          "file": "artifacts/req-platform/src/hooks/use-toast.ts",
-          "hash": "1984456507941444099"
-        },
-        {
-          "file": "artifacts/req-platform/src/index.css",
-          "hash": "9721417592627128707"
-        },
-        {
-          "file": "artifacts/req-platform/src/lib/constants.ts",
-          "hash": "7834089492441695999"
-        },
-        {
-          "file": "artifacts/req-platform/src/lib/utils.ts",
-          "hash": "7693891966047857635"
-        },
-        {
-          "file": "artifacts/req-platform/src/main.tsx",
-          "hash": "7838894925415519907"
-        },
-        {
-          "file": "artifacts/req-platform/src/pages/not-found.tsx",
-          "hash": "1384368927602603148"
-        },
-        {
-          "file": "artifacts/req-platform/src/pages/projects/[id].tsx",
-          "hash": "2774996915424835427"
-        },
-        {
-          "file": "artifacts/req-platform/src/pages/projects/index.tsx",
-          "hash": "2770232902770344782"
-        },
-        {
-          "file": "artifacts/req-platform/src/pages/projects/new.tsx",
-          "hash": "5974705086053776667"
-        },
-        {
-          "file": "artifacts/req-platform/tsconfig.json",
-          "hash": "9903164050073570669"
-        },
-        {
-          "file": "artifacts/req-platform/vite.config.ts",
-          "hash": "10995620819273348532"
-        }
       ]
-    }
+    },
+    "nonProjectFiles": [
+      {
+        "file": ".agents/memory/MEMORY.md",
+        "hash": "10808198223326320769"
+      },
+      {
+        "file": ".agents/memory/req-platform-arch.md",
+        "hash": "6056035815770033693"
+      },
+      {
+        "file": ".env.example",
+        "hash": "1699282485077039700"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "17701352425668267425"
+      },
+      {
+        "file": ".npmrc",
+        "hash": "4914798315669331657"
+      },
+      {
+        "file": ".replit",
+        "hash": "6179485415120850391"
+      },
+      {
+        "file": ".replitignore",
+        "hash": "15037560543002592894"
+      },
+      {
+        "file": "e2e/playwright.config.ts",
+        "hash": "370946844096324969"
+      },
+      {
+        "file": "e2e/tests/agent-workflow.spec.ts",
+        "hash": "18261049466515523443"
+      },
+      {
+        "file": "e2e/tests/create-project.spec.ts",
+        "hash": "3017958941467808208"
+      },
+      {
+        "file": "e2e/tests/diagnostic.spec.ts",
+        "hash": "9227459539557288185"
+      },
+      {
+        "file": "e2e/tsconfig.json",
+        "hash": "13092508706522659229"
+      },
+      {
+        "file": "handoff_doc/AGENTS.md",
+        "hash": "13761208338753215469"
+      },
+      {
+        "file": "handoff_doc/BACKLOG.md",
+        "hash": "16702898158951511166"
+      },
+      {
+        "file": "handoff_doc/CONTEXT.md",
+        "hash": "3363078024520984300"
+      },
+      {
+        "file": "handoff_doc/DATA_MODEL.md",
+        "hash": "14386745619807980623"
+      },
+      {
+        "file": "handoff_doc/DEPLOYMENT.md",
+        "hash": "14787881693467699829"
+      },
+      {
+        "file": "handoff_doc/LLM_CONTRACTS.md",
+        "hash": "18226630164029249927"
+      },
+      {
+        "file": "handoff_doc/README.md",
+        "hash": "16902978151047763965"
+      },
+      {
+        "file": "handoff_doc/ROADMAP.md",
+        "hash": "5946836384175210745"
+      },
+      {
+        "file": "handoff_doc/SMOKE_TESTS.md",
+        "hash": "13212264390270516766"
+      },
+      {
+        "file": "handoff_doc/WORKFLOW_RULES.md",
+        "hash": "5662849882622623149"
+      },
+      {
+        "file": "nx.json",
+        "hash": "12000087671240979826"
+      },
+      {
+        "file": "package.json",
+        "hash": "4091129991335778722"
+      },
+      {
+        "file": "pnpm-lock.yaml",
+        "hash": "493247135734413284"
+      },
+      {
+        "file": "pnpm-workspace.yaml",
+        "hash": "5055164633625484708"
+      },
+      {
+        "file": "replit.md",
+        "hash": "2884493494684170397"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "15058594932547804684"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "13530336898252891473"
+      }
+    ]
   }
 }

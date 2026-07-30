@@ -6,7 +6,7 @@ import type { AgentContext, AgentResult, NewKnowledgeItem } from './types';
 
 const ACSchema = z.object({ id: z.string(), given: z.string(), when: z.string(), then: z.string() });
 const FRSchema = z.object({
-  externalId: z.string(), title: z.string(), module: z.string(), actor: z.string(),
+  externalId: z.string().optional().default(""), title: z.string(), module: z.string(), actor: z.string(),
   description: z.string(), priority: z.enum(['MUST_HAVE', 'SHOULD_HAVE', 'COULD_HAVE']),
   relatedBR: z.string().nullish(), relatedFeature: z.string().nullish(),
   acceptanceCriteria: z.array(ACSchema).default([]),
@@ -19,7 +19,7 @@ const FRSchema = z.object({
 const Schema = z.object({
   functionalRequirements: z.array(FRSchema).default([]),
   userStories: z.array(z.object({
-    externalId: z.string(), title: z.string(), asA: z.string(), iWant: z.string(), soThat: z.string(),
+    externalId: z.string().optional().default(""), title: z.string(), asA: z.string(), iWant: z.string(), soThat: z.string(),
     relatedFR: z.string().nullish(), evidence: z.string().nullish(), reasoning: z.string().nullish(),
   })).default([]),
 });

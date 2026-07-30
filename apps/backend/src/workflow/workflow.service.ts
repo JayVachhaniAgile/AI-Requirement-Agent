@@ -213,6 +213,16 @@ export class WorkflowService {
           return;
         }
 
+        if (project.status === 'PAUSED') {
+          this.logger.log(`Workflow paused for project ${projectId}`);
+          this.events.emitProjectStatus(projectId, {
+            status: 'PAUSED',
+            currentStage: project.currentStage,
+          });
+          await this.pushDashboard(projectId);
+          return;
+        }
+
         const step = steps.find((s) => s.stage === stage.key);
         if (!step) continue;
         if (step.status === 'COMPLETED') continue;
@@ -354,6 +364,40 @@ export class WorkflowService {
       });
       await this.pushDashboard(projectId);
     }
+  }
+
+  async regenerateFromAgent(projectId: string, agentKey: string): Promise<string> {
+    // Convert agentKey to stage key (e.g., "requirements-engineering" -> "REQUIREMENTS_ENGINEERING")
+    const targetStage = agentKey.toUpperCase().replace(/-/g, '_') as StageKey;
+    const stageIndex = STAGES.findIndex((s) => s.key === targetStage);
+    if (stageIndex === -1) {
+      throw new Error(`Unknown agent: ${agentKey}`);
+    }
+
+    this.logger.log(`Regenerating from stage ${targetStage} (index ${stageIndex}) for project ${projectId}`);
+
+    // Reset all steps from this stage onwards
+    const steps = await this.stepRepo.find({ where: { projectId } });
+    for (let i = stageIndex; i < STAGES.length; i++) {
+      const step = steps.find((s) => s.stage === STAGES[i].key);
+      if (step) {
+        await this.stepRepo.update(step.id, { status: 'QUEUED', startedAt: null, completedAt: null, error: null });
+      }
+    }
+
+    // Delete knowledge items from this and subsequent agents
+    for (let i = stageIndex; i < STAGES.length; i++) {
+      const sk = STAGES[i].key.toLowerCase().replace(/_/g, '-');
+      await this.rkb.deleteKnowledgeByCreatedBy(projectId, sk);
+    }
+
+    // Delete the document and versions so it gets regenerated
+    await this.rkb.deleteDocument(projectId);
+
+    // Clear project error if any
+    await this.projectRepo.update(projectId, { errorMessage: null, status: 'QUEUED' });
+
+    return targetStage;
   }
 
   async recompileDocument(projectId: string): Promise<void> {
