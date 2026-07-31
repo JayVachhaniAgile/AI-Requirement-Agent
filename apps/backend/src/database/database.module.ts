@@ -32,7 +32,7 @@ import {
           Document,
           DocumentVersion,
           Settings,
-  InterviewSessionEntity,
+          InterviewSessionEntity,
         ],
         synchronize: config.get<string>('NODE_ENV') !== 'production',
         namingStrategy: new SnakeNamingStrategy(),

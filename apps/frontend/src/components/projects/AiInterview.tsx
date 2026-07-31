@@ -4,6 +4,7 @@ import { Send, Bot, User, Loader2, Sparkles, ArrowRight, Upload, FileText, X } f
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { MicButton } from "@/components/ui/mic-button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 
@@ -313,7 +314,12 @@ export function AiInterview({ onComplete }: { onComplete?: () => void }) {
           </div>
           <div className="space-y-2">
             <label className="block text-sm font-semibold mb-1.5">Initial Idea (optional)</label>
-            <Textarea placeholder="Briefly describe what you want to build..." value={initialIdea} onChange={(e) => setInitialIdea(e.target.value)} className="min-h-[100px]" />
+            <div className="relative">
+                            <Textarea placeholder="Briefly describe what you want to build..." value={initialIdea} onChange={(e) => setInitialIdea(e.target.value)} className="min-h-[100px]" />
+                            <div className="absolute top-2 right-2 z-10">
+                              <MicButton onTranscript={(t) => setInitialIdea((prev) => prev + " " + t)} />
+                            </div>
+                          </div>
           </div>
           {/* File Upload for Interview */}
           <div className="space-y-2">

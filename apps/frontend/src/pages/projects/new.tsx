@@ -4,6 +4,7 @@ import { useCreateProject, useUploadProjectFiles } from "@workspace/api-client-r
 import { ArrowRight, Upload, FileText, X, Bot, MessageSquareText } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { MicButton } from "@/components/ui/mic-button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
@@ -183,7 +184,12 @@ export default function NewProjectPage() {
                   <span>Description</span>
                   <span className="text-muted-foreground font-normal text-xs">{idea.length} chars</span>
                 </label>
+                <div className="relative">
                 <Textarea id="idea" placeholder="Describe what you want to build..." value={idea} onChange={(e) => setIdea(e.target.value)} className="min-h-[200px]" />
+                <div className="absolute top-2 right-2 z-10">
+                  <MicButton onTranscript={(t) => setIdea((prev) => prev + " " + t)} />
+                </div>
+              </div>
               </div>
               {/* File Upload */}
               <div className="space-y-2">
