@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+# If node_modules is incomplete, don't block the commit — warn instead.
+if ! pnpm exec lint-staged --version >/dev/null 2>&1; then
+  echo "husky: lint-staged missing (run 'pnpm install'). Skipping pre-commit checks."
+  exit 0
+fi
+pnpm exec lint-staged

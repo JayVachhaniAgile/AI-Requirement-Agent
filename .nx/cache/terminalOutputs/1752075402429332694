@@ -1,0 +1,4 @@
+> pnpm nest build
+
+[36m> [39m[46m[1m SWC [22m[49m [36mRunning...[39m
+Successfully compiled: 311 files with swc (155.41ms)

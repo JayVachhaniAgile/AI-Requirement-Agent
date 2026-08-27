@@ -18,6 +18,8 @@
 2. **`CONTEXT.md`** — full technical context, architecture, directories, routes, env vars, bug history
 3. **`README.md`** — operational runbook (setup, env, troubleshooting)
 4. **`DATA_MODEL.md`** — database entities, relationships, example shapes
+5. **`PROCESS_FIXES.md`** — recent system fixes (DI, LLM model routing, UI checkpoint/modal wiring, connector curvature)
+6. **`FULL_SYSTEM_FLOW.md`** — end-to-end narrative: creation → pipeline launch → execution loop → checkpoint → pause/resume → regenerate → documents → real-time updates → **full 23-agent flow table** (what each agent takes, does, and produces)
 5. **`WORKFLOW_RULES.md`** — state machine, pipeline stages, agent orchestration
 6. **`LLM_CONTRACTS.md`** — LLM provider config, agent prompts, output schemas
 7. **`DEPLOYMENT.md`** — deploy flow, CI, infrastructure
@@ -29,9 +31,9 @@
 
 1. **Read before write** — always read AGENTS.md first, then CONTEXT.md before touching code
 2. **No hallucination** — if the docs don't mention a route, env var, or config, it doesn't exist. Never invent
-3. **File paths** — all paths are relative to monorepo root unless prefixed with `apps/frontend/` or `apps/backend/`
-4. **Frontend patterns** — ShadCN/ui components in `apps/frontend/src/components/ui/`, pages in `apps/frontend/src/pages/`
-5. **Backend patterns** — NestJS modules in `apps/backend/src/`, entities in `database/entities/`, controllers follow RESTful conventions
+3. **File paths** — all paths are relative to monorepo root unless prefixed with `apps/client/` or `apps/server/`
+4. **Frontend patterns** — ShadCN/ui components in `apps/client/src/components/ui/`, pages in `apps/client/src/pages/`
+5. **Backend patterns** — NestJS modules in `apps/server/src/`, entities in `database/entities/`, controllers follow RESTful conventions
 6. **State management** — React Query for server state, no Redux or Zustand; `useProjectSocket` for real-time events
 7. **API prefix** — all backend routes are prefixed with `/api`
 8. **Status keys** — `done` · `stub/partial` · `not started` · `blocked` · `cancelled` · `deferred`
@@ -40,13 +42,13 @@
 
 | Resource | Path |
 |---|---|
-| Backend src | `apps/backend/src/` |
-| Frontend src | `apps/frontend/src/` |
+| Server src | `apps/server/src/` |
+| Client src | `apps/client/src/` |
 | API client library | `lib/api-client-react/` |
 | DB schema | `lib/db/src/schema/` |
-| Dashboard page | `apps/frontend/src/pages/dashboard.tsx` |
-| Project workspace | `apps/frontend/src/pages/projects/[id].tsx` |
-| Root App | `apps/frontend/src/App.tsx` |
+| Dashboard page | `apps/client/src/pages/dashboard.tsx` |
+| Project workspace | `apps/client/src/pages/projects/[id].tsx` |
+| Root App | `apps/client/src/App.tsx` |
 
 ## Cross-Reference
 

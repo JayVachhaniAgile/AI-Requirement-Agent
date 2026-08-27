@@ -24,7 +24,7 @@ This is the living backlog for the Req Platform. Items here are prioritized for 
 
 | ID | Item | Priority | Status | Notes | Touchpoints |
 |---|---|---|---|---|---|
-| B1 | Document versioning | P2 | `not started` | Track doc versions per project | Backend documents table, frontend versions tab |
+| B1 | Document versioning | P2 | `done` | Per-document versions (Version 1 initial, new version per regenerated doc) | Backend documents table, frontend versions tab |
 | B2 | Project archiving | P2 | `not started` | Soft-delete or archive old projects | Backend projects controller |
 | B3 | Agent retry with backoff | P2 | `not started` | Rate limit handling for LLM calls | Backend LLM service |
 | B4 | Export to Notion/Confluence | P2 | `not started` | Integration with doc platforms | Backend + frontend |
@@ -34,6 +34,8 @@ This is the living backlog for the Req Platform. Items here are prioritized for 
 
 | ID | Item | Priority | Status | Notes | Touchpoints |
 |---|---|---|---|---|---|
+| C1 | Migrate agents to Project Context writes | P1 | `not started` | Route agent outputs through `POST /context/commits`; keep `RkbService` as legacy adapter | Backend agents, project-context module |
+| C2 | Real-time context events over socket.io | P2 | `not started` | Wire `ProjectContextEventsService` into `ProjectsGateway` (`context.updated`) | Backend realtime, project-context |
 | O1 | Custom agent configuration | P3 | `not started` | Allow users to enable/disable agents | Backend workflow, frontend settings |
 | O2 | Project templates | P3 | `not started` | Pre-built idea templates | Frontend new project page |
 | O3 | Keyboard shortcuts | P3 | `not started` | Navigation hotkeys | Frontend AppLayout |
@@ -51,3 +53,7 @@ This is the living backlog for the Req Platform. Items here are prioritized for 
 | Date | Item | Change |
 |---|---|---|
 | 2025-07-28 | A1-A5, B1-B5, O1-O4 | Initial backlog created |
+| 2026-08-03 | B1 | Document versioning shipped: per-document version counters, targeted gap-analysis patches, VersionDiffViewer filter |
+| 2026-08-03 | — | Document tab: rendered markdown preview (GFM + mermaid) with Preview/Source toggle, Word (.docx) export |
+| 2026-08-03 | — | SOW_GENERATION stage ships: client-facing Scope of Work document (feature-by-feature) generated after API spec |
+| 2026-08-05 | C1-C2 | Project Context Service ships: module + REST/SSE + commit/versioning/conflict rules + backfill (see `PROJECT_CONTEXT.md`) |

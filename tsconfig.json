@@ -3,11 +3,9 @@
   "compileOnSave": false,
   "files": [],
   "references": [
-    {
-      "path": "./lib/db"
-    },
-    {
-      "path": "./lib/api-client-react"
-    }
+    { "path": "./lib/pipeline-config" },
+    { "path": "./lib/shared-types" },
+    { "path": "./lib/db" },
+    { "path": "./lib/api-client-react" }
   ]
 }

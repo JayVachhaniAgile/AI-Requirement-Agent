@@ -1,0 +1,32 @@
+{
+  "run": {
+    "command": "nx run-many --target=build --projects=pipeline-config,shared-types",
+    "startTime": "2026-08-27T10:21:57.807Z",
+    "endTime": "2026-08-27T10:22:08.453Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "shared-types:build",
+      "target": "build",
+      "projectName": "shared-types",
+      "hash": "6980876059078590872",
+      "startTime": "2026-08-27T10:22:07.967Z",
+      "endTime": "2026-08-27T10:22:08.403Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "pipeline-config:build",
+      "target": "build",
+      "projectName": "pipeline-config",
+      "hash": "9127497075655672148",
+      "startTime": "2026-08-27T10:22:07.967Z",
+      "endTime": "2026-08-27T10:22:08.439Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    }
+  ]
+}

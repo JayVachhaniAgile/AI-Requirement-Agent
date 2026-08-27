@@ -1,0 +1,298 @@
+/* Neural Nexus Design System - Project Agent Network */
+
+.project-agent-network {
+  background-color: #051424;
+  position: relative;
+  overflow: visible;
+  min-height: 600px;
+  /* Subtle grid pattern for alignment */
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Connector lines - curved bezier paths with flow animation */
+.project-agent-network .connector-line {
+  stroke: rgba(144, 144, 151, 0.4); /* outline-variant */
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 8 4;
+  vector-effect: non-scaling-stroke;
+  transition: stroke 0.3s ease, stroke-width 0.3s ease;
+}
+
+.project-agent-network .connector-line--active {
+  stroke: #61e6eb; /* primary - royal blue */
+  stroke-width: 2.5;
+  stroke-dasharray: 0;
+  animation: connectorFlow 1.5s linear infinite;
+}
+
+/* Running agent connectors glow and pulse with flow animation */
+.project-agent-network .connector-line--running {
+  stroke: #47c1fa; /* cyan */
+  stroke-width: 5;
+  stroke-dasharray: 2 13;
+  animation: connectorFlow 0.6s linear infinite, pulseWidth 1.8s ease-in-out infinite;
+}
+
+@keyframes connectorFlow {
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+
+@keyframes pulseWidth {
+  0%, 100% {
+    stroke-width: 3;
+    stroke-opacity: 1;
+  }
+  50% {
+    stroke-width: 4;
+    stroke-opacity: 0.7;
+  }
+}
+
+/* Center card - glassmorphism */
+.project-agent-network .center-card {
+  position: absolute;
+  width: 155px;
+  height: 60px;
+  border-radius: 12px;
+  background: rgba(18, 33, 49, 0.8); /* surface-container */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 4px 24px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+}
+
+.project-agent-network .center-card-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #bec6e0; /* primary */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.project-agent-network .center-card-icon span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: #283044; /* on-primary */
+}
+
+.project-agent-network .center-card-title {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: #d4e4fa; /* on-surface */
+}
+
+.project-agent-network .center-card-subtitle {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 14px;
+  color: #909097; /* outline */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100px;
+}
+
+/* Agent Node Cards - Glassmorphism with state-based glow */
+.project-agent-network .agent-card {
+  position: absolute;
+  min-width: 140px;
+  max-width: 180px;
+  height: auto;
+  min-height: 72px;
+  border-radius: 12px;
+  padding: 12px 16px;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: rgba(18, 33, 49, 0.85); /* surface-container */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 4px 24px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.project-agent-network .agent-card:hover {
+  transform: translate(-50%, -50%) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* State-based border glow */
+.project-agent-network .agent-card--completed {
+  border-color: rgba(78, 222, 163, 0.5); /* secondary */
+  box-shadow: 
+    0 4px 24px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(78, 222, 163, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.project-agent-network .agent-card--in-progress {
+  border-color: rgba(190, 198, 224, 0.5); /* primary */
+  box-shadow: 
+    0 4px 24px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(190, 198, 224, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.project-agent-network .agent-card--pending {
+  border-color: rgba(255, 179, 71, 0.5); /* orange for pending */
+  box-shadow: 
+    0 4px 24px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(255, 179, 71, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.project-agent-network .agent-card--failed {
+  border-color: rgba(255, 180, 171, 0.5); /* error */
+  box-shadow: 
+    0 4px 24px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(255, 180, 171, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Agent card internals */
+.project-agent-network .agent-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.project-agent-network .agent-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(15, 23, 42, 0.8); /* primary-container */
+}
+
+.project-agent-network .agent-icon svg {
+  width: 16px;
+  height: 16px;
+  color: #bec6e0; /* primary */
+}
+
+.project-agent-network .agent-name {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18px;
+  color: #d4e4fa; /* on-surface */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-agent-network .agent-status-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.project-agent-network .agent-status-text {
+  color: #c6c6cd; /* on-surface-variant */
+}
+
+.project-agent-network .agent-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.project-agent-network .agent-status-dot--completed {
+  background: #4edea3; /* secondary */
+  box-shadow: 0 0 8px rgba(78, 222, 163, 0.6);
+}
+
+.project-agent-network .agent-status-dot--in-progress {
+  background: #bec6e0; /* primary */
+  box-shadow: 0 0 8px rgba(190, 198, 224, 0.6);
+  animation: statusPulse 1.5s ease-in-out infinite;
+}
+
+.project-agent-network .agent-status-dot--pending {
+  background: #f5b32e; /* orange */
+  box-shadow: 0 0 8px rgba(245, 179, 46, 0.6);
+}
+
+.project-agent-network .agent-status-dot--failed {
+  background: #ffb4ab; /* error */
+  box-shadow: 0 0 8px rgba(255, 180, 171, 0.6);
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.9); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .project-agent-network .agent-card {
+    min-width: 130px;
+    max-width: 160px;
+    padding: 10px 14px;
+  }
+  
+  .project-agent-network .agent-name {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-agent-network .agent-card {
+    min-width: 120px;
+    max-width: 150px;
+    padding: 8px 12px;
+    min-height: 64px;
+  }
+  
+  .project-agent-network .agent-icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .project-agent-network .agent-name {
+    font-size: 11px;
+  }
+  
+  .project-agent-network .center-card {
+    width: 140px;
+    height: 56px;
+  }
+}

@@ -1,0 +1,6 @@
+[2m> [22mpnpm build
+
+
+> @workspace/shared-types@0.0.0 build /home/agilelpt130/Jay/Other Projects/Autonomous/Autonomous-Build-Prompt/lib/shared-types
+> tsc -p tsconfig.json
+

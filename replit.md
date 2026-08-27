@@ -5,8 +5,8 @@ Autonomous multi-agent system that turns a business idea into a complete softwar
 ## Run & Operate
 
 - `pnpm install` — install workspace dependencies
-- `pnpm run dev:backend` — NestJS API (`apps/backend`, port 3000)
-- `pnpm run dev:frontend` — React/Vite UI (`apps/frontend`, port 5173)
+- `pnpm run dev:backend` — NestJS API (`apps/server`, port 3000)
+- `pnpm run dev:frontend` — React/Vite UI (`apps/client`, port 5173)
 - `pnpm run typecheck` — typecheck across NX projects
 - `pnpm run build` — build all NX projects
 - Required env: `DATABASE_URL` — Postgres connection string
@@ -20,16 +20,16 @@ Legacy Replit artifacts (still present during migration):
 ## Stack
 
 - pnpm workspaces + NX monorepo
-- Frontend: React 19 + Vite + Tailwind (`apps/frontend`)
-- Backend: NestJS + TypeORM (`apps/backend`)
+- Frontend: React 19 + Vite + Tailwind (`apps/client`)
+- Backend: NestJS + TypeORM (`apps/server`)
 - Shared types: `libs/shared-types`
 - Legacy shared libs: `lib/db` (Drizzle), `lib/api-zod`, `lib/api-client-react`
 - Database: PostgreSQL
 
 ## Where things live
 
-- `apps/backend` — NestJS API, agents, workflow orchestrator
-- `apps/frontend` — React UI (migrated from `artifacts/req-platform`)
+- `apps/server` — NestJS API, agents, workflow orchestrator
+- `apps/client` — React UI (migrated from `artifacts/req-platform`)
 - `libs/shared-types` — shared DTOs/interfaces
 - `artifacts/api-server` — original Express API (source of truth during migration)
 - `artifacts/req-platform` — original React UI (kept for reference)

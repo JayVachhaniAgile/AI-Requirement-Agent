@@ -5,332 +5,107 @@
   "nxJsonPlugins": [],
   "fileMap": {
     "projectFileMap": {
-      "@workspace/api-client-react": [
+      "db": [
         {
-          "file": "lib/api-client-react/package.json",
-          "hash": "13620420313382471562",
+          "file": "lib/db/README.md",
+          "hash": "6055314119207956631"
+        },
+        {
+          "file": "lib/db/drizzle.config.ts",
+          "hash": "9760252206456361378"
+        },
+        {
+          "file": "lib/db/package.json",
+          "hash": "7761102261277399936",
           "deps": [
-            "npm:react",
-            "npm:@tanstack/react-query"
-          ]
-        },
-        {
-          "file": "lib/api-client-react/src/custom-fetch.ts",
-          "hash": "6394159018594311258"
-        },
-        {
-          "file": "lib/api-client-react/src/generated/api.schemas.ts",
-          "hash": "12334360716153526785"
-        },
-        {
-          "file": "lib/api-client-react/src/generated/api.ts",
-          "hash": "2958231509112560418"
-        },
-        {
-          "file": "lib/api-client-react/src/index.ts",
-          "hash": "575578354702400319"
-        },
-        {
-          "file": "lib/api-client-react/tsconfig.json",
-          "hash": "8402695609774635646"
-        }
-      ],
-      "backend": [
-        {
-          "file": "apps/backend/.gitignore",
-          "hash": "579407527470525204"
-        },
-        {
-          "file": "apps/backend/nest-cli.json",
-          "hash": "16268559638959798008"
-        },
-        {
-          "file": "apps/backend/package.json",
-          "hash": "10815422648653458106",
-          "deps": [
-            "npm:@nestjs/cli",
-            "npm:@nestjs/schematics",
-            "npm:@swc/cli",
-            "npm:@swc/core",
-            "npm:@types/express",
             "npm:@types/node@25.9.5",
             "npm:@types/pg",
-            "npm:@types/ws",
-            "npm:typescript",
-            "npm:@nestjs/common",
-            "npm:@nestjs/config",
-            "npm:@nestjs/core",
-            "npm:@nestjs/platform-express",
-            "npm:@nestjs/platform-socket.io",
-            "npm:@nestjs/typeorm",
-            "npm:@nestjs/websockets",
-            "npm:class-transformer",
-            "npm:class-validator",
-            "npm:openai",
+            "npm:drizzle-kit",
+            "npm:drizzle-orm",
+            "npm:drizzle-zod",
             "npm:pg",
-            "npm:pino",
-            "npm:pino-http",
-            "npm:reflect-metadata",
-            "npm:rxjs@7.8.2",
-            "npm:socket.io@4.8.3",
-            "npm:typeorm",
-            "npm:typeorm-naming-strategies",
             "npm:zod"
           ]
         },
         {
-          "file": "apps/backend/project.json",
-          "hash": "17006428470384989454"
+          "file": "lib/db/project.json",
+          "hash": "918952465202145524"
         },
         {
-          "file": "apps/backend/src/agents/agent.utils.ts",
-          "hash": "16815465034527883883"
+          "file": "lib/db/src/index.ts",
+          "hash": "9174549995440822025"
         },
         {
-          "file": "apps/backend/src/agents/agents.module.ts",
-          "hash": "6480532834065007510"
+          "file": "lib/db/src/schema/agent-executions.ts",
+          "hash": "137353205863709781"
         },
         {
-          "file": "apps/backend/src/agents/ai-architect.service.ts",
-          "hash": "5562562915669943438"
+          "file": "lib/db/src/schema/clarification-questions.ts",
+          "hash": "893962192920945462"
         },
         {
-          "file": "apps/backend/src/agents/business-analyst.service.ts",
-          "hash": "541654581823504421"
+          "file": "lib/db/src/schema/documents.ts",
+          "hash": "18066097994506728632"
         },
         {
-          "file": "apps/backend/src/agents/compiler.service.ts",
-          "hash": "14951218829576331213"
+          "file": "lib/db/src/schema/index.ts",
+          "hash": "18416131905313639188"
         },
         {
-          "file": "apps/backend/src/agents/critic.service.ts",
-          "hash": "15287974400436731481"
+          "file": "lib/db/src/schema/knowledge-items.ts",
+          "hash": "11199119187722489945"
         },
         {
-          "file": "apps/backend/src/agents/data-architect.service.ts",
-          "hash": "527857010870671365"
+          "file": "lib/db/src/schema/projects.ts",
+          "hash": "3674615096176291083"
         },
         {
-          "file": "apps/backend/src/agents/debate.service.ts",
-          "hash": "1735152198601930739"
+          "file": "lib/db/src/schema/validation-issues.ts",
+          "hash": "3637193938875701182"
         },
         {
-          "file": "apps/backend/src/agents/discovery.service.ts",
-          "hash": "15178224327818625929"
+          "file": "lib/db/src/schema/workflow-steps.ts",
+          "hash": "1650622472202602671"
         },
         {
-          "file": "apps/backend/src/agents/domain.service.ts",
-          "hash": "14163406204384240388"
+          "file": "lib/db/tsconfig.json",
+          "hash": "9328059104153465819"
+        }
+      ],
+      "shared-types": [
+        {
+          "file": "lib/shared-types/package.json",
+          "hash": "6513272755545850723"
         },
         {
-          "file": "apps/backend/src/agents/estimation.service.ts",
-          "hash": "16167314146924476130"
+          "file": "lib/shared-types/project.json",
+          "hash": "2177537179923229061"
         },
         {
-          "file": "apps/backend/src/agents/product-manager.service.ts",
-          "hash": "14582180190263681447"
+          "file": "lib/shared-types/src/dag.ts",
+          "hash": "17862417371255521142"
         },
         {
-          "file": "apps/backend/src/agents/qa.service.ts",
-          "hash": "988253610174793741"
+          "file": "lib/shared-types/src/dashboard.ts",
+          "hash": "4197642988042623529"
         },
         {
-          "file": "apps/backend/src/agents/requirements-engineer.service.ts",
-          "hash": "2787856218032653652"
+          "file": "lib/shared-types/src/index.ts",
+          "hash": "17404757206224630219"
         },
         {
-          "file": "apps/backend/src/agents/research.service.ts",
-          "hash": "14558822052832001665"
-        },
-        {
-          "file": "apps/backend/src/agents/security.service.ts",
-          "hash": "14197587070934663848"
-        },
-        {
-          "file": "apps/backend/src/agents/solution-architect.service.ts",
-          "hash": "8998010130029841666"
-        },
-        {
-          "file": "apps/backend/src/agents/types.ts",
-          "hash": "14037317603300828157"
-        },
-        {
-          "file": "apps/backend/src/agents/ux.service.ts",
-          "hash": "14454423512838562131"
-        },
-        {
-          "file": "apps/backend/src/aggregate/aggregate.controller.ts",
-          "hash": "6714920326251261124"
-        },
-        {
-          "file": "apps/backend/src/aggregate/aggregate.module.ts",
-          "hash": "10331714241868088491"
-        },
-        {
-          "file": "apps/backend/src/app.module.ts",
-          "hash": "1384671439117717040"
-        },
-        {
-          "file": "apps/backend/src/database/database.module.ts",
-          "hash": "15242807998890719201"
-        },
-        {
-          "file": "apps/backend/src/database/entities/agent-execution.entity.ts",
-          "hash": "5998264055449532101"
-        },
-        {
-          "file": "apps/backend/src/database/entities/clarification-question.entity.ts",
-          "hash": "921668997633333286"
-        },
-        {
-          "file": "apps/backend/src/database/entities/document-version.entity.ts",
-          "hash": "17871644924307160567"
-        },
-        {
-          "file": "apps/backend/src/database/entities/document.entity.ts",
-          "hash": "5841267879429810594"
-        },
-        {
-          "file": "apps/backend/src/database/entities/index.ts",
-          "hash": "2132908929873070610"
-        },
-        {
-          "file": "apps/backend/src/database/entities/interview-session.entity.ts",
-          "hash": "17887194369709445129"
-        },
-        {
-          "file": "apps/backend/src/database/entities/knowledge-item.entity.ts",
-          "hash": "3239882311979236599"
-        },
-        {
-          "file": "apps/backend/src/database/entities/project.entity.ts",
-          "hash": "3321295568663424127"
-        },
-        {
-          "file": "apps/backend/src/database/entities/settings.entity.ts",
-          "hash": "15620808504048802021"
-        },
-        {
-          "file": "apps/backend/src/database/entities/validation-issue.entity.ts",
-          "hash": "8624568986941396009"
-        },
-        {
-          "file": "apps/backend/src/database/entities/workflow-step.entity.ts",
-          "hash": "7738926087953557367"
-        },
-        {
-          "file": "apps/backend/src/health/health.controller.ts",
-          "hash": "4059146715417528083"
-        },
-        {
-          "file": "apps/backend/src/health/health.module.ts",
-          "hash": "13590658636451639308"
-        },
-        {
-          "file": "apps/backend/src/interview/interview.controller.ts",
-          "hash": "1570640307062877599"
-        },
-        {
-          "file": "apps/backend/src/interview/interview.module.ts",
-          "hash": "7194012420862156330"
-        },
-        {
-          "file": "apps/backend/src/interview/interview.service.ts",
-          "hash": "14816523785582364578"
-        },
-        {
-          "file": "apps/backend/src/llm/llm.module.ts",
-          "hash": "7429235048337241550"
-        },
-        {
-          "file": "apps/backend/src/llm/llm.service.ts",
-          "hash": "7316084243792659777"
-        },
-        {
-          "file": "apps/backend/src/main.ts",
-          "hash": "6666238230741664799"
-        },
-        {
-          "file": "apps/backend/src/projects/dto/answer-question.dto.ts",
-          "hash": "5964827902562891903"
-        },
-        {
-          "file": "apps/backend/src/projects/dto/create-project.dto.ts",
-          "hash": "11896561311339022986"
-        },
-        {
-          "file": "apps/backend/src/projects/projects.controller.ts",
-          "hash": "8625161703047889409"
-        },
-        {
-          "file": "apps/backend/src/projects/projects.module.ts",
-          "hash": "14056862710278996322"
-        },
-        {
-          "file": "apps/backend/src/projects/projects.service.ts",
-          "hash": "1267309303208493490"
-        },
-        {
-          "file": "apps/backend/src/realtime/agent-phases.ts",
-          "hash": "6004892393555661998"
-        },
-        {
-          "file": "apps/backend/src/realtime/dashboard.service.ts",
-          "hash": "4034537033326579037"
-        },
-        {
-          "file": "apps/backend/src/realtime/projects.gateway.ts",
-          "hash": "8766490069930042029"
-        },
-        {
-          "file": "apps/backend/src/realtime/realtime.module.ts",
-          "hash": "10696912321724591984"
-        },
-        {
-          "file": "apps/backend/src/realtime/workflow-events.service.ts",
-          "hash": "17712554412521644320"
-        },
-        {
-          "file": "apps/backend/src/rkb/rkb.module.ts",
-          "hash": "11021821808004201042"
-        },
-        {
-          "file": "apps/backend/src/rkb/rkb.service.ts",
-          "hash": "6784077459323503266"
-        },
-        {
-          "file": "apps/backend/src/settings/settings.controller.ts",
-          "hash": "5647899872659496235"
-        },
-        {
-          "file": "apps/backend/src/settings/settings.module.ts",
-          "hash": "4608009886509920960"
-        },
-        {
-          "file": "apps/backend/src/settings/settings.service.ts",
-          "hash": "15617561321204048645"
-        },
-        {
-          "file": "apps/backend/src/workflow/workflow.module.ts",
-          "hash": "15581041568549778544"
-        },
-        {
-          "file": "apps/backend/src/workflow/workflow.service.ts",
-          "hash": "12281898535837758692"
-        },
-        {
-          "file": "apps/backend/tsconfig.build.json",
-          "hash": "11777601254810462358"
-        },
-        {
-          "file": "apps/backend/tsconfig.json",
-          "hash": "11126579092379449102"
+          "file": "lib/shared-types/tsconfig.json",
+          "hash": "13550859539489430126"
         }
       ],
       "frontend": [
         {
+          "file": "apps/frontend/.env.example",
+          "hash": "7747957706898778374"
+        },
+        {
           "file": "apps/frontend/.gitignore",
-          "hash": "11091884865853158211"
+          "hash": "18736374670579290"
         },
         {
           "file": "apps/frontend/components.json",
@@ -338,11 +113,11 @@
         },
         {
           "file": "apps/frontend/index.html",
-          "hash": "14562196190713050699"
+          "hash": "5975955758502599272"
         },
         {
           "file": "apps/frontend/package.json",
-          "hash": "8918950924837871535",
+          "hash": "6794536832179972793",
           "deps": [
             "npm:@hookform/resolvers",
             "npm:@radix-ui/react-accordion",
@@ -382,7 +157,9 @@
             "npm:@types/react",
             "npm:@types/react-dom",
             "npm:@vitejs/plugin-react",
-            "@workspace/api-client-react",
+            "api-client-react",
+            "pipeline-config",
+            "shared-types",
             "npm:class-variance-authority",
             "npm:clsx",
             "npm:cmdk",
@@ -408,17 +185,23 @@
             "npm:wouter",
             "npm:zod",
             "npm:@xyflow/react",
+            "npm:docx",
             "npm:react-markdown",
+            "npm:remark-gfm",
             "npm:socket.io-client"
           ]
         },
         {
           "file": "apps/frontend/project.json",
-          "hash": "761450082788242099"
+          "hash": "3092137396462848471"
         },
         {
           "file": "apps/frontend/public/agentBackgrounds/AIArchitect.png",
           "hash": "7114255073570176234"
+        },
+        {
+          "file": "apps/frontend/public/agentBackgrounds/APISpecification.png",
+          "hash": "3781030658605409720"
         },
         {
           "file": "apps/frontend/public/agentBackgrounds/BusinessAnalyst.png",
@@ -433,12 +216,20 @@
           "hash": "13027219692179118410"
         },
         {
+          "file": "apps/frontend/public/agentBackgrounds/DatabaseDesign.png",
+          "hash": "3740285656084647974"
+        },
+        {
           "file": "apps/frontend/public/agentBackgrounds/Discovery.png",
           "hash": "13743982044086132989"
         },
         {
           "file": "apps/frontend/public/agentBackgrounds/EstimationAgent.png",
           "hash": "4601504300668011165"
+        },
+        {
+          "file": "apps/frontend/public/agentBackgrounds/FRD.png",
+          "hash": "8808145154027604960"
         },
         {
           "file": "apps/frontend/public/agentBackgrounds/ProductManager.png",
@@ -465,16 +256,32 @@
           "hash": "17716958312349886060"
         },
         {
+          "file": "apps/frontend/public/agentBackgrounds/TechArchitect.png",
+          "hash": "6555287230949656048"
+        },
+        {
           "file": "apps/frontend/public/agentBackgrounds/UXAgent.png",
           "hash": "5339941143927263104"
+        },
+        {
+          "file": "apps/frontend/public/agentBackgrounds/UserStrories.png",
+          "hash": "11496260110013112181"
         },
         {
           "file": "apps/frontend/public/agentBackgrounds/ValidationAgent.png",
           "hash": "15971803810833505130"
         },
         {
+          "file": "apps/frontend/public/favicon.ico",
+          "hash": "18012162628800593825"
+        },
+        {
           "file": "apps/frontend/public/favicon.svg",
-          "hash": "12097109422963814562"
+          "hash": "16279418194731042679"
+        },
+        {
+          "file": "apps/frontend/public/logo.svg",
+          "hash": "16322503238824448686"
         },
         {
           "file": "apps/frontend/public/robots.txt",
@@ -482,7 +289,7 @@
         },
         {
           "file": "apps/frontend/src/App.tsx",
-          "hash": "1648621365290549994"
+          "hash": "13990712992263038707"
         },
         {
           "file": "apps/frontend/src/assets/agent-icons/ai-architecture.png",
@@ -541,36 +348,68 @@
           "hash": "2296321108831755802"
         },
         {
+          "file": "apps/frontend/src/assets/logo.svg",
+          "hash": "16322503238824448686"
+        },
+        {
           "file": "apps/frontend/src/components/layouts/AppLayout.tsx",
-          "hash": "2031154664098682548"
+          "hash": "7449031688131399846"
         },
         {
           "file": "apps/frontend/src/components/layouts/workspace-header-context.tsx",
           "hash": "10728876968872813058"
         },
         {
-          "file": "apps/frontend/src/components/projects/AgentLivePanel.tsx",
-          "hash": "5100355286676660160"
+          "file": "apps/frontend/src/components/projects/AgentDetailsModal.tsx",
+          "hash": "14315825756705980121"
         },
         {
-          "file": "apps/frontend/src/components/projects/AgentPipelineTimeline.tsx",
-          "hash": "11120926932532125228"
+          "file": "apps/frontend/src/components/projects/AgentLivePanel.tsx",
+          "hash": "915190400566234887"
         },
         {
           "file": "apps/frontend/src/components/projects/AiInterview.tsx",
-          "hash": "1729113811633887202"
+          "hash": "12305243930074235368"
+        },
+        {
+          "file": "apps/frontend/src/components/projects/DiscoveryCheckpointCard.tsx",
+          "hash": "73765085687976524"
         },
         {
           "file": "apps/frontend/src/components/projects/DocumentSummaryFooter.tsx",
           "hash": "17342134694091697198"
         },
         {
-          "file": "apps/frontend/src/components/projects/ProjectIdeaRenderer.tsx",
-          "hash": "10857292829015644588"
+          "file": "apps/frontend/src/components/projects/GapAnalysisTab.tsx",
+          "hash": "8892815213131319105"
         },
         {
-          "file": "apps/frontend/src/components/projects/ProjectKpiBar.tsx",
-          "hash": "3418570210459537585"
+          "file": "apps/frontend/src/components/projects/MarkdownPreview.tsx",
+          "hash": "6219548922175073564"
+        },
+        {
+          "file": "apps/frontend/src/components/projects/ProjectAgentNetwork/AgentNode.tsx",
+          "hash": "10688448990856015358"
+        },
+        {
+          "file": "apps/frontend/src/components/projects/ProjectAgentNetwork/ProjectAgentNetwork.tsx",
+          "hash": "17450725781830956867"
+        },
+        {
+          "file": "apps/frontend/src/components/projects/ProjectAgentNetwork/agentNetworkData.tsx",
+          "hash": "1307539642040520613"
+        },
+        {
+          "file": "apps/frontend/src/components/projects/ProjectAgentNetwork/index.ts",
+          "hash": "14411183872411309888"
+        },
+        {
+          "file": "apps/frontend/src/components/projects/ProjectAgentNetwork/projectAgentNetwork.css",
+          "hash": "5158280746011312731"
+        },
+        {
+          "file": "apps/frontend/src/components/projects/ProjectIdeaRenderer.tsx",
+          "hash": "10857292829015644588"
         },
         {
           "file": "apps/frontend/src/components/projects/RequirementSummaryDashboard.tsx",
@@ -578,11 +417,15 @@
         },
         {
           "file": "apps/frontend/src/components/projects/TabDocument.tsx",
-          "hash": "17960626750910398225"
+          "hash": "9344001463414768782"
         },
         {
           "file": "apps/frontend/src/components/projects/TabExecutions.tsx",
           "hash": "16375736734820278991"
+        },
+        {
+          "file": "apps/frontend/src/components/projects/TabFoundation.tsx",
+          "hash": "15838861825700044331"
         },
         {
           "file": "apps/frontend/src/components/projects/TabQuestions.tsx",
@@ -590,23 +433,23 @@
         },
         {
           "file": "apps/frontend/src/components/projects/TabRequirements.tsx",
-          "hash": "2630028008112208188"
+          "hash": "16550611726943024108"
         },
         {
           "file": "apps/frontend/src/components/projects/TabValidation.tsx",
           "hash": "5705867484158585518"
         },
         {
+          "file": "apps/frontend/src/components/projects/TreePipelineView.css",
+          "hash": "13130740783792635365"
+        },
+        {
+          "file": "apps/frontend/src/components/projects/TreePipelineView.tsx",
+          "hash": "7152662435117843428"
+        },
+        {
           "file": "apps/frontend/src/components/projects/VersionDiffViewer.tsx",
-          "hash": "9806227424822390696"
-        },
-        {
-          "file": "apps/frontend/src/components/projects/workflow/WorkflowNode.tsx",
-          "hash": "7602244105532462117"
-        },
-        {
-          "file": "apps/frontend/src/components/projects/workflow/WorkflowPipeline.tsx",
-          "hash": "747575229404726051"
+          "hash": "10243643825606256273"
         },
         {
           "file": "apps/frontend/src/components/theme-provider.tsx",
@@ -690,7 +533,7 @@
         },
         {
           "file": "apps/frontend/src/components/ui/input.tsx",
-          "hash": "3091780015704347589"
+          "hash": "8547095314725270088"
         },
         {
           "file": "apps/frontend/src/components/ui/label.tsx",
@@ -699,6 +542,10 @@
         {
           "file": "apps/frontend/src/components/ui/menubar.tsx",
           "hash": "3156066199455069185"
+        },
+        {
+          "file": "apps/frontend/src/components/ui/mic-button.tsx",
+          "hash": "761312694627828972"
         },
         {
           "file": "apps/frontend/src/components/ui/navigation-menu.tsx",
@@ -758,7 +605,7 @@
         },
         {
           "file": "apps/frontend/src/components/ui/textarea.tsx",
-          "hash": "202385874987952656"
+          "hash": "2667234381372861190"
         },
         {
           "file": "apps/frontend/src/components/ui/toast.tsx",
@@ -781,12 +628,16 @@
           "hash": "16734600645698543222"
         },
         {
-          "file": "apps/frontend/src/hooks/use-mobile.tsx",
-          "hash": "3259769645110772650"
+          "file": "apps/frontend/src/hooks/use-dag-socket.ts",
+          "hash": "522096810475229633"
+        },
+        {
+          "file": "apps/frontend/src/hooks/use-gap-analysis-socket.ts",
+          "hash": "702378035566147198"
         },
         {
           "file": "apps/frontend/src/hooks/use-project-socket.ts",
-          "hash": "7390793724643645301"
+          "hash": "5915805997372767650"
         },
         {
           "file": "apps/frontend/src/hooks/use-toast.ts",
@@ -794,23 +645,55 @@
         },
         {
           "file": "apps/frontend/src/index.css",
-          "hash": "16110819097682394231"
+          "hash": "15434013312407140032"
         },
         {
           "file": "apps/frontend/src/lib/aggregate-api.ts",
-          "hash": "14717124706245660328"
+          "hash": "8603505095253831492"
+        },
+        {
+          "file": "apps/frontend/src/lib/api-fetch.ts",
+          "hash": "14006949831990405906"
+        },
+        {
+          "file": "apps/frontend/src/lib/artifacts-api.ts",
+          "hash": "5430071755926509996"
+        },
+        {
+          "file": "apps/frontend/src/lib/bootstrap-env.ts",
+          "hash": "3086199537039859205"
         },
         {
           "file": "apps/frontend/src/lib/constants.ts",
           "hash": "7834089492441695999"
         },
         {
+          "file": "apps/frontend/src/lib/dag-api.ts",
+          "hash": "5474414917605944716"
+        },
+        {
           "file": "apps/frontend/src/lib/dashboard-types.ts",
-          "hash": "7248177712454832027"
+          "hash": "18054058462656102978"
+        },
+        {
+          "file": "apps/frontend/src/lib/env.ts",
+          "hash": "17531252136430668832"
+        },
+        {
+          "file": "apps/frontend/src/lib/foundation-api.ts",
+          "hash": "18260913408556358267"
+        },
+        {
+          "file": "apps/frontend/src/lib/markdown-to-docx.tsx",
+          "hash": "125531341883574194"
+        },
+        {
+          "file": "apps/frontend/src/lib/mermaid-utils.ts",
+          "hash": "7093711426217776133"
         },
         {
           "file": "apps/frontend/src/lib/project-api.ts",
-          "hash": "17046855488750730115"
+          "hash": "7966562138856251234"
         },
         {
           "file": "apps/frontend/src/lib/utils.ts",
@@ -818,15 +701,19 @@
         },
         {
           "file": "apps/frontend/src/main.tsx",
-          "hash": "7838894925415519907"
+          "hash": "13555110726995830257"
         },
         {
           "file": "apps/frontend/src/pages/ai-workflow.tsx",
-          "hash": "5985161093461397050"
+          "hash": "10892014967682063086"
         },
         {
           "file": "apps/frontend/src/pages/analytics.tsx",
           "hash": "4691528167122273503"
+        },
+        {
+          "file": "apps/frontend/src/pages/artifacts.tsx",
+          "hash": "17250637486148485610"
         },
         {
           "file": "apps/frontend/src/pages/dashboard.tsx",
@@ -841,20 +728,16 @@
           "hash": "1384368927602603148"
         },
         {
-          "file": "apps/frontend/src/pages/placeholder.tsx",
-          "hash": "1872049913644009282"
+          "file": "apps/frontend/src/pages/project-overview.tsx",
+          "hash": "14765453542043315313"
         },
         {
           "file": "apps/frontend/src/pages/projects/[id].tsx",
-          "hash": "13277623531242123512"
-        },
-        {
-          "file": "apps/frontend/src/pages/projects/index.tsx",
-          "hash": "17113690915316812027"
+          "hash": "10854829468625306643"
         },
         {
           "file": "apps/frontend/src/pages/projects/new.tsx",
-          "hash": "16319048923160939874"
+          "hash": "15191478564311044879"
         },
         {
           "file": "apps/frontend/src/pages/settings.tsx",
@@ -866,70 +749,1397 @@
         },
         {
           "file": "apps/frontend/tsconfig.json",
-          "hash": "13820999655475971420"
+          "hash": "10421260865526152187"
         },
         {
           "file": "apps/frontend/vite.config.ts",
-          "hash": "16837194603623576654"
+          "hash": "3236703092934351245"
         }
       ],
-      "@workspace/db": [
+      "api-client-react": [
         {
-          "file": "lib/db/drizzle.config.ts",
-          "hash": "9760252206456361378"
+          "file": "lib/api-client-react/package.json",
+          "hash": "13620420313382471562",
+          "deps": [
+            "npm:react",
+            "npm:@tanstack/react-query"
+          ]
         },
         {
-          "file": "lib/db/package.json",
-          "hash": "7761102261277399936",
+          "file": "lib/api-client-react/project.json",
+          "hash": "16275639773229337905"
+        },
+        {
+          "file": "lib/api-client-react/src/custom-fetch.ts",
+          "hash": "6394159018594311258"
+        },
+        {
+          "file": "lib/api-client-react/src/generated/api.schemas.ts",
+          "hash": "12334360716153526785"
+        },
+        {
+          "file": "lib/api-client-react/src/generated/api.ts",
+          "hash": "2958231509112560418"
+        },
+        {
+          "file": "lib/api-client-react/src/index.ts",
+          "hash": "575578354702400319"
+        },
+        {
+          "file": "lib/api-client-react/tsconfig.json",
+          "hash": "8402695609774635646"
+        }
+      ],
+      "pipeline-config": [
+        {
+          "file": "lib/pipeline-config/package.json",
+          "hash": "9014870901573902098"
+        },
+        {
+          "file": "lib/pipeline-config/project.json",
+          "hash": "7753789447728877733"
+        },
+        {
+          "file": "lib/pipeline-config/src/agents.ts",
+          "hash": "9144519136988541881"
+        },
+        {
+          "file": "lib/pipeline-config/src/index.ts",
+          "hash": "18298385197792388057"
+        },
+        {
+          "file": "lib/pipeline-config/src/stages.ts",
+          "hash": "5585199571010614207"
+        },
+        {
+          "file": "lib/pipeline-config/tsconfig.json",
+          "hash": "13550859539489430126"
+        }
+      ],
+      "backend": [
+        {
+          "file": "apps/backend/.gitignore",
+          "hash": "11933626873035219858"
+        },
+        {
+          "file": "apps/backend/eval/run-golden-eval.ts",
+          "hash": "4594230258734179189"
+        },
+        {
+          "file": "apps/backend/nest-cli.json",
+          "hash": "16268559638959798008"
+        },
+        {
+          "file": "apps/backend/package.json",
+          "hash": "16734123280333078395",
           "deps": [
+            "npm:@nestjs/cli",
+            "npm:@nestjs/schematics",
+            "npm:@swc/cli",
+            "npm:@swc/core",
+            "npm:@types/express",
             "npm:@types/node@25.9.5",
             "npm:@types/pg",
-            "npm:drizzle-kit",
-            "npm:drizzle-orm",
-            "npm:drizzle-zod",
+            "npm:@types/ws",
+            "npm:typescript",
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/core",
+            "npm:@nestjs/platform-express",
+            "npm:@nestjs/platform-socket.io",
+            "npm:@nestjs/typeorm",
+            "npm:@nestjs/websockets",
+            "pipeline-config",
+            "shared-types",
+            "npm:class-transformer",
+            "npm:class-validator",
+            "npm:openai",
             "npm:pg",
+            "npm:pino",
+            "npm:pino-http",
+            "npm:reflect-metadata",
+            "npm:rxjs@7.8.2",
+            "npm:socket.io@4.8.3",
+            "npm:typeorm",
+            "npm:typeorm-naming-strategies",
             "npm:zod"
           ]
         },
         {
-          "file": "lib/db/src/index.ts",
-          "hash": "9174549995440822025"
+          "file": "apps/backend/project.json",
+          "hash": "11795230453955829259"
         },
         {
-          "file": "lib/db/src/schema/agent-executions.ts",
-          "hash": "137353205863709781"
+          "file": "apps/backend/scripts/check-schema-compat.ts",
+          "hash": "9956024266113378307"
         },
         {
-          "file": "lib/db/src/schema/clarification-questions.ts",
-          "hash": "893962192920945462"
+          "file": "apps/backend/src/agents/agent-keys.spec.ts",
+          "hash": "12009662121794157465"
         },
         {
-          "file": "lib/db/src/schema/documents.ts",
-          "hash": "18066097994506728632"
+          "file": "apps/backend/src/agents/agent-runner.service.ts",
+          "hash": "6343229384100443406"
         },
         {
-          "file": "lib/db/src/schema/index.ts",
-          "hash": "18416131905313639188"
+          "file": "apps/backend/src/agents/agent-runner.spec.ts",
+          "hash": "10773359823687152686"
         },
         {
-          "file": "lib/db/src/schema/knowledge-items.ts",
-          "hash": "11199119187722489945"
+          "file": "apps/backend/src/agents/agent-versions.spec.ts",
+          "hash": "7454088595935905801"
         },
         {
-          "file": "lib/db/src/schema/projects.ts",
-          "hash": "3674615096176291083"
+          "file": "apps/backend/src/agents/agent-versions.ts",
+          "hash": "15198626005802691370"
         },
         {
-          "file": "lib/db/src/schema/validation-issues.ts",
-          "hash": "3637193938875701182"
+          "file": "apps/backend/src/agents/agent.prompts.ts",
+          "hash": "1323506565741465507"
         },
         {
-          "file": "lib/db/src/schema/workflow-steps.ts",
-          "hash": "1650622472202602671"
+          "file": "apps/backend/src/agents/agent.utils.ts",
+          "hash": "13405246256327104420"
         },
         {
-          "file": "lib/db/tsconfig.json",
-          "hash": "9328059104153465819"
+          "file": "apps/backend/src/agents/agents.module.ts",
+          "hash": "5041788708359805680"
+        },
+        {
+          "file": "apps/backend/src/agents/ai-architect.service.ts",
+          "hash": "12479344444261710180"
+        },
+        {
+          "file": "apps/backend/src/agents/api-spec.service.ts",
+          "hash": "8611019223284993628"
+        },
+        {
+          "file": "apps/backend/src/agents/business-analyst.service.ts",
+          "hash": "5143019257725229008"
+        },
+        {
+          "file": "apps/backend/src/agents/compiler.service.ts",
+          "hash": "2699425896588037113"
+        },
+        {
+          "file": "apps/backend/src/agents/context-digest.spec.ts",
+          "hash": "13591857188023411577"
+        },
+        {
+          "file": "apps/backend/src/agents/context-digest.ts",
+          "hash": "7574894902872024116"
+        },
+        {
+          "file": "apps/backend/src/agents/critic.service.ts",
+          "hash": "16699203102673226345"
+        },
+        {
+          "file": "apps/backend/src/agents/data-architect.service.ts",
+          "hash": "4724469394424196243"
+        },
+        {
+          "file": "apps/backend/src/agents/db-design.service.ts",
+          "hash": "3449836139241240265"
+        },
+        {
+          "file": "apps/backend/src/agents/debate-context.spec.ts",
+          "hash": "1152526336107423390"
+        },
+        {
+          "file": "apps/backend/src/agents/debate.service.ts",
+          "hash": "7557667679992811130"
+        },
+        {
+          "file": "apps/backend/src/agents/discovery.service.ts",
+          "hash": "14364404452662423489"
+        },
+        {
+          "file": "apps/backend/src/agents/document-runner.service.ts",
+          "hash": "15166273435911861476"
+        },
+        {
+          "file": "apps/backend/src/agents/document-runner.spec.ts",
+          "hash": "9657026969144736061"
+        },
+        {
+          "file": "apps/backend/src/agents/document.prompts.ts",
+          "hash": "9658975880848277663"
+        },
+        {
+          "file": "apps/backend/src/agents/domain.service.ts",
+          "hash": "3286819309105484536"
+        },
+        {
+          "file": "apps/backend/src/agents/estimation.service.ts",
+          "hash": "8110381987381775280"
+        },
+        {
+          "file": "apps/backend/src/agents/frd.service.ts",
+          "hash": "13108328786504275011"
+        },
+        {
+          "file": "apps/backend/src/agents/product-manager.service.ts",
+          "hash": "12381534138103328315"
+        },
+        {
+          "file": "apps/backend/src/agents/qa.service.ts",
+          "hash": "16140829958317369864"
+        },
+        {
+          "file": "apps/backend/src/agents/requirements-engineer.service.ts",
+          "hash": "17136451929831535070"
+        },
+        {
+          "file": "apps/backend/src/agents/research.service.ts",
+          "hash": "2671505585086964831"
+        },
+        {
+          "file": "apps/backend/src/agents/security.service.ts",
+          "hash": "2178732978210417710"
+        },
+        {
+          "file": "apps/backend/src/agents/solution-architect.service.ts",
+          "hash": "15008314963029305586"
+        },
+        {
+          "file": "apps/backend/src/agents/sow.service.ts",
+          "hash": "949918268508997163"
+        },
+        {
+          "file": "apps/backend/src/agents/tech-arch.service.ts",
+          "hash": "4058048080371667051"
+        },
+        {
+          "file": "apps/backend/src/agents/types.ts",
+          "hash": "4822901593329712547"
+        },
+        {
+          "file": "apps/backend/src/agents/user-stories.service.ts",
+          "hash": "14811015348110113258"
+        },
+        {
+          "file": "apps/backend/src/agents/ux.service.ts",
+          "hash": "459769992049695244"
+        },
+        {
+          "file": "apps/backend/src/aggregate/aggregate.controller.ts",
+          "hash": "8391623529567279766"
+        },
+        {
+          "file": "apps/backend/src/aggregate/aggregate.module.ts",
+          "hash": "14856697182202906071"
+        },
+        {
+          "file": "apps/backend/src/app.module.ts",
+          "hash": "6593168179588687349"
+        },
+        {
+          "file": "apps/backend/src/artifacts/artifacts.controller.ts",
+          "hash": "16085749423588916875"
+        },
+        {
+          "file": "apps/backend/src/artifacts/artifacts.module.ts",
+          "hash": "5636794173567356129"
+        },
+        {
+          "file": "apps/backend/src/artifacts/artifacts.service.ts",
+          "hash": "951222639930674194"
+        },
+        {
+          "file": "apps/backend/src/artifacts/markdown-renderer.spec.ts",
+          "hash": "468064448711118291"
+        },
+        {
+          "file": "apps/backend/src/artifacts/markdown-renderer.ts",
+          "hash": "423736657166622233"
+        },
+        {
+          "file": "apps/backend/src/artifacts/website-plan.ts",
+          "hash": "3891188104172615524"
+        },
+        {
+          "file": "apps/backend/src/artifacts/website-renderer.ts",
+          "hash": "8547292668368409364"
+        },
+        {
+          "file": "apps/backend/src/artifacts/website.spec.ts",
+          "hash": "3641464929609501369"
+        },
+        {
+          "file": "apps/backend/src/auth/api-key.guard.ts",
+          "hash": "11671511389358340562"
+        },
+        {
+          "file": "apps/backend/src/auth/auth.module.ts",
+          "hash": "1764328239820990805"
+        },
+        {
+          "file": "apps/backend/src/checkpoint/discovery-checkpoint.module.ts",
+          "hash": "8888577940864846089"
+        },
+        {
+          "file": "apps/backend/src/checkpoint/discovery-checkpoint.service.ts",
+          "hash": "6370897794734356873"
+        },
+        {
+          "file": "apps/backend/src/checkpoint/discovery-checkpoint.spec.ts",
+          "hash": "9751429410242035566"
+        },
+        {
+          "file": "apps/backend/src/dag-engine/dag-agent-executor.adapter.ts",
+          "hash": "6313042480869169342"
+        },
+        {
+          "file": "apps/backend/src/dag-engine/dag-engine.controller.ts",
+          "hash": "16175046480540998508"
+        },
+        {
+          "file": "apps/backend/src/dag-engine/dag-engine.module.ts",
+          "hash": "13531269601507634903"
+        },
+        {
+          "file": "apps/backend/src/dag-engine/dag-engine.service.spec.ts",
+          "hash": "7852180947265397312"
+        },
+        {
+          "file": "apps/backend/src/dag-engine/dag-engine.service.ts",
+          "hash": "3998437026427440033"
+        },
+        {
+          "file": "apps/backend/src/dag-engine/dag-events.service.ts",
+          "hash": "768721893994357671"
+        },
+        {
+          "file": "apps/backend/src/dag-engine/dag-realtime-bridge.service.ts",
+          "hash": "3044853399880255429"
+        },
+        {
+          "file": "apps/backend/src/dag-engine/graph.spec.ts",
+          "hash": "10748066876678007169"
+        },
+        {
+          "file": "apps/backend/src/dag-engine/graph.ts",
+          "hash": "10730431829369837012"
+        },
+        {
+          "file": "apps/backend/src/dag-engine/node-executor.registry.ts",
+          "hash": "2169592667487240833"
+        },
+        {
+          "file": "apps/backend/src/dag-engine/pipeline-order.spec.ts",
+          "hash": "4008951143314696974"
+        },
+        {
+          "file": "apps/backend/src/dag-engine/pipeline.config.ts",
+          "hash": "13363379675699942226"
+        },
+        {
+          "file": "apps/backend/src/dag-engine/pipeline.dag.ts",
+          "hash": "8140621326237956885"
+        },
+        {
+          "file": "apps/backend/src/dag-engine/stage-mapping.ts",
+          "hash": "5098616516419373752"
+        },
+        {
+          "file": "apps/backend/src/dag-engine/types.ts",
+          "hash": "1026721688660989126"
+        },
+        {
+          "file": "apps/backend/src/database/database.module.ts",
+          "hash": "12774419087974223288"
+        },
+        {
+          "file": "apps/backend/src/database/entities/agent-execution.entity.ts",
+          "hash": "9220770146006172784"
+        },
+        {
+          "file": "apps/backend/src/database/entities/agent-skill-execution.entity.ts",
+          "hash": "18172539143763333315"
+        },
+        {
+          "file": "apps/backend/src/database/entities/agent-skill.entity.ts",
+          "hash": "1402966107474480703"
+        },
+        {
+          "file": "apps/backend/src/database/entities/artifact-dependency.entity.ts",
+          "hash": "8260243390465911365"
+        },
+        {
+          "file": "apps/backend/src/database/entities/artifact-version.entity.ts",
+          "hash": "3808964058474647209"
+        },
+        {
+          "file": "apps/backend/src/database/entities/artifact.entity.ts",
+          "hash": "15346195839823811807"
+        },
+        {
+          "file": "apps/backend/src/database/entities/clarification-question.entity.ts",
+          "hash": "921668997633333286"
+        },
+        {
+          "file": "apps/backend/src/database/entities/discovery-checkpoint.entity.ts",
+          "hash": "2708053784027487697"
+        },
+        {
+          "file": "apps/backend/src/database/entities/document-version.entity.ts",
+          "hash": "14864658933215809136"
+        },
+        {
+          "file": "apps/backend/src/database/entities/document.entity.ts",
+          "hash": "18002004176129565898"
+        },
+        {
+          "file": "apps/backend/src/database/entities/gap-analysis-active-run.entity.ts",
+          "hash": "11100180792018552019"
+        },
+        {
+          "file": "apps/backend/src/database/entities/gap-analysis-proposal.entity.ts",
+          "hash": "3155849338491555309"
+        },
+        {
+          "file": "apps/backend/src/database/entities/gap-analysis-run.entity.ts",
+          "hash": "13928135824541193977"
+        },
+        {
+          "file": "apps/backend/src/database/entities/index.ts",
+          "hash": "13752504555408015126"
+        },
+        {
+          "file": "apps/backend/src/database/entities/interview-session.entity.ts",
+          "hash": "17887194369709445129"
+        },
+        {
+          "file": "apps/backend/src/database/entities/knowledge-edge.entity.ts",
+          "hash": "6896612621362945169"
+        },
+        {
+          "file": "apps/backend/src/database/entities/knowledge-embedding.entity.ts",
+          "hash": "14325392875294740042"
+        },
+        {
+          "file": "apps/backend/src/database/entities/knowledge-item.entity.ts",
+          "hash": "7975972749279773667"
+        },
+        {
+          "file": "apps/backend/src/database/entities/model-usage.entity.ts",
+          "hash": "1615083193761765566"
+        },
+        {
+          "file": "apps/backend/src/database/entities/project-context-commit.entity.ts",
+          "hash": "18222478124403385910"
+        },
+        {
+          "file": "apps/backend/src/database/entities/project-context-item.entity.ts",
+          "hash": "14662878531256509725"
+        },
+        {
+          "file": "apps/backend/src/database/entities/project-context-snapshot.entity.ts",
+          "hash": "3793784187985939590"
+        },
+        {
+          "file": "apps/backend/src/database/entities/project-version.entity.ts",
+          "hash": "482963137311476320"
+        },
+        {
+          "file": "apps/backend/src/database/entities/project.entity.ts",
+          "hash": "3321295568663424127"
+        },
+        {
+          "file": "apps/backend/src/database/entities/prompt-template.entity.ts",
+          "hash": "6496644081756715314"
+        },
+        {
+          "file": "apps/backend/src/database/entities/prompt-test-run.entity.ts",
+          "hash": "90994019112988004"
+        },
+        {
+          "file": "apps/backend/src/database/entities/prompt-version.entity.ts",
+          "hash": "14906240624114834305"
+        },
+        {
+          "file": "apps/backend/src/database/entities/quality-check.entity.ts",
+          "hash": "3153346636632485886"
+        },
+        {
+          "file": "apps/backend/src/database/entities/run-log.entity.ts",
+          "hash": "14873658704715131069"
+        },
+        {
+          "file": "apps/backend/src/database/entities/settings.entity.ts",
+          "hash": "15620808504048802021"
+        },
+        {
+          "file": "apps/backend/src/database/entities/validation-issue.entity.ts",
+          "hash": "8624568986941396009"
+        },
+        {
+          "file": "apps/backend/src/database/entities/workflow-dag-definition.entity.ts",
+          "hash": "315029262099248297"
+        },
+        {
+          "file": "apps/backend/src/database/entities/workflow-dag-node-run.entity.ts",
+          "hash": "5056549101808302950"
+        },
+        {
+          "file": "apps/backend/src/database/entities/workflow-dag-run.entity.ts",
+          "hash": "16782775596729962910"
+        },
+        {
+          "file": "apps/backend/src/database/entities/workflow-execution.entity.ts",
+          "hash": "1080735170916904357"
+        },
+        {
+          "file": "apps/backend/src/database/entities/workflow-step.entity.ts",
+          "hash": "16971320491383195149"
+        },
+        {
+          "file": "apps/backend/src/eval/eval-metrics.spec.ts",
+          "hash": "3794318600862472917"
+        },
+        {
+          "file": "apps/backend/src/eval/eval-metrics.ts",
+          "hash": "14200219822235895499"
+        },
+        {
+          "file": "apps/backend/src/eval/golden-dataset.ts",
+          "hash": "8948800439701312283"
+        },
+        {
+          "file": "apps/backend/src/foundation/artifacts/artifact-dependency.controller.ts",
+          "hash": "7231263658619630923"
+        },
+        {
+          "file": "apps/backend/src/foundation/artifacts/artifact-dependency.service.spec.ts",
+          "hash": "8258703885543626527"
+        },
+        {
+          "file": "apps/backend/src/foundation/artifacts/artifact-dependency.service.ts",
+          "hash": "17932868545893183492"
+        },
+        {
+          "file": "apps/backend/src/foundation/artifacts/artifact-dependency.types.ts",
+          "hash": "8710955730134131723"
+        },
+        {
+          "file": "apps/backend/src/foundation/artifacts/artifact-graph.spec.ts",
+          "hash": "252940795393850422"
+        },
+        {
+          "file": "apps/backend/src/foundation/artifacts/artifact-graph.ts",
+          "hash": "9571896813901727073"
+        },
+        {
+          "file": "apps/backend/src/foundation/artifacts/artifact-registry.service.spec.ts",
+          "hash": "6526012078389873690"
+        },
+        {
+          "file": "apps/backend/src/foundation/artifacts/artifact-registry.service.ts",
+          "hash": "8042892901576301482"
+        },
+        {
+          "file": "apps/backend/src/foundation/artifacts/artifacts.controller.ts",
+          "hash": "17753346772628183384"
+        },
+        {
+          "file": "apps/backend/src/foundation/artifacts/artifacts.module.ts",
+          "hash": "8448518703479887952"
+        },
+        {
+          "file": "apps/backend/src/foundation/artifacts/impact-analysis.service.spec.ts",
+          "hash": "16029738338982160850"
+        },
+        {
+          "file": "apps/backend/src/foundation/artifacts/impact-analysis.service.ts",
+          "hash": "4375524526645411531"
+        },
+        {
+          "file": "apps/backend/src/foundation/canonical/canonical-item.entity.ts",
+          "hash": "2889516301284575519"
+        },
+        {
+          "file": "apps/backend/src/foundation/canonical/canonical-model.controller.ts",
+          "hash": "10067587450007007284"
+        },
+        {
+          "file": "apps/backend/src/foundation/canonical/canonical-model.module.ts",
+          "hash": "12974261531503394279"
+        },
+        {
+          "file": "apps/backend/src/foundation/canonical/canonical-model.service.spec.ts",
+          "hash": "18399307399892484547"
+        },
+        {
+          "file": "apps/backend/src/foundation/canonical/canonical-model.service.ts",
+          "hash": "3380226572169746176"
+        },
+        {
+          "file": "apps/backend/src/foundation/canonical/canonical.normalize.ts",
+          "hash": "16241020812415444355"
+        },
+        {
+          "file": "apps/backend/src/foundation/canonical/canonical.schemas.spec.ts",
+          "hash": "1933006519853552908"
+        },
+        {
+          "file": "apps/backend/src/foundation/canonical/canonical.schemas.ts",
+          "hash": "14359673502964057739"
+        },
+        {
+          "file": "apps/backend/src/foundation/canonical/canonical.types.ts",
+          "hash": "12012534374122021045"
+        },
+        {
+          "file": "apps/backend/src/foundation/canonical/canonical.validate.spec.ts",
+          "hash": "18038128048919918982"
+        },
+        {
+          "file": "apps/backend/src/foundation/canonical/canonical.validate.ts",
+          "hash": "4414859711909712098"
+        },
+        {
+          "file": "apps/backend/src/foundation/common/foundation-status.ts",
+          "hash": "15218583888953762977"
+        },
+        {
+          "file": "apps/backend/src/foundation/context/context-dependency.spec.ts",
+          "hash": "3046527043280877215"
+        },
+        {
+          "file": "apps/backend/src/foundation/context/context-engine.controller.ts",
+          "hash": "572482252084713011"
+        },
+        {
+          "file": "apps/backend/src/foundation/context/context-engine.module.ts",
+          "hash": "14234390555113075391"
+        },
+        {
+          "file": "apps/backend/src/foundation/context/context-engine.service.spec.ts",
+          "hash": "10078688171482839952"
+        },
+        {
+          "file": "apps/backend/src/foundation/context/context-engine.service.ts",
+          "hash": "921331496586152781"
+        },
+        {
+          "file": "apps/backend/src/foundation/context/context.cache.spec.ts",
+          "hash": "2945786404749185428"
+        },
+        {
+          "file": "apps/backend/src/foundation/context/context.cache.ts",
+          "hash": "5629892816291381032"
+        },
+        {
+          "file": "apps/backend/src/foundation/context/context.ranker.spec.ts",
+          "hash": "4713719582253501559"
+        },
+        {
+          "file": "apps/backend/src/foundation/context/context.ranker.ts",
+          "hash": "13810128789548447754"
+        },
+        {
+          "file": "apps/backend/src/foundation/context/context.token-budget.spec.ts",
+          "hash": "12090231797546489171"
+        },
+        {
+          "file": "apps/backend/src/foundation/context/context.token-budget.ts",
+          "hash": "18434721616517400101"
+        },
+        {
+          "file": "apps/backend/src/foundation/context/context.types.ts",
+          "hash": "5849778034919402279"
+        },
+        {
+          "file": "apps/backend/src/foundation/context/dependency-resolver.ts",
+          "hash": "2210655712209066619"
+        },
+        {
+          "file": "apps/backend/src/foundation/documents/artifact-compiler.service.ts",
+          "hash": "1063820480564127404"
+        },
+        {
+          "file": "apps/backend/src/foundation/documents/compiler.controller.ts",
+          "hash": "14262410081862981841"
+        },
+        {
+          "file": "apps/backend/src/foundation/documents/compiler.markdown.ts",
+          "hash": "12508509838742327264"
+        },
+        {
+          "file": "apps/backend/src/foundation/documents/compiler.sections.ts",
+          "hash": "14115818353933466149"
+        },
+        {
+          "file": "apps/backend/src/foundation/documents/compiler.spec.ts",
+          "hash": "10683336969221462580"
+        },
+        {
+          "file": "apps/backend/src/foundation/documents/compiler.ts",
+          "hash": "2805259070469393169"
+        },
+        {
+          "file": "apps/backend/src/foundation/documents/compiler.types.ts",
+          "hash": "16448646924730748302"
+        },
+        {
+          "file": "apps/backend/src/foundation/documents/document-generator.service.ts",
+          "hash": "6164291885475777332"
+        },
+        {
+          "file": "apps/backend/src/foundation/documents/documents.module.ts",
+          "hash": "1540199066763150790"
+        },
+        {
+          "file": "apps/backend/src/foundation/foundation.controller.ts",
+          "hash": "5279491436046123042"
+        },
+        {
+          "file": "apps/backend/src/foundation/foundation.module.ts",
+          "hash": "11033839902001105355"
+        },
+        {
+          "file": "apps/backend/src/foundation/integration/integration.module.ts",
+          "hash": "17380207110235328390"
+        },
+        {
+          "file": "apps/backend/src/foundation/integration/legacy-canonical.mapper.ts",
+          "hash": "16807982012144230242"
+        },
+        {
+          "file": "apps/backend/src/foundation/integration/pipeline-foundation.service.ts",
+          "hash": "17238994979872669596"
+        },
+        {
+          "file": "apps/backend/src/foundation/knowledge/project-knowledge.controller.ts",
+          "hash": "16989444458023222792"
+        },
+        {
+          "file": "apps/backend/src/foundation/knowledge/project-knowledge.module.ts",
+          "hash": "7964511963975740907"
+        },
+        {
+          "file": "apps/backend/src/foundation/knowledge/project-knowledge.service.ts",
+          "hash": "15574455245084065421"
+        },
+        {
+          "file": "apps/backend/src/foundation/migration/agent-comparison.entity.ts",
+          "hash": "7550699563802581"
+        },
+        {
+          "file": "apps/backend/src/foundation/migration/comparison.ts",
+          "hash": "2597064148324390463"
+        },
+        {
+          "file": "apps/backend/src/foundation/migration/legacy-agent.adapter.ts",
+          "hash": "2448071204119116140"
+        },
+        {
+          "file": "apps/backend/src/foundation/migration/migration.config.ts",
+          "hash": "12372172743023441216"
+        },
+        {
+          "file": "apps/backend/src/foundation/migration/migration.controller.ts",
+          "hash": "4910777975495484756"
+        },
+        {
+          "file": "apps/backend/src/foundation/migration/migration.module.ts",
+          "hash": "3477870274231964385"
+        },
+        {
+          "file": "apps/backend/src/foundation/migration/migration.service.ts",
+          "hash": "4446977462949983696"
+        },
+        {
+          "file": "apps/backend/src/foundation/migration/migration.spec.ts",
+          "hash": "12811355147692644428"
+        },
+        {
+          "file": "apps/backend/src/foundation/migration/migration.types.ts",
+          "hash": "8937199431255878981"
+        },
+        {
+          "file": "apps/backend/src/foundation/models/model-router.controller.ts",
+          "hash": "17814460899039208400"
+        },
+        {
+          "file": "apps/backend/src/foundation/models/model-router.module.ts",
+          "hash": "17085956739178629609"
+        },
+        {
+          "file": "apps/backend/src/foundation/models/model-router.policy.ts",
+          "hash": "11005797875667055077"
+        },
+        {
+          "file": "apps/backend/src/foundation/models/model-router.service.ts",
+          "hash": "14611812813702617860"
+        },
+        {
+          "file": "apps/backend/src/foundation/models/model-router.spec.ts",
+          "hash": "20204390125303230"
+        },
+        {
+          "file": "apps/backend/src/foundation/observability/model-pricing.spec.ts",
+          "hash": "3059754228128512484"
+        },
+        {
+          "file": "apps/backend/src/foundation/observability/model-pricing.ts",
+          "hash": "16846302615444089977"
+        },
+        {
+          "file": "apps/backend/src/foundation/observability/model-usage.service.spec.ts",
+          "hash": "6508970441137867976"
+        },
+        {
+          "file": "apps/backend/src/foundation/observability/model-usage.service.ts",
+          "hash": "15123065136042096957"
+        },
+        {
+          "file": "apps/backend/src/foundation/observability/observability.controller.ts",
+          "hash": "11317693736569032398"
+        },
+        {
+          "file": "apps/backend/src/foundation/observability/observability.module.ts",
+          "hash": "11869773297110686255"
+        },
+        {
+          "file": "apps/backend/src/foundation/orchestration/orchestration-node.entity.ts",
+          "hash": "5124054568574061963"
+        },
+        {
+          "file": "apps/backend/src/foundation/orchestration/orchestration-plan.entity.ts",
+          "hash": "13091211255190420875"
+        },
+        {
+          "file": "apps/backend/src/foundation/orchestration/orchestration.controller.ts",
+          "hash": "16628270637093818799"
+        },
+        {
+          "file": "apps/backend/src/foundation/orchestration/orchestration.executor.ts",
+          "hash": "9194118915042294467"
+        },
+        {
+          "file": "apps/backend/src/foundation/orchestration/orchestration.module.ts",
+          "hash": "10751454548309015707"
+        },
+        {
+          "file": "apps/backend/src/foundation/orchestration/orchestration.plan.ts",
+          "hash": "8023765782160349694"
+        },
+        {
+          "file": "apps/backend/src/foundation/orchestration/orchestration.service.ts",
+          "hash": "109142914929248759"
+        },
+        {
+          "file": "apps/backend/src/foundation/orchestration/orchestration.spec.ts",
+          "hash": "6183332615053672141"
+        },
+        {
+          "file": "apps/backend/src/foundation/orchestration/orchestration.types.ts",
+          "hash": "4230842757773775780"
+        },
+        {
+          "file": "apps/backend/src/foundation/orchestration/workflow-execution.controller.ts",
+          "hash": "10817186245038654198"
+        },
+        {
+          "file": "apps/backend/src/foundation/orchestration/workflow-execution.module.ts",
+          "hash": "5254140510845740735"
+        },
+        {
+          "file": "apps/backend/src/foundation/orchestration/workflow-execution.service.ts",
+          "hash": "14353781508131858729"
+        },
+        {
+          "file": "apps/backend/src/foundation/projects/project-version.controller.ts",
+          "hash": "18041234972539817859"
+        },
+        {
+          "file": "apps/backend/src/foundation/projects/project-version.module.ts",
+          "hash": "1990267756073724038"
+        },
+        {
+          "file": "apps/backend/src/foundation/projects/project-version.service.ts",
+          "hash": "17431131783303245514"
+        },
+        {
+          "file": "apps/backend/src/foundation/skills/skill-executor.service.ts",
+          "hash": "14351992161992233371"
+        },
+        {
+          "file": "apps/backend/src/foundation/skills/skill-registry.service.ts",
+          "hash": "13811004876183692509"
+        },
+        {
+          "file": "apps/backend/src/foundation/skills/skill.controller.ts",
+          "hash": "7278935738170491727"
+        },
+        {
+          "file": "apps/backend/src/foundation/skills/skill.definitions.ts",
+          "hash": "9795959492600246759"
+        },
+        {
+          "file": "apps/backend/src/foundation/skills/skill.module.ts",
+          "hash": "9779576153441537654"
+        },
+        {
+          "file": "apps/backend/src/foundation/skills/skill.spec.ts",
+          "hash": "8117734165670374022"
+        },
+        {
+          "file": "apps/backend/src/foundation/skills/skill.types.ts",
+          "hash": "17943603501265563680"
+        },
+        {
+          "file": "apps/backend/src/foundation/validation/quality-engine.service.ts",
+          "hash": "4027675856775205294"
+        },
+        {
+          "file": "apps/backend/src/foundation/validation/quality-gate.controller.ts",
+          "hash": "3120447003637231611"
+        },
+        {
+          "file": "apps/backend/src/foundation/validation/quality-gate.module.ts",
+          "hash": "16488621738165615564"
+        },
+        {
+          "file": "apps/backend/src/foundation/validation/quality-gate.service.ts",
+          "hash": "12011302769614595003"
+        },
+        {
+          "file": "apps/backend/src/foundation/validation/quality-gates.config.ts",
+          "hash": "15571701447424556646"
+        },
+        {
+          "file": "apps/backend/src/foundation/validation/quality-gates.spec.ts",
+          "hash": "16028149360058133855"
+        },
+        {
+          "file": "apps/backend/src/foundation/validation/quality.checks.ts",
+          "hash": "8477202711134394257"
+        },
+        {
+          "file": "apps/backend/src/foundation/validation/quality.conflicts.ts",
+          "hash": "4144922163518529413"
+        },
+        {
+          "file": "apps/backend/src/foundation/validation/quality.evaluate.ts",
+          "hash": "17076175292293893921"
+        },
+        {
+          "file": "apps/backend/src/foundation/validation/quality.spec.ts",
+          "hash": "3634253376836469975"
+        },
+        {
+          "file": "apps/backend/src/foundation/validation/quality.thresholds.ts",
+          "hash": "1180507236986194481"
+        },
+        {
+          "file": "apps/backend/src/foundation/validation/quality.types.ts",
+          "hash": "14008830244597412224"
+        },
+        {
+          "file": "apps/backend/src/gap-analysis/gap-analysis.module.ts",
+          "hash": "13269070253452424936"
+        },
+        {
+          "file": "apps/backend/src/gap-analysis/gap-analysis.prompts.ts",
+          "hash": "9782206972107240276"
+        },
+        {
+          "file": "apps/backend/src/gap-analysis/gap-analysis.service.ts",
+          "hash": "1221682475863036269"
+        },
+        {
+          "file": "apps/backend/src/gap-analysis/gap-analysis.spec.ts",
+          "hash": "7480602927114688997"
+        },
+        {
+          "file": "apps/backend/src/health/health.controller.ts",
+          "hash": "4059146715417528083"
+        },
+        {
+          "file": "apps/backend/src/health/health.module.ts",
+          "hash": "13590658636451639308"
+        },
+        {
+          "file": "apps/backend/src/interview/interview.controller.ts",
+          "hash": "1570640307062877599"
+        },
+        {
+          "file": "apps/backend/src/interview/interview.module.ts",
+          "hash": "7194012420862156330"
+        },
+        {
+          "file": "apps/backend/src/interview/interview.service.ts",
+          "hash": "1833753232423023700"
+        },
+        {
+          "file": "apps/backend/src/knowledge-graph/edge-taxonomy.ts",
+          "hash": "7535330146210660329"
+        },
+        {
+          "file": "apps/backend/src/knowledge-graph/knowledge-graph.controller.ts",
+          "hash": "13043750882854657772"
+        },
+        {
+          "file": "apps/backend/src/knowledge-graph/knowledge-graph.module.ts",
+          "hash": "13424310260762140019"
+        },
+        {
+          "file": "apps/backend/src/knowledge-graph/knowledge-graph.service.spec.ts",
+          "hash": "9209315176089525855"
+        },
+        {
+          "file": "apps/backend/src/knowledge-graph/knowledge-graph.service.ts",
+          "hash": "10800121054087544594"
+        },
+        {
+          "file": "apps/backend/src/knowledge-graph/relationship-layers.ts",
+          "hash": "10164975069178106831"
+        },
+        {
+          "file": "apps/backend/src/knowledge-graph/relationships.spec.ts",
+          "hash": "13052650352080074556"
+        },
+        {
+          "file": "apps/backend/src/llm/agent-json-schemas.ts",
+          "hash": "5838533743605027805"
+        },
+        {
+          "file": "apps/backend/src/llm/agent-model.config.ts",
+          "hash": "6189066726199044846"
+        },
+        {
+          "file": "apps/backend/src/llm/agent-model.spec.ts",
+          "hash": "2964558401079608292"
+        },
+        {
+          "file": "apps/backend/src/llm/llm-env.spec.ts",
+          "hash": "9817426993449213565"
+        },
+        {
+          "file": "apps/backend/src/llm/llm-env.ts",
+          "hash": "2914533116481927304"
+        },
+        {
+          "file": "apps/backend/src/llm/llm-structure.spec.ts",
+          "hash": "13239533702080075597"
+        },
+        {
+          "file": "apps/backend/src/llm/llm.module.ts",
+          "hash": "1674520309220367220"
+        },
+        {
+          "file": "apps/backend/src/llm/llm.service.ts",
+          "hash": "14198822047464762154"
+        },
+        {
+          "file": "apps/backend/src/llm/model-compat.ts",
+          "hash": "6526748636565224563"
+        },
+        {
+          "file": "apps/backend/src/main.ts",
+          "hash": "14392123511893111930"
+        },
+        {
+          "file": "apps/backend/src/project-context/conflict-resolver.spec.ts",
+          "hash": "9707069747710406392"
+        },
+        {
+          "file": "apps/backend/src/project-context/conflict-resolver.ts",
+          "hash": "9405194165200524076"
+        },
+        {
+          "file": "apps/backend/src/project-context/context-domains.spec.ts",
+          "hash": "12002624451661288986"
+        },
+        {
+          "file": "apps/backend/src/project-context/context-domains.ts",
+          "hash": "15869342734044277428"
+        },
+        {
+          "file": "apps/backend/src/project-context/project-context-events.service.ts",
+          "hash": "4309095284602337490"
+        },
+        {
+          "file": "apps/backend/src/project-context/project-context.controller.ts",
+          "hash": "3487220572930146744"
+        },
+        {
+          "file": "apps/backend/src/project-context/project-context.module.ts",
+          "hash": "3453211257030043209"
+        },
+        {
+          "file": "apps/backend/src/project-context/project-context.service.ts",
+          "hash": "584715846366025740"
+        },
+        {
+          "file": "apps/backend/src/projects/dto/answer-question.dto.ts",
+          "hash": "5964827902562891903"
+        },
+        {
+          "file": "apps/backend/src/projects/dto/confirm-discovery.dto.ts",
+          "hash": "4283502114983181834"
+        },
+        {
+          "file": "apps/backend/src/projects/dto/create-project.dto.ts",
+          "hash": "11896561311339022986"
+        },
+        {
+          "file": "apps/backend/src/projects/projects.controller.ts",
+          "hash": "4158811351878384238"
+        },
+        {
+          "file": "apps/backend/src/projects/projects.module.ts",
+          "hash": "5662391820519972007"
+        },
+        {
+          "file": "apps/backend/src/projects/projects.service.ts",
+          "hash": "7834934959436561133"
+        },
+        {
+          "file": "apps/backend/src/prompts/blocks/enterprise-global.ts",
+          "hash": "8098952792178299687"
+        },
+        {
+          "file": "apps/backend/src/prompts/blocks/index.ts",
+          "hash": "4254335405375371477"
+        },
+        {
+          "file": "apps/backend/src/prompts/blocks/shared-output-contract.ts",
+          "hash": "13660854847961157308"
+        },
+        {
+          "file": "apps/backend/src/prompts/prompt-builder.service.ts",
+          "hash": "12861782057919663420"
+        },
+        {
+          "file": "apps/backend/src/prompts/prompt-builder.spec.ts",
+          "hash": "14209055199431474309"
+        },
+        {
+          "file": "apps/backend/src/prompts/prompt-versioner.service.ts",
+          "hash": "3048346963328313921"
+        },
+        {
+          "file": "apps/backend/src/prompts/prompt-versioner.spec.ts",
+          "hash": "13697234037628961724"
+        },
+        {
+          "file": "apps/backend/src/prompts/prompts.controller.ts",
+          "hash": "2122341580301991880"
+        },
+        {
+          "file": "apps/backend/src/prompts/prompts.module.ts",
+          "hash": "7785714493095128807"
+        },
+        {
+          "file": "apps/backend/src/prompts/prompts.service.ts",
+          "hash": "7886819172432302957"
+        },
+        {
+          "file": "apps/backend/src/prompts/template-registry.ts",
+          "hash": "14898199203746963861"
+        },
+        {
+          "file": "apps/backend/src/prompts/template.types.ts",
+          "hash": "11319322889267686940"
+        },
+        {
+          "file": "apps/backend/src/prompts/templates/documents/api-spec.ts",
+          "hash": "11447425969377483322"
+        },
+        {
+          "file": "apps/backend/src/prompts/templates/documents/db-design.ts",
+          "hash": "17099419382802891411"
+        },
+        {
+          "file": "apps/backend/src/prompts/templates/documents/frd.ts",
+          "hash": "17850215911461591223"
+        },
+        {
+          "file": "apps/backend/src/prompts/templates/documents/sow.ts",
+          "hash": "2896930842682606023"
+        },
+        {
+          "file": "apps/backend/src/prompts/templates/documents/tech-arch.ts",
+          "hash": "11580421203888596983"
+        },
+        {
+          "file": "apps/backend/src/prompts/templates/documents/user-stories.ts",
+          "hash": "6463702764093656012"
+        },
+        {
+          "file": "apps/backend/src/prompts/templates/examples/discovery.example.ts",
+          "hash": "13435939749959500697"
+        },
+        {
+          "file": "apps/backend/src/prompts/templates/structured/ai-architecture.ts",
+          "hash": "7387059531969883563"
+        },
+        {
+          "file": "apps/backend/src/prompts/templates/structured/business-analysis.ts",
+          "hash": "13478429432607626389"
+        },
+        {
+          "file": "apps/backend/src/prompts/templates/structured/data-architecture.ts",
+          "hash": "15633754531914789847"
+        },
+        {
+          "file": "apps/backend/src/prompts/templates/structured/debate.ts",
+          "hash": "12944846005942300343"
+        },
+        {
+          "file": "apps/backend/src/prompts/templates/structured/discovery.ts",
+          "hash": "11357778597918656316"
+        },
+        {
+          "file": "apps/backend/src/prompts/templates/structured/estimation.ts",
+          "hash": "6331156523687781233"
+        },
+        {
+          "file": "apps/backend/src/prompts/templates/structured/gap-analysis.ts",
+          "hash": "3889627268045710697"
+        },
+        {
+          "file": "apps/backend/src/prompts/templates/structured/product-analysis.ts",
+          "hash": "9773444304243279891"
+        },
+        {
+          "file": "apps/backend/src/prompts/templates/structured/qa-planning.ts",
+          "hash": "3917633050109617369"
+        },
+        {
+          "file": "apps/backend/src/prompts/templates/structured/requirements-engineering.ts",
+          "hash": "14687414833702749916"
+        },
+        {
+          "file": "apps/backend/src/prompts/templates/structured/research.ts",
+          "hash": "2099097433604113452"
+        },
+        {
+          "file": "apps/backend/src/prompts/templates/structured/security-review.ts",
+          "hash": "3141349152458991525"
+        },
+        {
+          "file": "apps/backend/src/prompts/templates/structured/solution-architecture.ts",
+          "hash": "4379400758870632378"
+        },
+        {
+          "file": "apps/backend/src/prompts/templates/structured/ux-design.ts",
+          "hash": "9303985782694593065"
+        },
+        {
+          "file": "apps/backend/src/prompts/templates/structured/validation.ts",
+          "hash": "16309960757498203877"
+        },
+        {
+          "file": "apps/backend/src/realtime/agent-phases.ts",
+          "hash": "17048627857597088686"
+        },
+        {
+          "file": "apps/backend/src/realtime/dashboard.service.ts",
+          "hash": "11316842979551128673"
+        },
+        {
+          "file": "apps/backend/src/realtime/projects.gateway.ts",
+          "hash": "8766490069930042029"
+        },
+        {
+          "file": "apps/backend/src/realtime/realtime.module.ts",
+          "hash": "10696912321724591984"
+        },
+        {
+          "file": "apps/backend/src/realtime/workflow-events.service.ts",
+          "hash": "16126256212250381153"
+        },
+        {
+          "file": "apps/backend/src/relationships/relationships.controller.ts",
+          "hash": "6229474499012842937"
+        },
+        {
+          "file": "apps/backend/src/relationships/relationships.module.ts",
+          "hash": "1373188098017099174"
+        },
+        {
+          "file": "apps/backend/src/rkb/rkb.module.ts",
+          "hash": "7650648191892202287"
+        },
+        {
+          "file": "apps/backend/src/rkb/rkb.service.ts",
+          "hash": "9986182247982377021"
+        },
+        {
+          "file": "apps/backend/src/run-log/run-log.module.ts",
+          "hash": "4470460160376394909"
+        },
+        {
+          "file": "apps/backend/src/run-log/run-log.service.ts",
+          "hash": "8545637066443406214"
+        },
+        {
+          "file": "apps/backend/src/run-log/run-log.spec.ts",
+          "hash": "1359855633021390338"
+        },
+        {
+          "file": "apps/backend/src/settings/settings.controller.ts",
+          "hash": "8288541129018112651"
+        },
+        {
+          "file": "apps/backend/src/settings/settings.module.ts",
+          "hash": "11431800232121163112"
+        },
+        {
+          "file": "apps/backend/src/settings/settings.service.ts",
+          "hash": "15617561321204048645"
+        },
+        {
+          "file": "apps/backend/src/validation/agent-validation.config.ts",
+          "hash": "6426659453288688223"
+        },
+        {
+          "file": "apps/backend/src/validation/document-drift.spec.ts",
+          "hash": "8608785152189143134"
+        },
+        {
+          "file": "apps/backend/src/validation/document-drift.ts",
+          "hash": "13607953422800220601"
+        },
+        {
+          "file": "apps/backend/src/validation/validate-agent-output.spec.ts",
+          "hash": "12725484351113730300"
+        },
+        {
+          "file": "apps/backend/src/validation/validate-agent-output.ts",
+          "hash": "999583286486428324"
+        },
+        {
+          "file": "apps/backend/src/validation/validation.module.ts",
+          "hash": "1993143883560751177"
+        },
+        {
+          "file": "apps/backend/src/validation/validation.service.ts",
+          "hash": "7584467403066272598"
+        },
+        {
+          "file": "apps/backend/src/validation/validation.types.ts",
+          "hash": "17132769483954537114"
+        },
+        {
+          "file": "apps/backend/tsconfig.build.json",
+          "hash": "11777601254810462358"
+        },
+        {
+          "file": "apps/backend/tsconfig.json",
+          "hash": "15322026062648255463"
+        },
+        {
+          "file": "apps/backend/tsconfig.script.json",
+          "hash": "14362133245333515641"
+        },
+        {
+          "file": "apps/backend/tsconfig.test.json",
+          "hash": "8984302944478507826"
         }
       ]
     },
@@ -944,15 +2154,23 @@
       },
       {
         "file": ".env.example",
-        "hash": "1699282485077039700"
+        "hash": "6382425499085204807"
       },
       {
         "file": ".gitignore",
         "hash": "17701352425668267425"
       },
       {
+        "file": ".husky/pre-commit",
+        "hash": "3447395388330201660"
+      },
+      {
         "file": ".npmrc",
         "hash": "4914798315669331657"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "4156663614508720453"
       },
       {
         "file": ".replit",
@@ -963,12 +2181,24 @@
         "hash": "15037560543002592894"
       },
       {
+        "file": "AGENTS.md",
+        "hash": "13695302961647984595"
+      },
+      {
+        "file": "BUILD_PROMPT.md",
+        "hash": "11825706177856105324"
+      },
+      {
+        "file": "README.md",
+        "hash": "3151656449500120393"
+      },
+      {
         "file": "e2e/playwright.config.ts",
         "hash": "370946844096324969"
       },
       {
         "file": "e2e/tests/agent-workflow.spec.ts",
-        "hash": "18261049466515523443"
+        "hash": "12642757083445449820"
       },
       {
         "file": "e2e/tests/create-project.spec.ts",
@@ -983,60 +2213,100 @@
         "hash": "13092508706522659229"
       },
       {
+        "file": "eslint.config.mjs",
+        "hash": "968478683150454027"
+      },
+      {
         "file": "handoff_doc/AGENTS.md",
-        "hash": "13761208338753215469"
+        "hash": "15206281119433732299"
       },
       {
         "file": "handoff_doc/BACKLOG.md",
-        "hash": "16702898158951511166"
+        "hash": "5741924170570116406"
       },
       {
         "file": "handoff_doc/CONTEXT.md",
-        "hash": "3363078024520984300"
+        "hash": "16697641636750947229"
+      },
+      {
+        "file": "handoff_doc/CRYSTALLIZE_FIXES.md",
+        "hash": "8956168751302323192"
+      },
+      {
+        "file": "handoff_doc/DAG_WORKFLOW.md",
+        "hash": "2019494930485279361"
       },
       {
         "file": "handoff_doc/DATA_MODEL.md",
-        "hash": "14386745619807980623"
+        "hash": "15023210921158682377"
       },
       {
         "file": "handoff_doc/DEPLOYMENT.md",
         "hash": "14787881693467699829"
       },
       {
-        "file": "handoff_doc/LLM_CONTRACTS.md",
-        "hash": "18226630164029249927"
+        "file": "handoff_doc/FOUNDATION.md",
+        "hash": "9435763085074364953"
       },
       {
-        "file": "handoff_doc/README.md",
-        "hash": "16902978151047763965"
+        "file": "handoff_doc/FULL_SYSTEM_FLOW.md",
+        "hash": "6982803398107979169"
+      },
+      {
+        "file": "handoff_doc/KNOWLEDGE_BASE.md",
+        "hash": "13910460028595596259"
+      },
+      {
+        "file": "handoff_doc/LLM_CONTRACTS.md",
+        "hash": "12050404539843768380"
+      },
+      {
+        "file": "handoff_doc/PROCESS_FIXES.md",
+        "hash": "8218032699632146083"
+      },
+      {
+        "file": "handoff_doc/PROJECT_CONTEXT.md",
+        "hash": "6933836420973243825"
+      },
+      {
+        "file": "handoff_doc/PROMPT_BUILDER.md",
+        "hash": "9704418353521335786"
+      },
+      {
+        "file": "handoff_doc/RELATIONSHIP_GRAPH.md",
+        "hash": "10163283128032112467"
       },
       {
         "file": "handoff_doc/ROADMAP.md",
-        "hash": "5946836384175210745"
+        "hash": "4022804757487959717"
       },
       {
         "file": "handoff_doc/SMOKE_TESTS.md",
-        "hash": "13212264390270516766"
+        "hash": "13853332611742150014"
       },
       {
         "file": "handoff_doc/WORKFLOW_RULES.md",
-        "hash": "5662849882622623149"
+        "hash": "16260391742580864"
       },
       {
         "file": "nx.json",
-        "hash": "12000087671240979826"
+        "hash": "9244914464653936356"
       },
       {
         "file": "package.json",
-        "hash": "4091129991335778722"
+        "hash": "10659720274800875019"
       },
       {
         "file": "pnpm-lock.yaml",
-        "hash": "493247135734413284"
+        "hash": "5766668179509285994"
       },
       {
         "file": "pnpm-workspace.yaml",
         "hash": "5055164633625484708"
+      },
+      {
+        "file": "prettier.config.mjs",
+        "hash": "13786233926865296941"
       },
       {
         "file": "replit.md",
@@ -1048,7 +2318,7 @@
       },
       {
         "file": "tsconfig.json",
-        "hash": "13530336898252891473"
+        "hash": "15544623930958168263"
       }
     ]
   }

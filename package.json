@@ -1,16 +1,38 @@
 {
-  "name": "@test/workspace",
+  "name": "@workspace/source",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "preinstall": "sh -c 'rm -f package-lock.json yarn.lock; case \"$npm_config_user_agent\" in pnpm/*) ;; *) echo \"Use pnpm instead\" >&2; exit 1 ;; esac'",
+    "install:all": "pnpm install && pnpm build:libs",
+    "start:server": "nx run server:dev",
+    "start:client": "nx run client:dev",
+    "start:backend": "pnpm start:server",
+    "start:frontend": "pnpm start:client",
     "build": "nx run-many --target=build",
+    "build:libs": "nx run-many --target=build --projects=pipeline-config,shared-types",
     "typecheck": "nx run-many --target=typecheck",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "test:e2e": "playwright test --config=e2e/playwright.config.ts",
     "test:e2e:ui": "playwright test --config=e2e/playwright.config.ts --headed",
     "test:e2e:report": "playwright show-report e2e/playwright-report",
-    "dev:backend": "nx run backend:dev",
-    "dev:frontend": "nx run frontend:dev"
+    "dev:server": "pnpm start:server",
+    "dev:client": "pnpm start:client",
+    "dev:backend": "pnpm start:server",
+    "dev:frontend": "pnpm start:client",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mjs,cjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,css,scss,html,yml,yaml}": [
+      "prettier --write"
+    ]
   },
   "private": true,
   "dependencies": {
@@ -18,15 +40,16 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.62.0",
+    "eslint": "^10.8.0",
+    "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.2.0",
     "nx": "^20.8.0",
     "prettier": "^3.9.5",
-    "typescript": "~5.9.3"
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.65.0"
   },
-  "description": "",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib"
-  },
+  "description": "Crystallize — AI requirements pipeline monorepo",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JayVachhaniAgile/AI-Requirement-Agent.git"

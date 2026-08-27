@@ -1,0 +1,6 @@
+[2m> [22mpnpm build
+
+
+> @workspace/pipeline-config@0.0.0 build /home/agilelpt130/Jay/Other Projects/Autonomous/Autonomous-Build-Prompt/lib/pipeline-config
+> tsc -p tsconfig.json
+

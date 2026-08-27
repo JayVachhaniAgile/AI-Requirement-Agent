@@ -1,0 +1,52 @@
+{
+  "name": "@workspace/server",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter @workspace/pipeline-config build && pnpm --filter @workspace/shared-types build && nest start --watch",
+    "build": "pnpm --filter @workspace/pipeline-config build && pnpm --filter @workspace/shared-types build && nest build",
+    "start": "node dist/main",
+    "typecheck": "pnpm --filter @workspace/pipeline-config build && pnpm --filter @workspace/shared-types build && tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "check:schema": "tsc -p tsconfig.script.json && node dist-scripts/scripts/check-schema-compat.js",
+    "format": "prettier --write src",
+    "format:check": "prettier --check src",
+    "test:unit": "rm -rf /tmp/crystallize-test-dist && tsc -p tsconfig.test.json && NODE_PATH=./node_modules node --test /tmp/crystallize-test-dist/validation/validate-agent-output.spec.js /tmp/crystallize-test-dist/validation/document-drift.spec.js /tmp/crystallize-test-dist/llm/llm-structure.spec.js /tmp/crystallize-test-dist/llm/llm-env.spec.js /tmp/crystallize-test-dist/llm/agent-model.spec.js /tmp/crystallize-test-dist/agents/agent-runner.spec.js /tmp/crystallize-test-dist/agents/document-runner.spec.js /tmp/crystallize-test-dist/agents/agent-keys.spec.js /tmp/crystallize-test-dist/agents/agent-versions.spec.js /tmp/crystallize-test-dist/agents/context-digest.spec.js /tmp/crystallize-test-dist/agents/debate-context.spec.js /tmp/crystallize-test-dist/gap-analysis/gap-analysis.spec.js /tmp/crystallize-test-dist/dag-engine/pipeline-order.spec.js /tmp/crystallize-test-dist/checkpoint/discovery-checkpoint.spec.js /tmp/crystallize-test-dist/eval/eval-metrics.spec.js /tmp/crystallize-test-dist/run-log/run-log.spec.js /tmp/crystallize-test-dist/project-context/context-domains.spec.js /tmp/crystallize-test-dist/project-context/conflict-resolver.spec.js /tmp/crystallize-test-dist/prompts/prompt-builder.spec.js /tmp/crystallize-test-dist/prompts/prompt-versioner.spec.js /tmp/crystallize-test-dist/dag-engine/graph.spec.js /tmp/crystallize-test-dist/dag-engine/dag-engine.service.spec.js /tmp/crystallize-test-dist/knowledge-graph/knowledge-graph.service.spec.js /tmp/crystallize-test-dist/knowledge-graph/relationships.spec.js /tmp/crystallize-test-dist/artifacts/markdown-renderer.spec.js /tmp/crystallize-test-dist/artifacts/website.spec.js /tmp/crystallize-test-dist/foundation/artifacts/artifact-graph.spec.js /tmp/crystallize-test-dist/foundation/validation/quality-gates.spec.js /tmp/crystallize-test-dist/foundation/models/model-router.spec.js /tmp/crystallize-test-dist/foundation/observability/model-pricing.spec.js /tmp/crystallize-test-dist/foundation/observability/model-usage.service.spec.js /tmp/crystallize-test-dist/foundation/artifacts/artifact-registry.service.spec.js /tmp/crystallize-test-dist/foundation/canonical/canonical.schemas.spec.js /tmp/crystallize-test-dist/foundation/canonical/canonical.validate.spec.js /tmp/crystallize-test-dist/foundation/canonical/canonical-model.service.spec.js /tmp/crystallize-test-dist/foundation/artifacts/artifact-dependency.service.spec.js /tmp/crystallize-test-dist/foundation/artifacts/impact-analysis.service.spec.js /tmp/crystallize-test-dist/foundation/context/context-dependency.spec.js /tmp/crystallize-test-dist/foundation/context/context.ranker.spec.js /tmp/crystallize-test-dist/foundation/context/context.token-budget.spec.js /tmp/crystallize-test-dist/foundation/context/context.cache.spec.js /tmp/crystallize-test-dist/foundation/context/context-engine.service.spec.js",
+    "eval:golden": "node eval/run-golden-eval.ts"
+  },
+  "dependencies": {
+    "@nestjs/common": "^10.4.15",
+    "@nestjs/config": "^3.3.0",
+    "@nestjs/core": "^10.4.15",
+    "@nestjs/platform-express": "^10.4.15",
+    "@nestjs/platform-socket.io": "^10.4.22",
+    "@nestjs/typeorm": "^10.0.2",
+    "@nestjs/websockets": "^10.4.22",
+    "@workspace/pipeline-config": "workspace:*",
+    "@workspace/shared-types": "workspace:*",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "openai": "^4.77.0",
+    "pg": "^8.14.1",
+    "pino": "^9.7.0",
+    "pino-http": "^10.5.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "socket.io": "^4.8.3",
+    "typeorm": "^0.3.20",
+    "typeorm-naming-strategies": "^4.1.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^10.4.9",
+    "@nestjs/schematics": "^10.2.3",
+    "@swc/cli": "^0.6.0",
+    "@swc/core": "^1.11.24",
+    "@types/express": "^5.0.3",
+    "@types/node": "^25.3.3",
+    "@types/pg": "^8.20.0",
+    "@types/ws": "^8.18.1",
+    "typescript": "~5.9.3"
+  }
+}

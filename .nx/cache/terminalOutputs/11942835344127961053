@@ -1,0 +1,25 @@
+> pnpm build
+
+
+> @workspace/frontend@0.0.0 build /home/agilelpt130/Jay/Other Projects/Autonomous/Autonomous-Build-Prompt/apps/frontend
+> vite build --config vite.config.ts
+
+[36mvite v7.3.6 [32mbuilding client environment for production...[36m[39m
+transforming...
+[33msrc/components/ui/tooltip.tsx (2:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.[39m
+[33msrc/components/ui/avatar.tsx (2:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.[39m
+[33msrc/components/ui/dropdown-menu.tsx (2:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.[39m
+[33msrc/components/ui/select.tsx (2:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.[39m
+[32m✓[39m 3029 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[32mindex.html                           [39m[1m[2m    1.10 kB[22m[1m[22m[2m │ gzip:   0.54 kB[22m
+[2mdist/[22m[2massets/[22m[35mindex-B3-urzHg.css            [39m[1m[2m  150.79 kB[22m[1m[22m[2m │ gzip:  23.27 kB[22m
+[2mdist/[22m[2massets/[22m[36mmarkdown-to-docx-DFPVCxIg.js  [39m[1m[33m  527.97 kB[39m[22m[2m │ gzip: 154.59 kB[22m
+[2mdist/[22m[2massets/[22m[36mindex-DTqwstsj.js             [39m[1m[33m1,173.75 kB[39m[22m[2m │ gzip: 360.44 kB[22m
+[33m
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[32m✓ built in 4.19s[39m

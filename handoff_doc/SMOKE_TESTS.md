@@ -15,10 +15,10 @@ No CI pipeline exists yet. When added, add the following:
 
 ```bash
 # Backend
-cd apps/backend && pnpm run build && pnpm run test
+cd apps/server && pnpm run build && pnpm run test:unit
 
 # Frontend
-cd apps/frontend && pnpm run build
+cd apps/client && pnpm run build
 ```
 
 ## §1 Health Check
@@ -65,6 +65,19 @@ curl -X POST http://localhost:3000/api/projects/PROJECT_ID/start
 
 **Expected:** HTTP 200, project status changes to `DISCOVERING` then progresses through stages.
 
+**Discovery checkpoint:** after DISCOVERY completes, project status becomes `WAITING_FOR_USER`.
+
+```bash
+# Fetch the checkpoint (interpretation + blocking questions)
+curl http://localhost:3000/api/projects/PROJECT_ID/discovery-confirmation
+
+# Confirm it (blocking questions must be answered first via /questions/:id/answer)
+curl -X POST http://localhost:3000/api/projects/PROJECT_ID/discovery-confirmation \
+  -H "Content-Type: application/json" -d '{}'
+```
+
+**Expected:** confirming resumes the pipeline from RESEARCH; the pipeline cannot be resumed unconfirmed.
+
 ## §6 Clarification Questions
 
 ```bash
@@ -94,9 +107,14 @@ curl http://localhost:3000/api/projects/PROJECT_ID/documents/USER_STORIES_DOCUME
 curl http://localhost:3000/api/projects/PROJECT_ID/documents/TECH_ARCH_DOCUMENT
 curl http://localhost:3000/api/projects/PROJECT_ID/documents/DB_DESIGN_DOCUMENT
 curl http://localhost:3000/api/projects/PROJECT_ID/documents/API_SPEC_DOCUMENT
+curl http://localhost:3000/api/projects/PROJECT_ID/documents/SOW_DOCUMENT
 ```
 
 **Expected:** HTTP 200 with document objects, each containing `markdownContent` and `documentType`.
+
+**Frontend:** in the project Docs tab, the document renders as styled markdown (headings, tables, code blocks,
+mermaid diagrams) with a Preview/Source toggle, and the **Word** button downloads a properly formatted `.docx`
+that opens in Microsoft Word.
 
 ## §8 Validation Issues
 
@@ -133,6 +151,30 @@ curl -X POST http://localhost:3000/api/projects/PROJECT_ID/regenerate/requiremen
 
 **Expected:** HTTP 200, project restarts from REQUIREMENTS_ENGINEERING stage.
 
+## §8d Versioning Behavior
+
+- After the initial run, each document type (`FRD_DOCUMENT`, `USER_STORIES_DOCUMENT`,
+  `TECH_ARCH_DOCUMENT`, `DB_DESIGN_DOCUMENT`, `API_SPEC_DOCUMENT`, `COMPILED_DOCUMENT`) has its
+  own **Version 1**.
+- Regenerating one document (e.g. `POST /:id/regenerate/frd`) bumps **only that document** to
+  Version 2; the other documents stay on Version 1.
+- `GET /api/projects/PROJECT_ID/versions` returns per-document versions (each row carries
+  `documentType`); the Versions tab filters by document type.
+
+## §8e Gap Analysis (Single-Pass Review)
+
+1. `POST /api/projects/PROJECT_ID/gap-analysis/run` — run analyzes all artifacts once and pauses
+   at `AWAITING_REVIEW` with one proposal per gap. **No document changes during analysis.**
+2. `GET /api/projects/PROJECT_ID/gap-analysis` — each proposal shows document, section, finding,
+   suggested change, priority, and confidence with Apply/Ignore buttons.
+3. Apply one proposal — only the affected document changes (targeted section-level patch);
+   the existing document version is updated in place, **no new version is created**.
+4. After the last proposal is resolved the run completes. The engine does **not** re-analyze
+   automatically; a new run must be started explicitly.
+5. After completion, actionable findings still show an **Apply** button in the Findings list —
+   `POST /api/projects/PROJECT_ID/gap-analysis/findings/:findingKey/apply` applies them the same
+   way (in place, no new version) and marks them as Applied.
+
 ## §9 Settings
 
 ```bash
@@ -155,9 +197,18 @@ curl http://localhost:3000/api/aggregate/validation
 curl http://localhost:3000/api/aggregate/documents
 curl http://localhost:3000/api/aggregate/analytics
 curl http://localhost:3000/api/aggregate/workflow
+curl "http://localhost:3000/api/aggregate/run-log-patterns?days=30"
 ```
 
 **Expected:** HTTP 200 for all.
+
+## §10b Run Logs
+
+```bash
+curl http://localhost:3000/api/projects/PROJECT_ID/run-logs
+```
+
+**Expected:** HTTP 200 with retry/parse/validation/padding/low-confidence events, each carrying prompt/schema versions.
 
 ## §11 WebSocket (Manual Test)
 
@@ -172,7 +223,7 @@ curl http://localhost:3000/api/aggregate/workflow
 2. Dashboard loads with project cards (or empty state)
 3. Click "New Project" → form opens
 4. Submit project → redirected to workspace
-5. Click "Start Analysis" → workflow tabs show progress
+5. Click "Start Analysis" → workflow tab shows progress with fixed TreePipelineView 4-quadrant starburst visual graph on dark midnight cyber grid (page scroll enabled over graph)
 6. Toggle theme (sun/moon icon) → dark/light mode switches
 7. Click "AI Workflow" → blueprint page loads
 8. Click "Validation" → validation hub loads

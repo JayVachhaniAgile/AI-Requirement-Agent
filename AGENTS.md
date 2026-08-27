@@ -31,7 +31,7 @@ This project has specific architectural decisions, known pitfalls, and a careful
 
 - **Name:** Crystallize
 - **Stack:** NestJS backend (TypeORM + PostgreSQL), React + Vite frontend (Tailwind CSS + ShadCN/ui)
-- **Monorepo:** pnpm workspaces + Nx, `apps/backend/`, `apps/frontend/`, `lib/`
+- **Monorepo:** pnpm workspaces + Nx, `apps/server/`, `apps/client/`, `lib/`
 - **Pipeline:** 15 sequential AI agents that produce a compiled requirements document
 - **Key constraint:** Do not modify `lib/api-client-react/src/generated/` — these are orval-generated files
 

@@ -18,14 +18,14 @@ pnpm install
 ### 2. Configure environment
 
 ```bash
-cp apps/backend/.env.example apps/backend/.env
+cp apps/server/.env.example apps/server/.env
 # Edit .env with your DATABASE_URL and API keys
 ```
 
 ### 3. Start backend
 
 ```bash
-cd apps/backend
+cd apps/server
 pnpm run dev
 # Server starts on http://localhost:3000
 ```
@@ -33,7 +33,7 @@ pnpm run dev
 ### 4. Start frontend
 
 ```bash
-cd apps/frontend
+cd apps/client
 pnpm run dev
 # Vite dev server starts on http://localhost:5173 (or configured port)
 ```
@@ -48,11 +48,11 @@ pnpm run dev
 
 ```bash
 # Build backend
-cd apps/backend
+cd apps/server
 pnpm run build
 
 # Build frontend
-cd apps/frontend
+cd apps/client
 pnpm run build
 ```
 
@@ -60,8 +60,8 @@ pnpm run build
 
 | Package | Output |
 |---|---|
-| Backend | `apps/backend/dist/` |
-| Frontend | `apps/frontend/dist/` |
+| Backend | `apps/server/dist/` |
+| Frontend | `apps/client/dist/` |
 
 ## Environment Variables (Production)
 

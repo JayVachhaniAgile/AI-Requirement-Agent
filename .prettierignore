@@ -1,0 +1,12 @@
+node_modules
+dist
+build
+coverage
+.nx
+.pnpm-store
+.local
+test-results
+playwright-report
+lib/api-client-react/src/generated
+*.tsbuildinfo
+pnpm-lock.yaml

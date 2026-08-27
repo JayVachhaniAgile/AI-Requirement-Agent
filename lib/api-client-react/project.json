@@ -1,0 +1,16 @@
+{
+  "name": "api-client-react",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "lib/api-client-react/src",
+  "projectType": "library",
+  "tags": ["type:lib", "scope:frontend", "domain:api"],
+  "targets": {
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc -p tsconfig.json --noEmit",
+        "cwd": "{projectRoot}"
+      }
+    }
+  }
+}
